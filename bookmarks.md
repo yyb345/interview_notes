@@ -50,6 +50,7 @@
   [DataFlow编程模型](https://www.jianshu.com/p/0faa1c1caa47) <br>
   [Flink Spark对比](https://www.infoq.cn/article/spark-vs-flink) <br>
   [Flink Storm对比](https://tech.meituan.com/2017/11/17/flink-benchmark.html) <br>
+  
 ###Flink Example 
   [Flink Training](https://training.ververica.com/) <br> 
 
@@ -95,7 +96,6 @@
   [Elasticsearch 倒排索引原理](https://zhuanlan.zhihu.com/p/33671444) <br>
   [DmitryKey/luke: This is mavenised Luke: Lucene Toolbox Project](https://github.com/DmitryKey/luke) <br>
   [Lucene索引过程&索引文件格式详解](https://www.shenyanchao.cn/blog/2018/12/04/lucene-index-files/) <br>
-  [索引 | Elasticsearch权威指南（中文版）](https://es.xiaoleilu.com/010_Intro/25_Tutorial_Indexing.html) <br>
   [Elasticsearch7.X学习路线图](https://mp.weixin.qq.com/s/z8-wYwalrkUWWSamL4bkIQ) <br>
   [基于跳表的倒排记录表快速合并算法](http://book.51cto.com/art/201008/222920.htm) <br>
-  [elasticsearch倒排表压缩及缓存合并策略](https://blog.csdn.net/ok0011/article/details/82185133) <br>
+  [Elasticsearch倒排表压缩及缓存合并策略](https://blog.csdn.net/ok0011/article/details/82185133) <br>
