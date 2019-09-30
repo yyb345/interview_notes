@@ -55,7 +55,7 @@
   
 ### Flink Example 
   [Flink Training](https://training.ververica.com/) <br> 
-  [flink如何让每一条数据进来后延迟一段时间再被处理?] (https://www.zhihu.com/question/332577514/answer/840181621) <br>
+  [Flink如何让每一条数据进来后延迟一段时间再被处理?](https://www.zhihu.com/question/332577514/answer/840181621)  <br>
 
 ### Flink 原理解析 
   [Flink Window 机制解析](http://wuchong.me/blog/2016/05/25/flink-internals-window-mechanism/#comments) <br>
@@ -73,8 +73,8 @@
    [Memory Management and Configuration Reloaded - Google 文档](https://docs.google.com/document/d/1o4KvyyXsQMGUastfPin3ZWeUXWsJgoL7piqp1fFYJvA/edit#heading=h.ie6fcly7mrci) <br>
    [Memory Management (Batch API) ](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=53741525) <br>
   [FLIP-50: Spill-able Heap Keyed State Backend](https://cwiki.apache.org/confluence/display/FLINK/FLIP-50%3A+Spill-able+Heap+Keyed+State+Backend) <br>
-###Flink bugs
-[Flink 1.7.1 版本问题记录] (https://zhuanlan.zhihu.com/p/80236965)  <br>  
+### Flink bugs
+[Flink 1.7.1 版本问题记录](https://zhuanlan.zhihu.com/p/80236965)  <br>  
 [\[FLINK-13477\] Add memory-overhead-ratio conf for containers by BenoitHanotte · Pull Request #9265 · apache/flink](https://github.com/apache/flink/pull/9265) <br>
 
   
