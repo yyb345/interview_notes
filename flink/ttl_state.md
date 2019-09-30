@@ -79,7 +79,7 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 ```
 本文将从以下几个方面来介绍    
 
-![avatar](ttl_state_process.PNG)
+![avatar](ttl_state_process.png)
 
 代码结构
 重点解析下每种惰性实现
