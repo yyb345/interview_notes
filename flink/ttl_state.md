@@ -1,6 +1,6 @@
 
-#Flink State TTL解析
-##State与TTL State简介
+# Flink State TTL解析
+## State与TTL State简介
 什么是State？ State分为哪几种？
   流式计算中
 为什么会有state？
@@ -16,11 +16,11 @@
 * AggregatingState
 * FoldingState
 
-###StateBackend有哪些？
+### StateBackend有哪些？
 * 堆
 * RocksDb 
 
-###如何手动实现state定期删除？
+### 如何手动实现state定期删除？
 Flink中用户state在某种场景下会持续增长，需要删除过期的state，而用户需要采用Flink的timerService手动去实现state的删除，如下
 
 ```java
@@ -56,8 +56,8 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 }
 ```
 
-##TTL State源码分析
-###设计思想
+## TTL State源码分析
+### 设计思想
 其实现思想也比较朴素，首先为每个Value加上时间戳，其次采用[惰性删除](https://baike.baidu.com/item/%E6%83%B0%E6%80%A7%E5%88%A0%E9%99%A4)的策略。caffine cache，rocksDB，redis过期删除都采取了这种策略。简单来讲，就是在下一次访问数据的时候，会判断数据是否过期，若过期，则删除，否则数据依然存在 
 
 ```java
@@ -84,7 +84,7 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 代码结构
 重点解析下每种惰性实现
 
-###TTL清除策略
+### TTL清除策略
 * 全量SNAPSHOT清理：若开启checkpoint，定期保存的快照会删除过期数据，但是stateBackend并不会删除，只有等下一次作业重启，Flink会load保存的快照，而保存的快照并没有过期数据。
 * 增量清理：适用于堆内存的stateBackend
 
@@ -154,12 +154,12 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 * get实现
 * 迭代器实现
 
-##TTL State 现有的不足之处
+## TTL State 现有的不足之处
 
 * 不支持一条数据过期后，有相应的触发操作，也即类似拦截器的作用
 * 当一条数据不被访问时，该数据可能不会被删除 
 
-##TTL State如何使用？
+## TTL State如何使用？
  TTL各个配置含义：
 StateTtlConfig 配置详解
 
