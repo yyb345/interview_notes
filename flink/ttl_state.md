@@ -1,5 +1,5 @@
-#Flink State TTL解析
 
+#Flink State TTL解析
 ##State与TTL State简介
 什么是State？ State分为哪几种？
   流式计算中
@@ -85,7 +85,6 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 重点解析下每种惰性实现
 
 ###TTL清除策略
-
 * 全量SNAPSHOT清理：若开启checkpoint，定期保存的快照会删除过期数据，但是stateBackend并不会删除，只有等下一次作业重启，Flink会load保存的快照，而保存的快照并没有过期数据。
 * 增量清理：适用于堆内存的stateBackend
 
