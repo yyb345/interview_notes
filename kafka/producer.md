@@ -4,7 +4,7 @@
 
 ## Topic创建
 
-###Topic分区Leader选举
+### Topic分区Leader选举
 
 *  若unclean.leader.election.enable为true，再去replica中去找存活的broker。而ISR中的broker存在是这样：只有当follower从leader拉取数据跟得上leader的数据速度时，才会在ISR中，否则，被剔除掉ISR列表中。
 *  若unclean.leader.election.enable为false，抛出异常
@@ -19,7 +19,7 @@
 
 ## kafka producer解析
 
-###1. 发送流程
+### 1. 发送流程
 * 第一步： 刷新元数据
 * 第二步： 序列化、选择分区、注册拦截器回调函数
 * 第三步： 往RecordAccmulator发送数据
@@ -33,10 +33,10 @@
     因此，分区策略可以有四个级别：用户自定义分区策略类、key哈希、轮询、任一消息选择任一分区，总的来说给用户很大的自由度。
 
 
-###3. 拦截器有什么作用？
+### 3. 拦截器有什么作用？
 在每次消息处理前增加一个回调函数，一般用来记录一些统计信息，为每条消息增加其他字段等等。
 
-###4. 关键数据结构
+### 4. 关键数据结构
 RecordAccmulator的内部是如何运作的？
 
 《TopicPartition，Batch队列》这是重要的数据结构
