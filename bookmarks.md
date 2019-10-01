@@ -1,7 +1,7 @@
 # 如何系统的构建知识体系？
 
 
-## JVM学习
+## 1.JVM学习
 ### JAVA语言基础
  [Java 泛型解析](https://www.zhihu.com/question/20400700)  <br>
 
@@ -30,10 +30,12 @@
    
 ### 进程间通信  
 
+[进程间通信](java/进程间通信.md)
+
   
   
      
-## 分布式
+## 2. 分布式
 
    [Zookeeper选举分析](https://www.cnblogs.com/longxok/p/8951867.html)  <br>
    [分布式锁 ](https://juejin.im/post/5bbb0d8df265da0abd3533a5)  <br>
@@ -41,13 +43,12 @@
        
         
 
-## Kafka
+## 3. Kafka
 ### 先验知识
 * 操作系统PageCache
 * JAVA NIO
 * 分布式Leader选举机制
 * CAP
-*
 
    
 ### Kafka 设计理念
@@ -71,7 +72,7 @@
   [\[原创\]Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>     
         
 
-## Flink
+## 4. Flink
 
 ### 流式处理框架  
   [DataFlow编程模型](https://www.jianshu.com/p/0faa1c1caa47) <br>
