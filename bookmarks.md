@@ -1,19 +1,37 @@
-# 学习导航栏
+# 如何系统的构建知识体系？
 
 
+## JVM学习
+### JAVA语言基础
+ [Java 泛型解析](https://www.zhihu.com/question/20400700)  <br>
 
-## Java
-   [Java 集合类解析](https://www.cnblogs.com/yueshutong/p/9696216.html) <br> 
-   [Java 并发编程](https://www.cnblogs.com/wxd0108/p/5479442.html)  <br> 
-   [Java 锁解析](https://tech.meituan.com/2018/11/15/java-lock.html) <br> 
-   [Java 类加载机制](https://juejin.im/post/5a810b0e5188257a5c606a85) <br>
-   [JVM 内存模型](https://juejin.im/post/5ad5c0216fb9a028e014fb63) <br>
-   [Java  对象解析](https://blog.csdn.net/smileiam/article/details/80364641) <br>
-   [Java 泛型解析](https://www.zhihu.com/question/20400700)  <br>
-   [Java Agent 解析](https://www.javazhiyin.com/27630.html)  <br>
-   [Java JVM内存调优](https://zhanjindong.com/2016/03/02/jvm-memory-tunning-notes) <br>
-   [JVM内存划分、JVM内存分配机制、JVM垃圾回收机制](https://blog.csdn.net/CSDN_Terence/article/details/77771429) <br>
-   [Java agent源码解析](https://www.infoq.cn/article/javaagent-illustrated) <br>
+### JAVA常用的集合
+ [Java 集合类解析](https://www.cnblogs.com/yueshutong/p/9696216.html) <br> 
+
+### 计算机多核体系结构
+
+### JAVA 多线程
+ [Java 并发编程](https://www.cnblogs.com/wxd0108/p/5479442.html)  <br> 
+ [Java 锁解析](https://tech.meituan.com/2018/11/15/java-lock.html) <br> 
+
+### JAVA I/O
+ 
+
+### 类加载机制
+  [Java 类加载机制](https://juejin.im/post/5a810b0e5188257a5c606a85) <br>
+  [Java Agent 解析](https://www.javazhiyin.com/27630.html)  <br>
+  [Java agent源码解析](https://www.infoq.cn/article/javaagent-illustrated) <br>
+### 运行时数据区域
+ [Java  对象解析](https://blog.csdn.net/smileiam/article/details/80364641) <br>
+ [Java JVM内存调优](https://zhanjindong.com/2016/03/02/jvm-memory-tunning-notes) <br>
+ [JVM 内存模型](https://juejin.im/post/5ad5c0216fb9a028e014fb63) <br> 
+ [JVM内存划分、JVM内存分配机制、JVM垃圾回收机制](https://blog.csdn.net/CSDN_Terence/article/details/77771429) <br>
+
+   
+### 进程间通信  
+
+  
+  
      
 ## 分布式
 
@@ -24,8 +42,16 @@
         
 
 ## Kafka
- [Kafka 历史发展解析](https://www.infoq.cn/article/MLMyoWNxqs*MzQX7lvzO) <br>   
+### 先验知识
+* 操作系统PageCache
+* JAVA NIO
+* 分布式Leader选举机制
+* CAP
+*
+
+   
 ### Kafka 设计理念
+  [Kafka 历史发展解析](https://www.infoq.cn/article/MLMyoWNxqs*MzQX7lvzO) <br>
   [Kafka 高性能解析](http://www.jasongj.com/kafka/high_throughput/) <br>
   [Kafka 高可用解析](https://www.infoq.cn/article/kafka-analysis-part-3) <br>
   [Kafka Leader PacificA解析](http://www.thinkingyu.com/articles/PacificA/) <br>
