@@ -41,16 +41,20 @@ RecordAccmulator的内部是如何运作的？
 ### 6. ACK机制
  代表对于消息可靠性的容忍度 
  
-###7. Producer一些问题
+### 7. Producer一些问题
 *  如何保证topic消息顺序性？
 *  性能调优问题？
+*   数据压缩问题？
+*   数据幂等性？
  
 
 
 ## Kafka网络接收层
-     
+###  Kafka channel
+###  如何做限流的
 
-## kafka 存储层
+
+## kafka 存储层解析
 
 ### 消息格式
 
@@ -73,12 +77,10 @@ RecordAccmulator的内部是如何运作的？
 *  若unclean.leader.election.enable为true，再去replica中去找存活的broker。而ISR中的broker存在是这样：只有当follower从leader拉取数据跟得上leader的数据速度时，才会在ISR中，否则，被剔除掉ISR列表中。
 *  若unclean.leader.election.enable为false，抛出异常
 
-1. 那么Leader的选举为什么要这样设计呢？为什么会有unclean.leader.election.enable这个参数呢？
-从根源上看，与kafka的副本复制机制有关系，它并不像RAFT那样具有强一致性，它是副本批量复制，而且follower的消息确认的选择权是在用户侧producer上的，用户可以根据ack去设置消息被复制的级别。
+为什么会有unclean.leader.election.enable这个参数呢？
 
 那么数据一致性是如何保证的呢，如何知道副本的状态是可靠的？ISR就保存了kafka认为可靠的副本，它们具备这样的条件：1 . 落后leader的消息条数在一定阈值内 2.或者落后在一定时间内；
 但是，follower的复制状态谁又能保证一定能跟得上leader呢？这样，就存在着一种可能性，有可能ISR中只有leader,其他的副本都跟不上leader; 因此，这个时候，patition到底可用不可用？这就是一个权衡了，若只从ISR中获取leader，保证了数据的可靠性，但partition就不可用了，若从replica中获取，则可用性增强，但是数据可能存在丢失情况。
-
 因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
 
 
