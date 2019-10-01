@@ -1,21 +1,11 @@
 # Kafka 端到端源码解析
 
-![avatar](graph.png)
-
 ## Topic创建
+   zk注册，controller选举
 
-### Topic分区Leader选举
+### Topic分区初始化选择
 
-*  若unclean.leader.election.enable为true，再去replica中去找存活的broker。而ISR中的broker存在是这样：只有当follower从leader拉取数据跟得上leader的数据速度时，才会在ISR中，否则，被剔除掉ISR列表中。
-*  若unclean.leader.election.enable为false，抛出异常
-
-1. 那么Leader的选举为什么要这样设计呢？为什么会有unclean.leader.election.enable这个参数呢？
-从根源上看，与kafka的副本复制机制有关系，它并不像RAFT那样具有强一致性，它是副本批量复制，而且follower的消息确认的选择权是在用户侧producer上的，用户可以根据ack去设置消息被复制的级别。
-
-那么数据一致性是如何保证的呢，如何知道副本的状态是可靠的？ISR就保存了kafka认为可靠的副本，它们具备这样的条件：1 . 落后leader的消息条数在一定阈值内 2.或者落后在一定时间内；
-但是，follower的复制状态谁又能保证一定能跟得上leader呢？这样，就存在着一种可能性，有可能ISR中只有leader,其他的副本都跟不上leader; 因此，这个时候，patition到底可用不可用？这就是一个权衡了，若只从ISR中获取leader，保证了数据的可靠性，但partition就不可用了，若从replica中获取，则可用性增强，但是数据可能存在丢失情况。
-
-因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
+  按照broker数量均匀地分布在每个broker上
 
 ## kafka producer解析
 
@@ -43,6 +33,56 @@ RecordAccmulator的内部是如何运作的？
 
 有一个缓冲池bufferPool，每次开始是已经有batch在发，如果不存在则开辟batchSize大小的空间；然后往Batch队列的append数据，并且使得offset+1,然后会生成一个FutureRecordMetadata，用来表示batch是否满
 
+### 5.  参数配置
+1. batch.size指的是大小，不是消息数
+2. ling.ms是每隔该时间就定时发送
+3.  maxFlightPerConnection=1保证了消息在单分区内的顺序性
+
+### 6. ACK机制
+ 代表对于消息可靠性的容忍度 
+ 
+###7. Producer一些问题
+*  如何保证topic消息顺序性？
+*  性能调优问题？
+ 
+
+
+## Kafka网络接收层
+     
+
 ## kafka 存储层
+
+### 消息格式
+
+
+###  消息索引
+
+1. **给定时间戳—>定位某个LogSegment—>定位offset—>定位消息位置?** <br>
+根据时间戳查找offset，先顺序定位到LogSegment（找到第一个大于该时间戳的LogSegment),然后timeindex内部二分查找定位到offset
+2.  **给定offset—> 定位到某个LogSegment—>定位消息位置 ?** <br>
+ 根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
+ 
+## 副本管理
+为什么用ISR，不用Raft之类的协议？借鉴了PacificA算法协议。 两个重要的组件：配置管理（对应kafka ISR，leader epoch commited_point) <br>
+==HighWaterMark的作用：commited 消息度量；读可见性==
+参考http://www.thinkingyu.com/articles/PacificA/ 
+
+
+### failover机制
+
+*  若unclean.leader.election.enable为true，再去replica中去找存活的broker。而ISR中的broker存在是这样：只有当follower从leader拉取数据跟得上leader的数据速度时，才会在ISR中，否则，被剔除掉ISR列表中。
+*  若unclean.leader.election.enable为false，抛出异常
+
+1. 那么Leader的选举为什么要这样设计呢？为什么会有unclean.leader.election.enable这个参数呢？
+从根源上看，与kafka的副本复制机制有关系，它并不像RAFT那样具有强一致性，它是副本批量复制，而且follower的消息确认的选择权是在用户侧producer上的，用户可以根据ack去设置消息被复制的级别。
+
+那么数据一致性是如何保证的呢，如何知道副本的状态是可靠的？ISR就保存了kafka认为可靠的副本，它们具备这样的条件：1 . 落后leader的消息条数在一定阈值内 2.或者落后在一定时间内；
+但是，follower的复制状态谁又能保证一定能跟得上leader呢？这样，就存在着一种可能性，有可能ISR中只有leader,其他的副本都跟不上leader; 因此，这个时候，patition到底可用不可用？这就是一个权衡了，若只从ISR中获取leader，保证了数据的可靠性，但partition就不可用了，若从replica中获取，则可用性增强，但是数据可能存在丢失情况。
+
+因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
+
+
+ 
+
 
 

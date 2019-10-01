@@ -45,8 +45,9 @@
 
 ## 3. Kafka
 ### 先验知识
-* 操作系统PageCache
+* [操作系统PageCache](https://www.ibm.com/developerworks/cn/linux/l-cache/index.html)
 * JAVA NIO
+* [mmap知识点](https://linux-kernel-labs.github.io/master/labs/memory_mapping.html)
 * 分布式Leader选举机制
 * CAP
 
