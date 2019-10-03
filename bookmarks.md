@@ -1,4 +1,4 @@
-# 如何系统的构建知识体系？
+# 大数据知识体系
 
 
 ## 1.JVM学习
@@ -40,6 +40,7 @@
    [Zookeeper选举分析](https://www.cnblogs.com/longxok/p/8951867.html)  <br>
    [分布式锁 ](https://juejin.im/post/5bbb0d8df265da0abd3533a5)  <br>
    [分布式消息中间件应用实践](https://www.ibm.com/developerworks/cn/opensource/os-cn-kafka-distributed/index.html) <br>
+   [Chandy-Lamport解析](https://yq.aliyun.com/articles/688764) <br>
        
         
 
@@ -86,16 +87,18 @@
   [Flink如何让每一条数据进来后延迟一段时间再被处理?](https://www.zhihu.com/question/332577514/answer/840181621)  <br>
 
 ### Flink 原理解析 
+  [Flink Runtime核心机制解析](https://www.infoq.cn/article/RWTM9o0SHHV3Xr8o8giT)   <br>
   [Flink Window 机制解析](http://wuchong.me/blog/2016/05/25/flink-internals-window-mechanism/#comments) <br>
   [Flink Watermark 解析](https://blog.csdn.net/lmalds/article/details/52704170) <br>
   [Flink 反压解析 ](http://wuchong.me/blog/2016/04/26/flink-internals-how-to-handle-backpressure/) <br>
   [Flink 内存管理解析](http://wuchong.me/blog/2016/04/29/flink-internals-memory-manage/) <br>
+  [Flink 分布式快照解析](http://xargin.com/distributed-snapshot-in-stream-sys/) <br>
   [Flink failover机制解析--待翻译](https://cwiki.apache.org/confluence/display/FLINK/FLIP-1+%3A+Fine+Grained+Recovery+from+Task+Failures) <br>
   [\[原创\]Flink TTL state解析](https://github.com/yyb345/index/blob/master/flink/ttl_state.md) <br>
   
-  [Flink Chandy-Lamport解析](https://yq.aliyun.com/articles/688764) <br>
+  
   [Flink-分布式快照的设计](http://chenyuzhao.me/2018/01/29/Flink-%E5%88%86%E5%B8%83%E5%BC%8F%E5%BF%AB%E7%85%A7%E7%9A%84%E8%AE%BE%E8%AE%A1-%E6%B5%81%E7%A8%8B/) <br>
-  [Flink 分布式快照解析](http://xargin.com/distributed-snapshot-in-stream-sys/) <br>
+ 
   [Flink  Kafka 0.11 exactly once](https://www.cnblogs.com/huxi2b/p/8459342.html) <br>
   [Flink Exactly-Once 解析](http://www.whitewood.me/2018/10/16/Flink-Exactly-Once-%E6%8A%95%E9%80%92%E5%AE%9E%E7%8E%B0%E6%B5%85%E6%9E%90/) <br>
   [Flink State 使用文档](https://ci.apache.org/projects/flink/flink-docs-master/dev/stream/state/state.html) <br>
@@ -119,18 +122,6 @@
         
 
 ## Machine Learning
-
        
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
        
-        
-
-## ElasticSearch
-
-       
-  [Elasticsearch 倒排索引原理](https://zhuanlan.zhihu.com/p/33671444) <br>
-  [DmitryKey/luke: This is mavenised Luke: Lucene Toolbox Project](https://github.com/DmitryKey/luke) <br>
-  [Lucene索引过程&索引文件格式详解](https://www.shenyanchao.cn/blog/2018/12/04/lucene-index-files/) <br>
-  [Elasticsearch7.X学习路线图](https://mp.weixin.qq.com/s/z8-wYwalrkUWWSamL4bkIQ) <br>
-  [基于跳表的倒排记录表快速合并算法](http://book.51cto.com/art/201008/222920.htm) <br>
-  [Elasticsearch倒排表压缩及缓存合并策略](https://blog.csdn.net/ok0011/article/details/82185133) <br>
