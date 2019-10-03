@@ -70,7 +70,7 @@
 
   按照broker数量均匀地分布在每个broker上
 
-## kafka producer解析
+## Kafka Producer解析
 
 ### 1. 发送流程
 * 第一步： 刷新元数据
@@ -122,7 +122,10 @@ RecordAccmulator的内部是如何运作的？
 
 ## Kafka网络接收层
 ###  Kafka channel
-###  如何做限流的
+###  如何做限流的？
+图中展示了通用的限流算法
+![avatar](限流.png)
+### 如何做数据安全的？
 
 
 ## Kafka内存管理
@@ -158,6 +161,9 @@ value |  | 消息体长度
 2.  **给定offset—> 定位到某个LogSegment—>定位消息位置 ?** <br>
  根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
  
+### 日志清理与Compaction 
+
+ 
 ###  一些问题
  
  * 谈谈你对页缓存、内核层、块层、设备层的理解  <br>
@@ -173,7 +179,7 @@ value |  | 消息体长度
 [参考](http://www.thinkingyu.com/articles/PacificA/ )
 
 
-### failover机制
+### Failover机制
 
 *  若unclean.leader.election.enable为true，再去replica中去找存活的broker。而ISR中的broker存在是这样：只有当follower从leader拉取数据跟得上leader的数据速度时，才会在ISR中，否则，被剔除掉ISR列表中。
 *  若unclean.leader.election.enable为false，抛出异常
@@ -185,6 +191,8 @@ value |  | 消息体长度
 因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
 
 ## kafka Consumer解析
+
+### 推拉模型
 
 ### 0.8.2版本客户端
 
