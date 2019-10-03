@@ -141,11 +141,11 @@ ByteBufferMessageSet 解读
 
 ### 消息格式(V1版本) 
 
-| filed | size | desciption
-| ------ | ------ | ------ | 
-| offset | 8 B | 偏移量
-| message size | 4 B | 消息大小
-| crc32 | 4 B | crc校验码
+filed | size | desciption
+------ | ------ | ------ | 
+offset | 8 B | 偏移量
+ message size | 4 B | 消息大小
+crc32 | 4 B | crc校验码
 magic | 1B | Api的版本 
 timestamp | 8 B | 消息时间戳
 attributes | 1 B | 属性？
