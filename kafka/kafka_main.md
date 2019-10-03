@@ -142,7 +142,7 @@ ByteBufferMessageSet 解读
 ### 消息格式(V1版本) 
 
 | filed | size | desciption
-| --- | --- | ---- | ---
+| ------ | ------ | ------ | 
 | offset | 8 B | 偏移量
 | message size | 4 B | 消息大小
 | crc32 | 4 B | crc校验码
