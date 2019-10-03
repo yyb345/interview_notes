@@ -1,6 +1,3 @@
- Table of Contents
-=================
-
    * [Kafka 端到端源码解析](#kafka-端到端源码解析)
       * [Kafka的场景](#kafka的场景)
       * [Kafka概念](#kafka概念)
