@@ -1,13 +1,20 @@
 # Kafka 端到端源码解析
 
-## Topic创建
+##  Kafka的场景
+
+## Topic 创建与删除
    zk注册，controller选举具体的数据结构与流程
    
    
-## Topic状态流转
+### Topic状态流转
    创建、在线、增加分区、下线、删除
    
-
+###  Topic 一些问题
+* topic分区数可不可以减少？如果可以，为什么？<br>
+   **不可以**
+*   Kafka 目前有哪些内部topic？分别的作用是什么？<br>
+    **__consumer_offset** 用来保存用户groupId对应的消费topic offset
+       
 
 
 ### Topic分区初始化选择
@@ -31,7 +38,7 @@
 
 
 ### 3. 拦截器有什么作用？
-在每次消息处理前增加一个回调函数，一般用来记录一些统计信息，为每条消息增加其他字段等等。
+在每次消息处理成功后增加一个回调函数，一般用来记录一些统计信息，为每条消息增加其他字段等等。
 
 ### 4. 关键数据结构
 RecordAccmulator的内部是如何运作的？
@@ -49,10 +56,17 @@ RecordAccmulator的内部是如何运作的？
  代表对于消息可靠性的容忍度 
  
 ### 7. Producer一些问题
-*  如何保证topic消息顺序性？
+* kafka 分区器、序列化器、拦截器之间的处理顺序？<br>
+     **序列化器、分区器、 拦截器**（发送完成后才会调用）
+*  如何保证topic消息顺序性？<br>
+       **全局消息顺序性**：采用一个topic partition
+       **单分区顺序性**：  maxFlightPerConnection=1
 *  性能调优问题？
 *   数据压缩问题？
-*   数据幂等性？
+*   数据幂等性？<br>
+        kafka 0.11版本之后提供了producer的幂等性
+*   kafka 生产者客户端用了几个线程 <br>
+         sender线程、producer主线程、
  
 
 
@@ -81,10 +95,19 @@ ByteBufferMessageSet 解读
 2.  **给定offset—> 定位到某个LogSegment—>定位消息位置 ?** <br>
  根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
  
+###  一些问题
+ 
+ * 谈谈你对页缓存、内核层、块层、设备层的理解  <br>
+      内核层 ：操作系统中的内存数据与用户态buffer进行相互拷贝<br>
+      pagecache : 文件读到操作系统内存中，操作系统的内存管理系统会预读 <br>
+      块层：管理设备I/O队列，对I/O请求进行合并、排序等
+      设备层：通过DMA与内存直接交互，将数据写到磁盘
+      
+ 
 ## 副本管理
 为什么用ISR，不用Raft之类的协议？借鉴了PacificA算法协议。 两个重要的组件：配置管理（对应kafka ISR，leader epoch commited_point) <br>
 ==HighWaterMark的作用：commited 消息度量；读可见性==
-参考http://www.thinkingyu.com/articles/PacificA/ 
+[参考](http://www.thinkingyu.com/articles/PacificA/ )
 
 
 ### failover机制
@@ -99,11 +122,15 @@ ByteBufferMessageSet 解读
 因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
 
 ## kafka Consumer解析
-现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：
 
-应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。
+### 0.8.2版本客户端
 
-同样，应用端也就是consumer端需要消息处理和offset提交这两步是事务的，也即要么操作成功要么撤回恢复之前的状态。这需要应用端有事务保障，但往往很多应用端是不支持事务的，比如kafka数据落盘hdfs，kafka数据消费完写入本地文件等等。但官方给的kafka consumer-process-kafka 给出了一个不错的参考的例子和思路。基本上遵循了分布式系统中的两阶段提交想法和思路，具体可以参见http://matt33.com/2018/11/04/kafka-transaction/
+### 0.10版本客户端
+
+### 一些问题
+* kafka 如何做到不重复消费? <br>
+现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。<br>
+    同样，应用端也就是consumer端需要消息处理和offset提交这两步是事务的，也即要么操作成功要么撤回恢复之前的状态。这需要应用端有事务保障，但往往很多应用端是不支持事务的，比如kafka数据落盘hdfs，kafka数据消费完写入本地文件等等。但官方给的kafka consumer-process-kafka 给出了一个不错的参考的例子和思路。基本上遵循了分布式系统中的两阶段提交想法和思路，[具体可以参见](http://matt33.com/2018/11/04/kafka-transaction/)
 
 个人理解重复消费出现的概率并不会很高，在服务端改进会带来很大的性能损耗，这可能是为什么大家都选择不处理的重要原因吧。另外，本身系统与系统之间传输数据，很难做到消息的exactly once的。无论是kafka到存储系统hdfs还是spark flink下游计算系统等。若数据传输都在一个系统之内，那相对好处理一些，比如kafka的事务，保证了consume-process-producer的事务场景，也就是从kafka消费处理完毕后再到kafka，这个可以做到exactly once。
 
