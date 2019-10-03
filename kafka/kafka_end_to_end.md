@@ -1,7 +1,14 @@
 # Kafka 端到端源码解析
 
 ## Topic创建
-   zk注册，controller选举
+   zk注册，controller选举具体的数据结构与流程
+   
+   
+## Topic状态流转
+   创建、在线、增加分区、下线、删除
+   
+
+
 
 ### Topic分区初始化选择
 
@@ -54,6 +61,13 @@ RecordAccmulator的内部是如何运作的？
 ###  如何做限流的
 
 
+## Kafka内存管理
+
+## 堆内存
+
+## 堆外内存
+ 
+
 ## kafka 存储层解析
 
 ### 消息格式
@@ -84,6 +98,14 @@ RecordAccmulator的内部是如何运作的？
 因此unclean.leader.election.enable这个参数设计为true，则保证了可用性，也就是CAP中的A P;设置为false，则保证了数据一致性，也就是CAP中的CP
 
 
+## zookeeper的作用
+### zookeeper在kafka中的作用
+1. **controller选举**，所有的broker在zk /controller下注册临时节点，任意一个抢先的broker注册成功，则为controller
+2.  **kafka consumer负载均衡**
+3.  **集群节点存活状态监测**
+4.  **topic创建触发**
+5.  **broker上线、下线的通知**
+6. **ISR配置变更**
  
 
 
