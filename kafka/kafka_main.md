@@ -2,6 +2,21 @@
 
 ##  Kafka的场景
 
+## Kafka概念
+* **Broker**
+* **Topic**
+* **Partition**   逻辑上最小的单元
+* **Offset**
+* **LogSegment**   文件存储最小的单元
+* **Producer**   生产者
+* **Consumer**   消费者
+* **Zookeeper**  提供分布式协调服务
+* **Controller**   集群中的master
+* **ISR(In-Sync-Replica)**   Topic分区的副本状态
+*  **脑裂** 集群中出现了双主，对于kafka来说是双controller
+*  **羊群效应** 当zookeeper上一个znode节点发生变化时，所有监听该节点的客户端都会发生相应的动作
+
+
 ## Topic 创建与删除
    zk注册，controller选举具体的数据结构与流程
    
@@ -53,7 +68,8 @@ RecordAccmulator的内部是如何运作的？
 3.  maxFlightPerConnection=1保证了消息在单分区内的顺序性
 
 ### 6. ACK机制
- 代表对于消息可靠性的容忍度 
+ 代表对于消息可靠性的容忍度 <br>
+ Ack=1 代表leader返回ack即可 Ack=-1 代表所有副本返回ack Ack=0代表不需要返回
  
 ### 7. Producer一些问题
 * kafka 分区器、序列化器、拦截器之间的处理顺序？<br>
