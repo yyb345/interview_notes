@@ -124,7 +124,7 @@ RecordAccmulator的内部是如何运作的？
 ###  Kafka channel
 ###  如何做限流的？
 图中展示了通用的限流算法
-![avatar](限流.png)
+![avatar](throught_controller.png)
 ### 如何做数据安全的？
 
 
