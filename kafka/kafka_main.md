@@ -3,7 +3,7 @@
       * [Kafka概念](#kafka概念)
       * [Topic 创建与删除](#topic-创建与删除)
          * [Topic状态流转](#topic状态流转)
-         * [Topic 一些问题](#topic-一些问题)
+         * [一些问题](#topic-一些问题)
          * [Topic分区初始化选择](#topic分区初始化选择)
       * [kafka producer解析](#kafka-producer解析)
          * [1. 发送流程](#1-发送流程)
@@ -12,7 +12,7 @@
          * [4. 关键数据结构](#4-关键数据结构)
          * [5.  参数配置](#5--参数配置)
          * [6. ACK机制](#6-ack机制)
-         * [7. Producer一些问题](#7-producer一些问题)
+         * [7.一些问题](#7-producer一些问题)
       * [Kafka网络接收层](#kafka网络接收层)
          * [Kafka channel](#kafka-channel)
          * [如何做限流的](#如何做限流的)
@@ -33,7 +33,7 @@
          * [zookeeper在kafka中的作用](#zookeeper在kafka中的作用)
            
 # Kafka 端到端源码解析
- xxxxx
+ 
 ##  Kafka的场景
 
 ## Kafka概念
