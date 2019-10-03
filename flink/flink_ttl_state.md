@@ -2,14 +2,7 @@
 # Flink State TTL解析
 [TOC]
 ##  TTL State简介
-什么是State？为什么会有state？
-
-   流式计算中
-
-保存状态（包括计算状态）
-举例子说明：
-
-分为哪几种state？Flink API提供了以下几种类型的接口，都是keyedStream，也就是key之后的流
+### State 分为哪几种？
 
 * ValueState
 * ListState
@@ -18,8 +11,10 @@
 * AggregatingState
 * FoldingState
 
-## StateBackend有哪些？
-* 堆 也就是我们传统使用的java对象，数据保存在JVM内存中，有一个缺点是由于GC时间不确定，所以可能会对性能造成一定的影响
+### StateBackend有哪些？
+ 
+* 内存 也就是我们传统使用的java对象，数据保存在JVM内存中，有一个缺点是由于GC时间不确定，所以可能会对性能造成一定的影响
+* 文件系统 通常是指hdfs
 * RocksDb rocksdb提供了一个k v存储库，数据持久化在本地，在内存中是非堆内存形式存在的，因此，有可能会有内存泄漏的风险。
 
 
@@ -150,12 +145,7 @@ public class StateTimerFunction extends KeyedProcessFunction<String,byte[],Strin
 	}
    ```
     
-
-### TTL MapState 实现
-* update实现
-* get实现
-* 迭代器实现
-
+    
 ## TTL State 现有的不足之处
 
 * 不支持一条数据过期后，有相应的触发操作，也即类似拦截器的作用
