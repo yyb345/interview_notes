@@ -140,12 +140,11 @@ ByteBufferMessageSet 解读
 存储层是利用本地文件系统的文件来存储的，首先每个topic对应N个分区，每个分区对应有三类文件（log文件、index文件与timeindex文件）。Log文件以每条二进制序列化后的消息为基本单位存储消息，每条消息的基本格式如下表格，而log文件分为很多个logsegment，每个segment的大小是一样的，例如1GB，三个文件的名字为文件中第一个消息的offset数值。
 
 ### 消息格式(V1版本)
-
-filed | size | desciption  <br>
----- | --- | ---- | ---   <br>
-offset | 8 B | 偏移量  <br>
-message size | 4 B | 消息大小  <br>
-crc32 | 4 B | crc校验码  <br>
+filed | size | desciption  
+---- | --- | ---- | ---   
+offset | 8 B | 偏移量 
+message size | 4 B | 消息大小
+crc32 | 4 B | crc校验码
 magic | 1B | Api的版本 
 timestamp | 8 B | 消息时间戳
 attributes | 1 B | 属性？
