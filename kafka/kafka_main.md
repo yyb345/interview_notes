@@ -127,16 +127,29 @@ RecordAccmulator的内部是如何运作的？
 
 ## Kafka内存管理
 
-### 堆内存
-
 ### 堆外内存
+堆外内存主要用在kafka consumer中，一般为了提高I/O效率，都采用NIO的方式读取文件，而读取后的数据都保存在ByteBuffer数据结构中，ByteBuffer封装了堆外内存的引用。
 ByteBufferMessageSet 解读
  
 
 ## kafka 存储层解析
 
-### 消息格式
+存储层是利用本地文件系统的文件来存储的，首先每个topic对应N个分区，每个分区对应有三类文件（log文件、index文件与timeindex文件）。Log文件以每条二进制序列化后的消息为基本单位存储消息，每条消息的基本格式如下表格，而log文件分为很多个logsegment，每个segment的大小是一样的，例如1GB，三个文件的名字为文件中第一个消息的offset数值。
 
+### 消息格式(V1版本)
+
+filed | size | desciption 
+---- | --- | ---- | ---
+offset | 8 B | 偏移量
+message size | 4 B | 消息大小
+crc32 | 4 B | crc校验码
+magic | 1B | Api的版本 
+timestamp | 8 B | 消息时间戳
+attributes | 1 B | 属性？
+key length | 4 B | key的长度
+key |  | key的消息体
+value length | 4B | value长度
+value |  | 消息体长度 
 
 ###  消息索引
 
