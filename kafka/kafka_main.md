@@ -77,7 +77,8 @@
 * 第二步： 序列化、选择分区、注册拦截器回调函数
 * 第三步： 往RecordAccmulator发送数据
 * 第四步：判断batch是否满了，满了的话唤醒send后台线程 <br>
-  有可能的异常：API版本不匹配；Buffer耗尽等
+  **有可能的异常：API版本不匹配；Buffer耗尽等**
+* 第五步 ： send后台线程退出时，扫尾工作
 
 ### 2. 分区选择策略？
 *  若该消息内无指定分区，则使用消息中指定的key哈希生成的分区
@@ -90,9 +91,13 @@
 在每次消息处理成功后增加一个回调函数，一般用来记录一些统计信息，为每条消息增加其他字段等等。
 
 ### 4. 关键数据结构
-RecordAccmulator的内部是如何运作的？
 
-《TopicPartition，Batch队列》这是重要的数据结构
+
+RecordAccmulator的内部是如何运作的？这是个线程安全的数据结构
+
+ConcurrentHashMap《TopicPartition，Batch队列》
+
+Batch队列需要保证线程安全：
 
 有一个缓冲池bufferPool，每次开始是已经有batch在发，如果不存在则开辟batchSize大小的空间；然后往Batch队列的append数据，并且使得offset+1,然后会生成一个FutureRecordMetadata，用来表示batch是否满
 
