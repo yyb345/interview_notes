@@ -93,6 +93,7 @@
   [Flink 反压解析 ](http://wuchong.me/blog/2016/04/26/flink-internals-how-to-handle-backpressure/) <br>
   [Flink 内存管理解析](http://wuchong.me/blog/2016/04/29/flink-internals-memory-manage/) <br>
   [Flink 分布式快照解析](http://xargin.com/distributed-snapshot-in-stream-sys/) <br>
+  [Flink checkpoint与savepoint的区别](https://www.whitewood.me/2018/09/06/Flink-Checkpoint-Savepoint-%E5%B7%AE%E5%BC%82/) <br>
   [Flink failover机制解析--待翻译](https://cwiki.apache.org/confluence/display/FLINK/FLIP-1+%3A+Fine+Grained+Recovery+from+Task+Failures) <br>
   [\[原创\]Flink TTL state解析](https://github.com/yyb345/index/blob/master/flink/ttl_state.md) <br>
   
