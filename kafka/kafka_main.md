@@ -97,7 +97,7 @@ RecordAccmulator的内部是如何运作的？这是个线程安全的数据结�
 
 ConcurrentHashMap《TopicPartition，Batch队列》
 
-Batch队列需要保证线程安全：
+Batch队列需要保证线程安全
 
 有一个缓冲池bufferPool，每次开始是已经有batch在发，如果不存在则开辟batchSize大小的空间；然后往Batch队列的append数据，并且使得offset+1,然后会生成一个FutureRecordMetadata，用来表示batch是否满
 
@@ -130,6 +130,8 @@ Batch队列需要保证线程安全：
 ###  如何做限流的？
 图中展示了通用的限流算法
 ![avatar](throught_controller.png)
+
+server/ClientQuatoManager负责进行流量控制
 ### 如何做数据安全的？
 
 

@@ -11,6 +11,22 @@
 * AggregatingState
 * FoldingState
 
+ *             State
+ *               |
+ *              +-------------------InternalKvState
+ *               |                         |
+ *          MergingState                   |
+ *               |                         |
+ *               +-----------------InternalMergingState
+ *               |                         |
+ *      +--------+------+                  |
+ *      |               |                  |
+ * ReducingState    ListState        +-----+-----------------+
+ *      |               |            |                       |
+ *      +-----------+   +-----------   -----------------InternalListState
+ *                  |                |
+ *                  +---------InternalReducingState
+
 ### StateBackend有哪些？
  
 * 内存 也就是我们传统使用的java对象，数据保存在JVM内存中，有一个缺点是由于GC时间不确定，所以可能会对性能造成一定的影响
