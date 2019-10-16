@@ -14,6 +14,9 @@ JAR包分发，JobManager、TaskManager
 *  window
 * 
 
+## Flink watermark机制
+watermark是为了处理乱序的事件时间，而提出的一种概念，watermark标记了当前窗口已经处理到的最低事件时间，小于watermark的事件，不会被处理，大于watermark的事件，则会被处理。
+
 ##  内存管理机制
 
 ##  资源分配管理机制

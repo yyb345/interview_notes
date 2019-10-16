@@ -168,6 +168,11 @@ value |  | 消息体长度
 2.  **给定offset—> 定位到某个LogSegment—>定位消息位置 ?** <br>
  根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
  
+ 
+### 刷盘擦略
+kafka是异步刷盘的，有后台线程专程将内存中的数据写入到磁盘中
+index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是普通的读取文件。
+ 
 ### 日志清理与Compaction 
 
  
