@@ -74,7 +74,9 @@
   [Kafka Exactly Once Delivery and Transactional Messaging ](https://cwiki.apache.org/confluence/display/KAFKA/KIP-98+-+Exactly+Once+Delivery+and+Transactional+Messaging#KIP-98-ExactlyOnceDeliveryandTransactionalMessaging-DataFlow) <br>
 ### Kafka bugs
   [\[原创\]Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>     
-        
+ 
+### pulsar VS kafka
+[bookeeper原理浅析](http://matt33.com/2019/01/28/bk-store-realize/#一致性模型) <br>        
 
 ## 4. Flink
 
