@@ -101,6 +101,11 @@ Batch队列需要保证线程安全
 
 有一个缓冲池bufferPool，每次开始是已经有batch在发，如果不存在则开辟batchSize大小的空间；然后往Batch队列的append数据，并且使得offset+1,然后会生成一个FutureRecordMetadata，用来表示batch是否满
 
+**消息在如何在客户端存储的**   <br>
+MemoryRecord 定义了一条消息在内存中的存储，
+
+传输到socketChannel
+
 ### 5.  参数配置
 1. batch.size指的是大小，不是消息数
 2. ling.ms是每隔该时间就定时发送
@@ -169,11 +174,16 @@ value |  | 消息体长度
  根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
  
  
-### 刷盘擦略
+### 刷盘策略
 kafka是异步刷盘的，有后台线程专程将内存中的数据写入到磁盘中
 index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是普通的读取文件。
  
 ### 日志清理与Compaction 
+
+
+
+
+### 流程与数据结构
 
  
 ###  一些问题
@@ -205,6 +215,8 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 ## kafka Consumer解析
 
 ### 推拉模型
+推
+拉
 
 ### 0.8.2版本客户端
 
