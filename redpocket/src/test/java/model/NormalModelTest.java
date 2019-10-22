@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Queue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by yangyibo
@@ -64,6 +65,13 @@ public class NormalModelTest {
 		}
 
 
+	}
+
+	@Test
+	public  void xx(){
+		AtomicInteger atomicInteger=new AtomicInteger(10);
+		System.out.println(atomicInteger.getAndDecrement());
+		System.out.println(atomicInteger.get());
 	}
 
 }

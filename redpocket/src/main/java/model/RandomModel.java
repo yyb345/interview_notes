@@ -12,14 +12,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RandomModel implements PlayModel{
 
 
-	/**
-	 * 红包个数
-	 */
-	private AtomicInteger num;
-	/**
-	 * 红包总额
-	 */
-	private volatile Double totalMoney;
+	static class RedPocket{
+
+		private int num;
+		private double totalMoney;
+		RedPocket(int num,double totalMoney){
+			this.num=num;
+			this.totalMoney=totalMoney;
+		}
+
+
+
+	}
+
+	private volatile RedPocket redPocket;
 
 	/**
 	 * 每人拿到的最小值
@@ -28,7 +34,7 @@ public class RandomModel implements PlayModel{
 
 
 
-	public RandomModel(int n,Double totalMoney) throws Exception {
+	public RandomModel(int n,double totalMoney) throws Exception {
 
 		if(n<1){
 			throw new Exception(" 红包个数不能小于1");
@@ -39,20 +45,20 @@ public class RandomModel implements PlayModel{
 		}
 
 
-		this.num=new AtomicInteger(n);
-		this.totalMoney=totalMoney;
+		redPocket=new RedPocket(n,totalMoney);
 	}
 
 
 	public double generate() throws Exception {
 
-		synchronized (totalMoney){
-			if(num.get()==0){
+		synchronized (redPocket){
+
+			if(redPocket.num==0){
 				return 0.0;
 			}
-			if(num.get()==1){
-				num.decrementAndGet();
-				return (double) Math.round(totalMoney*100)/100;
+			if(redPocket.num==1){
+				redPocket.num-=1;
+				return (double) Math.round(redPocket.totalMoney*100)/100;
 			}
 
 			/**
@@ -61,13 +67,12 @@ public class RandomModel implements PlayModel{
 			 * 3. 需满足随机数生成的期望==每个能抢到红包的数学期望
 			 *    （0+maxMoney)/2= totalMoney / num; 因此 maxMoney=totalMoney / num * 2
 			 */
-			double maxMoney=totalMoney / num.get() * 2 ;
+			double maxMoney=redPocket.totalMoney / redPocket.num * 2 ;
 			Random r=new Random();
 			double generateMoney=r.nextDouble()* maxMoney;
 			double assignMoney= generateMoney< MIN_MONEY ? MIN_MONEY: Math.floor(generateMoney*100)/100;
-			totalMoney-=assignMoney;
-			num.decrementAndGet();
-
+			redPocket.totalMoney-=assignMoney;
+			redPocket.num-=1;
 			return assignMoney;
 		}
 

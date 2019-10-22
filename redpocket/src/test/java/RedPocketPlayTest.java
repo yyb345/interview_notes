@@ -78,8 +78,11 @@ public class RedPocketPlayTest {
 		}
 
 		public void run() {
-			//多线程保证数据同步
+
 			try{
+				//随机等待几秒
+				int tt = new Random().nextInt(5);
+				Thread.sleep(tt*1000);
 				double mm = randomModel.generate();
 				if(mm==0.0){
 					System.out.println(name+" 红包已经抢完! ");
@@ -102,8 +105,8 @@ public class RedPocketPlayTest {
 	@Before
 	public void init() throws Exception{
 		initPocketNum10();
-		initMoney1000();
-		initGroupCase10();
+		initMoney10();
+		initGroupCase1000();
 
 	}
 
@@ -183,16 +186,21 @@ public class RedPocketPlayTest {
 
 			//  开始抢红包
 
-			final CountDownLatch latch= new CountDownLatch(groupNum);
+			//final CountDownLatch latch= new CountDownLatch(groupNum);
+
+			Subscriber[] subscribers=new Subscriber[groupNum];
 			for(int i=0;i<groupNum;i++){
-				int tt = new Random().nextInt(5);
-				Thread.sleep(tt*1000);
-				Subscriber subscriber = new Subscriber("thread-" + i);
-				subscriber.start();
-				latch.countDown();
+				Subscriber sub = new Subscriber("friend-" + i);
+				subscribers[i]=sub;
+				sub.start();
+
 			}
 
-			latch.await();
+			for(int i=0;i<groupNum;i++){
+				subscribers[i].join();
+			}
+
+			//latch.await();
 
 
 		}catch (Exception e){
@@ -202,6 +210,7 @@ public class RedPocketPlayTest {
 
 
 	}
+
 
 
 
