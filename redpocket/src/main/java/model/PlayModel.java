@@ -1,11 +1,10 @@
 package model;
 
-import java.util.Queue;
 
 /**
  * Created by yangyibo
  * Date: 2019/10/22
- * Time: 下午5:26
+ * Time: 下午7:24
  */
 public interface PlayModel {
 

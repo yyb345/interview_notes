@@ -3,6 +3,10 @@ package model;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * Created by yangyibo
@@ -19,6 +23,8 @@ public class RandomModelTest {
 	@Before
 	public void init() throws Exception {
 		initCase1();
+		//initCase2();
+		//initCase3();
 		randomModel=new RandomModel(num,money);
 
 	}
@@ -51,17 +57,31 @@ public class RandomModelTest {
 
 
 	/**
-	 * 单次生成测试
+	 * 函数功能测试
 	 * @throws Exception
 	 */
 	@Test
 	public void generateTest() throws Exception{
 
+		double sum=0;
 		for(int i=0;i<num;i++){
 			double d = randomModel.generate();
+			sum=add(sum,d);
 			System.out.println(d);
 		}
 
+		assertTrue(sum==money);
+
+	}
+
+
+
+
+	//数值精准计算
+	public static double add(double m1, double m2) {
+		BigDecimal p1 = new BigDecimal(Double.toString(m1));
+		BigDecimal p2 = new BigDecimal(Double.toString(m2));
+		return p1.add(p2).doubleValue();
 
 	}
 

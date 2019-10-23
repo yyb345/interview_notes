@@ -1,13 +1,13 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by yangyibo
  * Date: 2019/10/22
- * Time: 下午5:34
- * 拼手气红包
+ * Time: 下午7:34
+ * 拼手气红包(线程安全)
  */
 public class RandomModel implements PlayModel{
 
@@ -28,7 +28,7 @@ public class RandomModel implements PlayModel{
 	private volatile RedPocket redPocket;
 
 	/**
-	 * 每人拿到的最小值
+	 * 每人最少能抢到1分钱
 	 */
 	public static final double MIN_MONEY=0.01;
 
@@ -46,6 +46,14 @@ public class RandomModel implements PlayModel{
 
 
 		redPocket=new RedPocket(n,totalMoney);
+	}
+
+
+	// 精确计算,double 计算可能会有精度缺失
+	public static double sub(double m1, double m2) {
+		BigDecimal p1 = new BigDecimal(Double.toString(m1));
+		BigDecimal p2 = new BigDecimal(Double.toString(m2));
+		return p1.subtract(p2).doubleValue();
 	}
 
 
@@ -71,7 +79,8 @@ public class RandomModel implements PlayModel{
 			Random r=new Random();
 			double generateMoney=r.nextDouble()* maxMoney;
 			double assignMoney= generateMoney< MIN_MONEY ? MIN_MONEY: Math.floor(generateMoney*100)/100;
-			redPocket.totalMoney-=assignMoney;
+			//数值精准计算
+			redPocket.totalMoney=sub(redPocket.totalMoney,assignMoney);
 			redPocket.num-=1;
 			return assignMoney;
 		}

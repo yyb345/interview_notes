@@ -1,14 +1,10 @@
 package model;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * Created by yangyibo
  * Date: 2019/10/22
- *
- * 普通红包
+ * Time: 下午7:34
+ * 普通红包(线程安全)
  */
 public class NormalModel implements PlayModel {
 
@@ -34,7 +30,7 @@ public class NormalModel implements PlayModel {
 				num--;
 				return this.money;
 			}else{
-				throw new Exception("红包已经抢完！");
+				return 0.0;
 			}
 		}
 

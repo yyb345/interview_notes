@@ -3,8 +3,6 @@ package model;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by yangyibo
@@ -50,9 +48,11 @@ public class NormalModelTest {
 		money=201;
 	}
 
+	/**
+	 * 函数测试
+	 */
 	@Test
 	public void generateTest(){
-
 
 		try{
 			for(int i=0;i<num;i++){
@@ -63,15 +63,7 @@ public class NormalModelTest {
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-
-
 	}
 
-	@Test
-	public  void xx(){
-		AtomicInteger atomicInteger=new AtomicInteger(10);
-		System.out.println(atomicInteger.getAndDecrement());
-		System.out.println(atomicInteger.get());
-	}
 
 }
