@@ -43,6 +43,7 @@
    [分布式锁 ](https://juejin.im/post/5bbb0d8df265da0abd3533a5)  <br>
    [分布式消息中间件应用实践](https://www.ibm.com/developerworks/cn/opensource/os-cn-kafka-distributed/index.html) <br>
    [Chandy-Lamport解析](https://yq.aliyun.com/articles/688764) <br>
+   [分布式事务]() <br>
        
         
 
