@@ -123,15 +123,16 @@
     
         
 ## 大数据
-[大数据相关] (https://www.nowcoder.com/discuss/148752)    <br>
+
+[大数据相关] (https://www.nowcoder.com/discuss/148752)  <br>
         
 
 ## Hbase
 
- [列式存储与行式存储](https://www.zhihu.com/question/29380943) <br>
-  [深入浅出Hbase](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)   <br>  
-   [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
-  [HBase的rowkey的设计原则 ](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
+ [HBase列式存储](https://www.zhihu.com/question/29380943) <br>
+ [HBase深入浅出](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)<br> 
+  [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
+  [HBase的rowkey的设计](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
 
     
         
