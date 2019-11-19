@@ -128,6 +128,7 @@
 
 ## Hbase
 
+ [列式存储与行式存储](https://www.zhihu.com/question/29380943) <br>
   [入门Hbase](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)   <br>  
   [HBase的rowkey的设计原则 ](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
   [HBase创建表 ](https://www.yiibai.com/hbase/hbase_create_table.html) <br>
