@@ -93,7 +93,10 @@
 ### 4. 关键数据结构
 
 
-RecordAccmulator的内部是如何运作的？这是个线程安全的数据结构
+
+RecordAccmulator数据结构的作用
+
+的内部是如何运作的？这是个线程安全的数据结构
 
 ConcurrentHashMap《TopicPartition，Batch队列》
 
