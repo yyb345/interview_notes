@@ -124,7 +124,7 @@
         
 ## 大数据
 
-[大数据相关] (https://www.nowcoder.com/discuss/148752)  <br>
+[大数据相关](https://www.nowcoder.com/discuss/148752)  <br>
         
 
 ## Hbase
@@ -140,4 +140,8 @@
 ## Machine Learning
        
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
+  
+## 常用的工具类
+  [guava] (https://github.com/google/guava/wiki)
+
        
