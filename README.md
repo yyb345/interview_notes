@@ -122,12 +122,12 @@
   
     
         
-## 大数据
+## 5. 大数据
 
 [大数据相关](https://www.nowcoder.com/discuss/148752)  <br>
         
 
-## Hbase
+## 6. Hbase
 
  [HBase列式存储](https://www.zhihu.com/question/29380943) <br>
  [HBase深入浅出](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)<br> 
@@ -137,11 +137,11 @@
     
         
 
-## Machine Learning
+## 7. Machine Learning
        
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
 
-## 常用工具
+## 8. 常用工具
        
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
