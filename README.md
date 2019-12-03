@@ -143,7 +143,7 @@
   
 ## 常用的工具
  
- [guava] (https://github.com/google/guava/wiki) <br>
- [mac IDEA快捷键] (https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html) <br>
+ [guava] (https://github.com/google/guava/wiki)  <br>
+ [mac IDEA快捷键] (https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
 
        
