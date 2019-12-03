@@ -140,10 +140,14 @@
 ## Machine Learning
        
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
+
+## 常用工具
+       
+  [guava] (https://github.com/google/guava/wiki)  <br>
+  [mac IDEA快捷键] (https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
   
-## 常用的工具
+
  
- [guava] (https://github.com/google/guava/wiki)  <br>
- [mac IDEA快捷键] (https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
+ 
 
        
