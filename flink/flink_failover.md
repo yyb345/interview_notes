@@ -1,15 +1,42 @@
-# Flink failover机制详解
+# Flink Failover机制详解
 
-翻译原文来自 FLIP--1： 任务失败后，细粒度的恢复策略
+
+
+
 ## Movitation
-  当一个任务失败时，Flink将从上一次完成的checkpoint中重置整个execution graph，然后整个任务会重启。这种代价开销挺大的，特别对于整个JobGraph并没有keyby类似的操作时候
+
+  作为流行的实时流计算框架，高性能、高可用是两个重要的因素，本文将全面分析Flink的高可用设计之道。
+
+
+## Flink 编程模型
+
+### 流式处理框架
+
+### 一个常见的例子
+
+### Flink 如何生成JobGraph？
+
+
+
+## 常见的任务失败场景
+* JobManager 失败
+*  TaskManger 失败
  
-## 常见错误
-* JobManager is no longer the leader
-*   xxx
+
+## 如何恢复？
+
+### 恢复能保证exactly once么？
+
+### 分布式快照
+
+###  对比SPARK、MapReduce恢复机制？
 
 
-## 提议改进
+
+
+## 恢复改进之处?
+  当一个任务失败时，Flink将从上一次完成的checkpoint中重置整个execution graph，然后整个任务会重启。这种代价开销挺大的，特别对于整个JobGraph并没有keyby类似的操作时候
+
 最核心的是仅仅重启失败task相联通的上游流水线任务，这是最基本的fail-over的策略。我们可以通过以下两个步骤来提升：
 
 ###  版本一：整个相关的连通组件重启
@@ -20,5 +47,7 @@
 *  caching 中间结果   在checkpoint中缓存数据流中所有的元素，如果可以保存在磁盘上
 *  memory-only caching
 *  
-##  全部重启
-##  最小子集重启
+
+###  全部重启
+
+###  最小子集重启

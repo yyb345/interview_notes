@@ -12,7 +12,6 @@
 ### JAVA常用的集合
  [Java 集合类解析](https://www.cnblogs.com/yueshutong/p/9696216.html) <br> 
 
-### 计算机多核体系结构
 
 ### JAVA 多线程
  [Java 并发编程](https://www.cnblogs.com/wxd0108/p/5479442.html)  <br> 
@@ -145,6 +144,7 @@
        
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
+  [maven 学习笔记](https://juejin.im/post/5af8336851882542a966bd07#heading-0) <br>
   
 
  
