@@ -33,16 +33,21 @@ DataStream<Tuple2<String, Integer>> counts =
  
  为什么会有 StreamGraph JobGraph等数据结构？
 
+四层转化流程？讲清楚这个东西
+
 
 ### JobGraph的理解
 
 
 ## 常见的任务失败场景
+由于flink计算引擎中存在两种角色，任何一个角色失败都会导致整个计算流失败，下面列了一些这两种角色经常遇到的问题
+
 * JobManager 失败
 *  TaskManger 失败
  
 
 ## 如何恢复？
+对于存储系统来说，是数据恢复，对于计算引擎来说，是数据处理流恢复以及数据结果的恢复。
 
 ### 恢复能保证exactly once么？
 

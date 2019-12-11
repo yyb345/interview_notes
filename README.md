@@ -124,6 +124,12 @@
 ## 5. 大数据
 
 [大数据相关](https://www.nowcoder.com/discuss/148752)  <br>
+什么是数据仓库？ <br>
+什么是数据集市？<br>
+数据仓库的体系是怎么样的？<br>
+
+Hive的驱动层是如何做的？如何翻译为MR或者Spark SQL任务的？ <br>
+Hive有索引优化么？
         
 
 ## 6. Hbase
@@ -132,6 +138,10 @@
  [HBase深入浅出](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)<br> 
   [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
   [HBase的rowkey的设计](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
+  hbase 与mysql的区别？<br>
+  
+  
+  
 
 ## 7. 资源调度
 
