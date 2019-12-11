@@ -13,9 +13,21 @@
 ### 流式处理框架
 
 ### 一个常见的例子
+``` java 
+DataStream<Tuple2<String, Integer>> counts =
+			// split up the lines in pairs (2-tuples) containing: (word,1)
+			text.flatMap(new Tokenizer())
+			// group by the tuple field "0" and sum up tuple field "1"
+			.keyBy(0).sum(1);
+```
 
 ### Flink 如何生成JobGraph？
+ 这部分需要着重理解下JobGraph，因为后续的失败场景恢复是基于此的。
+ 如何理解jobgraph？
+ 
 
+
+### JobGraph的理解
 
 
 ## 常见的任务失败场景
@@ -28,8 +40,9 @@
 ### 恢复能保证exactly once么？
 
 ### 分布式快照
+state 相当于内置了KV存储
 
-###  对比SPARK、MapReduce恢复机制？
+###  对比Spark、MapReduce恢复机制？
 
 
 
@@ -51,3 +64,7 @@
 ###  全部重启
 
 ###  最小子集重启
+
+##  总结
+
+

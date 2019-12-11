@@ -133,14 +133,23 @@
   [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
   [HBase的rowkey的设计](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
 
+## 7. 资源调度
+
+
+* 资源隔离的基础: Cgroups基础
+* 资源管理的基本原理: CPU 内存隔离
+* 资源管理的关键技术:
+* 资源管理的几种实现:
+
+Yarn与K8s有什么区别，Flink 部署在这两个环境中有什么区别？
     
         
 
-## 7. Machine Learning
+## 8. Machine Learning
        
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
 
-## 8. 常用工具
+## 9. 常用工具
        
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
