@@ -3,12 +3,12 @@
 
 
 
-## Movitation
+##  前言
 
   作为流行的实时流计算框架，高性能、高可用是两个重要的因素，本文将全面分析Flink的高可用设计之道。
 
 
-## Flink 编程模型
+## Flink 编程模型（API层）
 
 ### 流式处理框架
 
@@ -23,8 +23,15 @@ DataStream<Tuple2<String, Integer>> counts =
 
 ### Flink 如何生成JobGraph？
  这部分需要着重理解下JobGraph，因为后续的失败场景恢复是基于此的。
- 如何理解jobgraph？
+
+什么是执行计划？
+什么是jobgraph? 为什么需要jobgraph? 它是一种数据流描述编程方法
  
+ 顶点、边 分别代表什么
+ 
+ 这些都是在api层定义的东西
+ 
+ 为什么会有 StreamGraph JobGraph等数据结构？
 
 
 ### JobGraph的理解
@@ -40,6 +47,9 @@ DataStream<Tuple2<String, Integer>> counts =
 ### 恢复能保证exactly once么？
 
 ### 分布式快照
+
+有向无环图数据的动态保存以及恢复
+
 state 相当于内置了KV存储
 
 ###  对比Spark、MapReduce恢复机制？
