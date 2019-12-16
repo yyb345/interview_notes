@@ -164,6 +164,10 @@ Yarn与K8s有什么区别，Flink 部署在这两个环境中有什么区别？
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
   [maven 学习笔记](https://juejin.im/post/5af8336851882542a966bd07#heading-0) <br>
+ 
+## 10 .  性能诊断
+[快速分析性能瓶颈](https://www.infoq.cn/article/iSTZ0XT4vyM6XXTx1Fx1) <br>
+[SLA](https://darrykinger.com/index.php/archives/59/) <br>
   
 
  
