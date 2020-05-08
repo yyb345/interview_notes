@@ -33,7 +33,7 @@
          * [zookeeper在kafka中的作用](#zookeeper在kafka中的作用)
            
 # Kafka 端到端源码解析
- 
+
 ##  Kafka的场景
 
 ## Kafka概念
@@ -53,17 +53,17 @@
 
 ## Topic 创建与删除
    zk注册，controller选举具体的数据结构与流程
-   
-   
+
+
 ### Topic状态流转
    创建、在线、增加分区、下线、删除
-   
+
 ###  Topic 一些问题
 * topic分区数可不可以减少？如果可以，为什么？<br>
    **不可以**
 *   Kafka 目前有哪些内部topic？分别的作用是什么？<br>
     **__consumer_offset** 用来保存用户groupId对应的消费topic offset
-       
+    
 
 
 ### Topic分区初始化选择
@@ -117,7 +117,7 @@ MemoryRecord 定义了一条消息在内存中的存储，
 ### 6. ACK机制
  代表对于消息可靠性的容忍度 <br>
  Ack=1 代表leader返回ack即可 Ack=-1 代表所有副本返回ack Ack=0代表不需要返回
- 
+
 ### 7. Producer一些问题
 * kafka 分区器、序列化器、拦截器之间的处理顺序？<br>
      **序列化器、分区器、 拦截器**（发送完成后才会调用）
@@ -130,7 +130,7 @@ MemoryRecord 定义了一条消息在内存中的存储，
         kafka 0.11版本之后提供了producer的幂等性
 *   kafka 生产者客户端用了几个线程 <br>
          sender线程、producer主线程、
- 
+
 
 
 ## Kafka网络接收层
@@ -148,7 +148,7 @@ server/ClientQuatoManager负责进行流量控制
 ### 堆外内存
 堆外内存主要用在kafka consumer中，一般为了提高I/O效率，都采用NIO的方式读取文件，而读取后的数据都保存在ByteBuffer数据结构中，ByteBuffer封装了堆外内存的引用。
 ByteBufferMessageSet 解读
- 
+
 
 ## kafka 存储层解析
 
@@ -175,29 +175,29 @@ value |  | 消息体长度
 根据时间戳查找offset，先顺序定位到LogSegment（找到第一个大于该时间戳的LogSegment),然后timeindex内部二分查找定位到offset
 2.  **给定offset—> 定位到某个LogSegment—>定位消息位置 ?** <br>
  根据offset，跳表中定位到LogSegment,然后index内部二分查找定位到offset位置，再顺序搜索定位到文件位置
- 
- 
+
+
 ### 刷盘策略
 kafka是异步刷盘的，有后台线程专程将内存中的数据写入到磁盘中
 index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是普通的读取文件。
- 
-### 日志清理与Compaction 
+
+### 日志清理与Compaction
 
 
 
 
 ### 流程与数据结构
 
- 
+
 ###  一些问题
- 
+
  * 谈谈你对页缓存、内核层、块层、设备层的理解  <br>
       内核层 ：操作系统中的内存数据与用户态buffer进行相互拷贝<br>
       pagecache : 文件读到操作系统内存中，操作系统的内存管理系统会预读 <br>
       块层：管理设备I/O队列，对I/O请求进行合并、排序等
       设备层：通过DMA与内存直接交互，将数据写到磁盘
       
- 
+
 ## 副本管理
 为什么用ISR，不用Raft之类的协议？借鉴了PacificA算法协议。 两个重要的组件：配置管理（对应kafka ISR，leader epoch commited_point) <br>
 ==HighWaterMark的作用：commited 消息度量；读可见性==
@@ -244,7 +244,7 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 4.  **topic创建触发**
 5.  **broker上线、下线的通知**
 6. **ISR配置变更**
- 
+
 
 
 
