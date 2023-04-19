@@ -44,6 +44,8 @@ public class TwoPoint {
 	}
 
 	public static void main(String []args){
-		partitionLabels("ababcbacadefegdehijhklij");
+		List<Integer> xx = partitionLabels("ababcbacadefegdehijhklij");
+
+		System.out.println(xx.size());
 	}
 }
