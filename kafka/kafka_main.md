@@ -143,6 +143,29 @@ server/ClientQuatoManager负责进行流量控制
 ### 如何做数据安全的？
 
 
+
+#### PageCache、mmap、zero-copy在kafka中的场景分别是什么？
+
+PageCache是文件缓存，属于操作系统层面的优化 --这个一般用来数据的缓存
+
+mmap是内存映射文件 【MappedByteBuffer】用于index文件的读写
+
+zero-copy是指在sendfile函数，可以直接从操作系统的文件中转移到网络channel 中，不需要走内核中转。在java中是fileChannel的trasferTo函数
+
+那么这几个在kafka中，分别使用的是什么函数？ 
+
+ByteBuffer 堆内、、DirectByteBuffer是堆外内存
+
+
+
+文件读写相关接口：FileChannel
+
+zero-copy相关接口：sendFile();
+
+
+
+
+
 ## Kafka内存管理
 
 ### 堆外内存
@@ -227,7 +250,7 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 
 ### 一些问题
 * kafka 如何做到不重复消费? <br>
-现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。<br>
+  现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。<br>
     同样，应用端也就是consumer端需要消息处理和offset提交这两步是事务的，也即要么操作成功要么撤回恢复之前的状态。这需要应用端有事务保障，但往往很多应用端是不支持事务的，比如kafka数据落盘hdfs，kafka数据消费完写入本地文件等等。但官方给的kafka consumer-process-kafka 给出了一个不错的参考的例子和思路。基本上遵循了分布式系统中的两阶段提交想法和思路，[具体可以参见](http://matt33.com/2018/11/04/kafka-transaction/)
 
 个人理解重复消费出现的概率并不会很高，在服务端改进会带来很大的性能损耗，这可能是为什么大家都选择不处理的重要原因吧。另外，本身系统与系统之间传输数据，很难做到消息的exactly once的。无论是kafka到存储系统hdfs还是spark flink下游计算系统等。若数据传输都在一个系统之内，那相对好处理一些，比如kafka的事务，保证了consume-process-producer的事务场景，也就是从kafka消费处理完毕后再到kafka，这个可以做到exactly once。
@@ -244,7 +267,6 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 4.  **topic创建触发**
 5.  **broker上线、下线的通知**
 6. **ISR配置变更**
-
 
 
 
