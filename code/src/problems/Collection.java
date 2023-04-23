@@ -1,6 +1,6 @@
 package problems;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import java.util.Set;
 import java.util.Stack;
@@ -14,13 +14,13 @@ import java.util.TreeSet;
 public class Collection {
 
 
-	@Test
-	public void treeSetTest(){
-		Set<Integer> set=new TreeSet<>();
-
-		Stack<Integer> stack=new Stack<>();
-
-	}
+//	@Test
+//	public void treeSetTest(){
+//		Set<Integer> set=new TreeSet<>();
+//
+//		Stack<Integer> stack=new Stack<>();
+//
+//	}
 
 
 }

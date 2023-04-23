@@ -243,7 +243,7 @@ public class NiuKeProblem {
 
 
     // 113
-//    List<List<Integer>> finalRsult = new ArrayList<>();
+   List<List<Integer>> finalRsult = new ArrayList<>();
 //    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
 //        dfsPath(root,targetSum,new ArrayList<>());
 //        return finalRsult;

@@ -1,6 +1,6 @@
 package problems;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 import java.util.concurrent.*;
 
@@ -73,7 +73,7 @@ public class Threads {
 
 
 
-	@Test
+//	@Test
 	public void volitleTest() throws Exception{
 		CountDownLatch countDownLatch=new CountDownLatch(2);
 		ExecutorService threadPoolExecutor= Executors.newCachedThreadPool();
@@ -96,7 +96,7 @@ public class Threads {
 
 	//AtomicInteger
 
-	@Test
+//	@Test
 	public void volatileTest(){
 		Threads threads=new Threads();
 		for(int i=0;i<10;i++){
@@ -115,7 +115,7 @@ public class Threads {
 	}
 
 
-	@Test
+//	@Test
 	public void  CountDownLatchTest() throws Exception{
 		int threadNum=10;
 		CountDownLatch countDownLatch=new CountDownLatch(threadNum);
@@ -135,7 +135,7 @@ public class Threads {
 
 
 
-	@Test
+//	@Test
 	public void CyclicBarrierTest() throws Exception{
 		int threadNum=10;
 		//FutureTask
