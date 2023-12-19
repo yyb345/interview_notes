@@ -154,7 +154,7 @@ zero-copy是指在sendfile函数，可以直接从操作系统的文件中转移
 
 那么这几个在kafka中，分别使用的是什么函数？ 
 
-ByteBuffer 堆内、、DirectByteBuffer是堆外内存
+ByteBuffer 堆内、、DirectByteBuffer
 
 
 

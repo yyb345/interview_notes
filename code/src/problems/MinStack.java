@@ -37,7 +37,7 @@ public class MinStack  {
         return dataStack.peek();
     }
 
-    public int min() {
+    public int getMin() {
         if(minStack.isEmpty()){
             return -1;
         }
