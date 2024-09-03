@@ -1,6 +1,8 @@
 package leetcode;
 
 
+import treeproblem.TreeNode;
+
 import java.math.BigInteger;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -9,64 +11,6 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-
-
-      static class TreeNode {
-          int val;
-          TreeNode left;
-          TreeNode right;
-          TreeNode() {}
-          TreeNode(int val) { this.val = val; }
-          TreeNode(int val, TreeNode left, TreeNode right) {
-              this.val = val;
-              this.left = left;
-              this.right = right;
-          }
-      }
-
-    public static boolean exist(char[][] board, String word) {
-
-        int m = board.length;
-        int n = board[0].length;
-
-        for(int i=0;i<m;i++){
-            for(int j=0;j<board[0].length;j++){
-                boolean[][] travel = new boolean[m][n];
-                if(dfs(board,i,j,m,n,travel,word.substring(1))){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-   static boolean  dfs(char[][] board,int i,int j,int m,int n,boolean[][] travel,String word){
-        if(i<0 || j<0 || i>=m || j>=n || travel[i][j]){
-            return false;
-        }
-        if(!word.startsWith(String.valueOf(board[i][j]))){
-            return false;
-        }
-        travel[i][j]= true;
-        if(word.length()==1){
-            return true;
-        }
-        String newWord = word.substring(1);
-        if(dfs(board,i+1,j,m,n,travel,newWord)){
-            return true;
-        }
-        if(dfs(board,i-1,j,m,n,travel,newWord)){
-            return true;
-        }
-        if(dfs(board,i,j+1,m,n,travel,newWord)){
-            return true;
-        }
-
-        if(dfs(board,i,j-1,m,n,travel,newWord)){
-            return true;
-        }
-        return false;
-    }
 
 
 //    public static int maxProduct(int[] nums) {
@@ -305,75 +249,10 @@ public class Main {
     }
 
 
-    List<List<Integer>> ret = new ArrayList<>();
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        if(candidates==null || candidates.length==0){
-            return new ArrayList<>();
-        }
-
-        int m = candidates.length;
-        for(int i=0;i<m;i++){
-            dfs(i,m,candidates,target,new ArrayList<>());
-        }
-        return ret;
-    }
-
-    void dfs(int i,int m,int[] nums,int target,List<Integer> list) {
-
-        if (i >= m || target < 0) {
-            return ;
-        }
-        if (nums[i] == target) {
-            list.add(nums[i]);
-            ArrayList<Integer> arrayList = new ArrayList<>(list);
-            list.remove(list.size()-1);
-
-            for (List<Integer> successList : ret) {
-                if(listCompare(successList,arrayList)){
-                    return;
-                }
-            }
-            ret.add(arrayList);
-            return ;
-        }
-
-        list.add(nums[i]);
-        for (int k = 0; k < m; k++) {
-            dfs(k, m, nums, target - nums[i], list);
-        }
-        list.remove(list.size()-1);
-    }
 
 
-    boolean listCompare(List<Integer> list1,List<Integer> list2){
-        if(list1.size()!=list2.size()){
-            return false;
-        }
-        Map<Integer,Integer> list1Count = new HashMap<>();
-        for (Integer num : list1) {
-            if(list1Count.get(num)!=null){
-                list1Count.put(num,list1Count.get(num)+1);
-            }else {
-                list1Count.put(num,1);
-            }
-        }
 
-        Map<Integer,Integer> list2Count = new HashMap<>();
-        for (Integer num : list2) {
-            if(list2Count.get(num)!=null){
-                list2Count.put(num,list2Count.get(num)+1);
-            }else {
-                list2Count.put(num,1);
-            }
-        }
 
-        for (Map.Entry<Integer, Integer> entry : list2Count.entrySet()) {
-            if(list1Count.get(entry.getKey())==null || !list1Count.get(entry.getKey()).equals(entry.getValue())){
-                return false;
-            }
-        }
-        return true;
-    }
 
 
     public int jump(int[] nums) {
@@ -788,18 +667,6 @@ public class Main {
 
 
 
-//       System.out.println(new Main().minPathSum(nums));
-
-//       PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(2, (o1, o2) -> o2.compareTo(o1));
-//       priorityQueue.add(2);
-//       priorityQueue.add(1);
-//
-//       System.out.println(priorityQueue.peek());
-//       int[] F = new int[4];
-//       String xx = "12345";
-//       System.out.println(F.length);
-//       System.out.println(xx.length());
-//       String[] pp = new String[]{"1","2"};
 
         maxProduct(new int[]{2,-5,-2,-4,3});
     }
