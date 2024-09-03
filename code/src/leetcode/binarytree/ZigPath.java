@@ -1,7 +1,5 @@
 package leetcode.binarytree;
 
-import treeproblem.TreeNode;
-
 
 /**
  * 1372. 二叉树中的最长交错路径

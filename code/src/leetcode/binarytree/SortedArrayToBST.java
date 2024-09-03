@@ -1,8 +1,6 @@
 package leetcode.binarytree;
 
 
-import treeproblem.TreeNode;
-
 public class SortedArrayToBST {
 
     public static TreeNode sortedArrayToBST(int[] nums) {

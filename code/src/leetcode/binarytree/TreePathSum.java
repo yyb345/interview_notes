@@ -1,7 +1,6 @@
 package leetcode.binarytree;
 
 import tool.TreeTool;
-import treeproblem.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

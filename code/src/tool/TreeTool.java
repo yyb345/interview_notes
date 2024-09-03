@@ -1,6 +1,6 @@
 package tool;
 
-import treeproblem.TreeNode;
+import leetcode.binarytree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

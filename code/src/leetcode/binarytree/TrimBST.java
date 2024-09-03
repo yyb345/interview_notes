@@ -1,8 +1,6 @@
 package leetcode.binarytree;
 
 
-import treeproblem.TreeNode;
-
 public class TrimBST {
 
     public static TreeNode trimBST(TreeNode root, int L, int R) {

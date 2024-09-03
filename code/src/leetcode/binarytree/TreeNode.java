@@ -1,4 +1,4 @@
-package treeproblem;
+package leetcode.binarytree;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
 package leetcode;
 
 
-import treeproblem.TreeNode;
+import leetcode.binarytree.TreeNode;
 
 import java.math.BigInteger;
 import java.util.*;

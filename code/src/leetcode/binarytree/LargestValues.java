@@ -1,8 +1,5 @@
 package leetcode.binarytree;
 
-import leetcode.Solution;
-import treeproblem.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

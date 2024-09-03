@@ -1,7 +1,7 @@
 package leetcode.niuke;
 
 import leetcode.ListNode;
-import treeproblem.TreeNode;
+import leetcode.binarytree.TreeNode;
 
 import java.util.Stack;
 import java.util.*;

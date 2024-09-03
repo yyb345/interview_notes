@@ -1,8 +1,6 @@
 package leetcode.binarytree;
 
 
-import treeproblem.TreeNode;
-
 //TODO 重写一遍
 public class SumOfLeftLeaves {
 

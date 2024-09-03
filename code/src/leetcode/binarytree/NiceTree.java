@@ -1,6 +1,6 @@
-package treeproblem;
+package leetcode.binarytree;
 
-import tool.TreeTool;
+import leetcode.binarytree.TreeNode;
 
 public class NiceTree {
 
