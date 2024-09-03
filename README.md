@@ -82,9 +82,27 @@
   [\[原创\]Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>     
 
 ### pulsar VS kafka
-[bookeeper原理浅析](http://matt33.com/2019/01/28/bk-store-realize/#一致性模型) <br>        
+[bookeeper原理浅析](http://matt33.com/2019/01/28/bk-store-realize/#一致性模型) <br>
 
-## 4. Flink
+
+
+## 4. 开放平台技术   
+
+1. 开放平台网关
+
+2. Oauth授权
+
+3. RPC技术
+
+4. API DevOps技术
+
+5. API SDK 生成技术
+
+   
+
+##        
+
+## 5. Flink
 
 ### 流式处理框架  
   [DataFlow编程模型](https://www.jianshu.com/p/0faa1c1caa47) <br>
@@ -123,7 +141,7 @@
 
 ​    
 ​        
-## 5. 大数据
+## 6. 大数据
 
 [大数据相关](https://www.nowcoder.com/discuss/148752)  <br>
 什么是数据仓库？ <br>
@@ -134,7 +152,7 @@ Hive的驱动层是如何做的？如何翻译为MR或者Spark SQL任务的？ <
 Hive有索引优化么？
         
 
-## 6. Hbase
+## 7. Hbase
 
  [HBase列式存储](https://www.zhihu.com/question/29380943) <br>
  [HBase深入浅出](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)<br> 
@@ -145,7 +163,7 @@ Hive有索引优化么？
   
 
 
-## 7. 资源调度
+## 8. 资源调度
 
 
 * 资源隔离的基础: Cgroups基础
@@ -154,20 +172,22 @@ Hive有索引优化么？
 * 资源管理的几种实现:
 
 Yarn与K8s有什么区别，Flink 部署在这两个环境中有什么区别？
-    
-        
 
-## 8. Machine Learning
+
+
+​      
+
+## 9. Machine Learning
 
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
 
-## 9. 常用工具
+## 10. 常用工具
 
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
   [maven 学习笔记](https://juejin.im/post/5af8336851882542a966bd07#heading-0) <br>
 
-## 10 .  性能诊断
+## 11 .  性能诊断
 [快速分析性能瓶颈](https://www.infoq.cn/article/iSTZ0XT4vyM6XXTx1Fx1) <br>
 [SLA](https://darrykinger.com/index.php/archives/59/) <br>
 
