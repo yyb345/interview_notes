@@ -2,6 +2,8 @@
 
 
 ## 0. 算法学习
+[leetcode](https://github.com/yyb345/notes/tree/master/code/src/leetcode)<br>
+
 [编程之美](https://github.com/yyb345/notes/tree/master/documents) <br>
 [牛客网]() <br>
 
@@ -20,7 +22,7 @@
 
 ### JAVA I/O
 [BIO NIO AIO总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md) <br>
- 
+
 
 ### 类加载机制
   [Java 类加载机制](https://juejin.im/post/5a810b0e5188257a5c606a85) <br>
@@ -32,14 +34,14 @@
  [JVM 内存模型](https://juejin.im/post/5ad5c0216fb9a028e014fb63) <br> 
  [JVM内存划分、JVM内存分配机制、JVM垃圾回收机制](https://blog.csdn.net/CSDN_Terence/article/details/77771429) <br>
 
-   
+
 ### 进程间通信  
 
 [进程间通信](java/进程间通信.md)
 
   
-  
-     
+
+
 ## 2. 分布式
 
    [Zookeeper选举分析](https://www.cnblogs.com/longxok/p/8951867.html)  <br>
@@ -78,7 +80,7 @@
   [Kafka Exactly Once Delivery and Transactional Messaging ](https://cwiki.apache.org/confluence/display/KAFKA/KIP-98+-+Exactly+Once+Delivery+and+Transactional+Messaging#KIP-98-ExactlyOnceDeliveryandTransactionalMessaging-DataFlow) <br>
 ### Kafka bugs
   [\[原创\]Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>     
- 
+
 ### pulsar VS kafka
 [bookeeper原理浅析](http://matt33.com/2019/01/28/bk-store-realize/#一致性模型) <br>        
 
@@ -89,7 +91,7 @@
   [Flink Spark对比](https://www.infoq.cn/article/spark-vs-flink) <br>
   [Flink Storm对比](https://tech.meituan.com/2017/11/17/flink-benchmark.html) <br>
   [如何使用Spark Streaming + Kafka如何实现精确一次语义?](https://www.zhihu.com/question/334249637/answer/744493120) <br>
-  
+
 ### Flink Example 
   [Flink Training](https://training.ververica.com/) <br> 
   [Flink如何让每一条数据进来后延迟一段时间再被处理?](https://www.zhihu.com/question/332577514/answer/840181621)  <br>
@@ -104,10 +106,10 @@
   [Flink checkpoint与savepoint的区别](https://www.whitewood.me/2018/09/06/Flink-Checkpoint-Savepoint-%E5%B7%AE%E5%BC%82/) <br>
   [Flink failover机制解析--待翻译](https://cwiki.apache.org/confluence/display/FLINK/FLIP-1+%3A+Fine+Grained+Recovery+from+Task+Failures) <br>
   [\[原创\]Flink TTL state解析](https://github.com/yyb345/index/blob/master/flink/ttl_state.md) <br>
-  
-  
+
+
   [Flink-分布式快照的设计](http://chenyuzhao.me/2018/01/29/Flink-%E5%88%86%E5%B8%83%E5%BC%8F%E5%BF%AB%E7%85%A7%E7%9A%84%E8%AE%BE%E8%AE%A1-%E6%B5%81%E7%A8%8B/) <br>
- 
+
   [Flink  Kafka 0.11 exactly once](https://www.cnblogs.com/huxi2b/p/8459342.html) <br>
   [Flink Exactly-Once 解析](http://www.whitewood.me/2018/10/16/Flink-Exactly-Once-%E6%8A%95%E9%80%92%E5%AE%9E%E7%8E%B0%E6%B5%85%E6%9E%90/) <br>
   [Flink State 使用文档](https://ci.apache.org/projects/flink/flink-docs-master/dev/stream/state/state.html) <br>
@@ -118,9 +120,9 @@
 [\[原创\]Flink 1.7.1 版本问题记录](https://zhuanlan.zhihu.com/p/80236965)  <br>  
 [\[FLINK-13477\] Add memory-overhead-ratio conf for containers by BenoitHanotte · Pull Request #9265 · apache/flink](https://github.com/apache/flink/pull/9265) <br>
 
-  
-    
-        
+
+​    
+​        
 ## 5. 大数据
 
 [大数据相关](https://www.nowcoder.com/discuss/148752)  <br>
@@ -139,9 +141,9 @@ Hive有索引优化么？
   [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
   [HBase的rowkey的设计](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
   hbase 与mysql的区别？<br>
+
   
-  
-  
+
 
 ## 7. 资源调度
 
@@ -156,21 +158,21 @@ Yarn与K8s有什么区别，Flink 部署在这两个环境中有什么区别？
         
 
 ## 8. Machine Learning
-       
+
   [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
 
 ## 9. 常用工具
-       
+
   [guava](https://github.com/google/guava/wiki)  <br>
   [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
   [maven 学习笔记](https://juejin.im/post/5af8336851882542a966bd07#heading-0) <br>
- 
+
 ## 10 .  性能诊断
 [快速分析性能瓶颈](https://www.infoq.cn/article/iSTZ0XT4vyM6XXTx1Fx1) <br>
 [SLA](https://darrykinger.com/index.php/archives/59/) <br>
-  
+
+
 
  
- 
 
-       
+​       
