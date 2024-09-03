@@ -3,9 +3,11 @@ package generic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 public class GTest {
 
+    Semaphore semaphore = new Semaphore(10);
     public static void main(String[] args){
 
         GenericClass genericClass = new GenericClass();
