@@ -6,31 +6,16 @@ import java.util.stream.Collectors;
 public class Solution {
 
 
-    public static int arrayPairSum(int[] nums) {
-        int sum = 0;
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i = i + 2) {
-            sum += nums[i];
-        }
-
-        return sum;
-    }
-
     public static int completNum(int n) {
         int m = 0;
         String result = Integer.toBinaryString(n);
         int j = 0;
         for (int i = result.length(); i > 0; i--) {
-
-
             if (result.substring(i - 1, i).equals("0"))
                 m = m + (int) Math.pow(2, j);
-
             j++;
 
         }
-
-
         return m;
     }
 
@@ -48,19 +33,6 @@ public class Solution {
         return distance;
     }
 
-
-    public int distributeCandies(int[] candies) {
-
-        Set hs = new HashSet();
-
-        for (int candy : candies)
-            hs.add(candy);
-
-        if (hs.size() >= (candies.length / 2))
-            return candies.length / 2;
-        else
-            return hs.size();
-    }
 
     //problem 463
     public int islandPerimeter(int[][] grid) {
@@ -99,94 +71,6 @@ public class Solution {
         return length;
     }
 
-    public static boolean isToeplitzMatrix(int[][] matrix) {
-        boolean is = true;
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++)
-                if (i + 1 < matrix.length && j + 1 < matrix[0].length) {
-                    if (matrix[i][j] != matrix[i + 1][j + 1]) {
-                        is = false;
-                        break;
-                    }
-                }
-        }
-
-
-        return is;
-    }
-
-    public static int calPoints(String[] ops) {
-        int sum = 0;
-        int score[] = new int[ops.length];
-        for (int i = 0; i < ops.length; i++)
-            if (ops[i].equals("+")) {
-                if (i - 2 >= 0) {
-                    int index1 = 0;
-                    int index2 = 0;
-                    for (int index = i - 1; index >= 0; index--) {
-                        if (score[index] != 0) {
-                            index1 = index;
-                            break;
-
-                        }
-
-                    }
-                    for (int k = index1 - 1; k >= 0; k--) {
-                        if (score[k] != 0) {
-                            index2 = k;
-                            break;
-                        }
-
-                    }
-                    score[i] = score[index1] + score[index2];
-
-                }
-
-            } else if (ops[i].equals("D")) {
-                if (i - 1 >= 0) {
-                    int index1 = 0;
-                    for (int index = i - 1; index >= 0; index--) {
-                        if (score[index] != 0) {
-                            index1 = index;
-                            break;
-
-                        }
-
-                    }
-
-                    score[i] = score[index1] * 2;
-
-                }
-
-            } else if (ops[i].equals("C")) {
-                if (i - 1 >= 0) {
-
-                    int index1 = 0;
-                    for (int index = i - 1; index >= 0; index--) {
-                        if (score[index] != 0) {
-                            index1 = index;
-                            break;
-
-                        }
-
-                    }
-                    score[index1] = 0;
-                    score[i] = 0;
-
-                }
-
-
-            } else {
-                score[i] = Integer.parseInt(ops[i]);
-
-            }
-
-        for (int it = 0; it < score.length; it++)
-            sum += score[it];
-
-        return sum;
-    }
 
     //problem 566
     public static int[][] matrixReshape(int[][] nums, int r, int c) {
@@ -474,116 +358,7 @@ public class Solution {
 
     }
 
-
-    // problem tjw
-    public static Map<Boolean, String> tjw(int m, int n) {
-
-        Map<Boolean, String> result = new HashMap<>();
-
-        int avg = m / n;
-        boolean exits = false;
-        Map<Integer, Integer> fbsums = new HashMap<>();
-        fbsums.put(1, 1);
-        fbsums.put(2, 2);
-        int a1 = 1;
-        int a2 = 1;
-        int fbsum = 2;
-        int index = 2;
-        while (fbsum <= avg) {
-            int tmp2 = a2;
-            int tmp1 = a1;
-            a1 = tmp2;
-            a2 = tmp1 + tmp2;
-            fbsum = fbsum + a2;
-            fbsums.put(index++, fbsum);
-        }
-
-        if (n == 1) {
-            if (fbsums.containsKey(m)) {
-                result.put(true, "1");
-
-            } else {
-                result.put(false, "0");
-            }
-
-            return result;
-        } else {
-            int sum = 0;
-            int key = 0;
-            Map<Boolean, String> rr = new HashMap<>();
-            for (Map.Entry<Integer, Integer> entry : fbsums.entrySet()) {
-                sum = entry.getValue();
-                key = entry.getKey();
-                rr = tjw(m - sum, n - 1);
-                //如果成功
-                if (rr.containsKey(true)) {
-                    exits = true;
-                    break;
-                }
-            }
-
-            if (exits) {
-                result.put(true, rr.get(true) + "," + key);
-
-            } else {
-                result.put(false, "0");
-            }
-
-
-            return result;
-        }
-
-
-    }
-
-
-    //problem 856
-
-    public static int scoreOfParentheses(String S) {
-
-        int sum = 0;
-        Stack<Character> tmp = new Stack<>();
-        Stack<Character> tmpvalue = new Stack<>();
-        for (int i = 0; i < S.length(); i++) {
-            if (S.charAt(i) == '(') {
-                tmp.push('(');
-                tmpvalue.push('(');
-            } else if (S.charAt(i) == ')') {
-                tmp.pop();
-                Character popvalue = tmpvalue.pop();
-
-                if (popvalue != null) {
-                    int prevalue = 0;
-                    if (popvalue == '(') {
-                        prevalue = 1;
-                        tmpvalue.push('1');
-                    } else {
-                        Character pop1 = tmpvalue.pop();
-
-                        if (pop1 == '(') {
-                            int value = (Integer.parseInt(popvalue.toString()) * 2);
-                            tmpvalue.push((char) value);
-                        } else {
-                            int value = Integer.parseInt(popvalue.toString()) + Integer.parseInt(pop1.toString());
-                            tmpvalue.push((char) value);
-                        }
-                    }
-
-                }
-            }
-
-            if (tmp.size() == 0) {
-                Character pop = tmpvalue.pop();
-                sum = Integer.parseInt(pop.toString());
-            }
-
-        }
-        return sum;
-    }
-
-
     // problem 169
-
     public static int majorityElement(int[] nums) {
 
         Map<Integer, Integer> tmp = new HashMap<>();
@@ -796,112 +571,6 @@ public class Solution {
 
         }
 
-
-        return result;
-    }
-
-
-    public static List<TreeNode> allPossibleFBT(int N) {
-        List<TreeNode> result = new ArrayList();
-
-        int subTotal = N - 1;
-        int i = 0;
-        int left = 0;
-        int right = 0;
-
-
-        if (N == 1) {
-            TreeNode tmp = new TreeNode(0);
-            result.add(tmp);
-        } else {
-            while (left < subTotal) {
-
-                left = 2 * i + 1;
-                right = subTotal - left;
-                List<TreeNode> leftTreeNodes = allPossibleFBT(left);
-                List<TreeNode> rightTreeNodes = allPossibleFBT(right);
-
-                for (TreeNode l : leftTreeNodes) {
-                    for (TreeNode r : rightTreeNodes) {
-                        TreeNode tmp = new TreeNode(0);
-                        tmp.left = l;
-                        tmp.right = r;
-                        result.add(tmp);
-                    }
-                }
-                i++;
-                left = 2 * i + 1;
-            }
-        }
-
-
-        return result;
-
-
-    }
-
-
-    // problem  121
-    public static int maxProfit(int[] prices) {
-
-        if (prices.length > 1) {
-            int[] tmp = new int[prices.length - 1];
-            for (int i = 0; i < prices.length - 1; i++) {
-                tmp[i] = prices[i];
-            }
-
-            int min = Arrays.stream(tmp).min().getAsInt();
-            int value = Math.max((prices[prices.length - 1] - min), maxProfit(tmp));
-            return value;
-        } else {
-            int value = 0;
-            return value;
-        }
-
-
-    }
-
-
-    public static List<Integer> largestValues(TreeNode root) {
-        Queue<TreeNode> treeNode = new LinkedList<>();
-        Queue<TreeNode> tree2 = new LinkedList<>();
-        Queue<TreeNode> tmp = new LinkedList<>();
-        List<Integer> result = new ArrayList<>();
-
-        if (root != null) {
-
-            treeNode.add(root);
-            while (treeNode.size() > 0) {
-
-                int maxValue = Integer.MIN_VALUE;
-                boolean yes = false;
-
-                while (treeNode.size() > 0) {
-                    TreeNode pop = treeNode.poll();
-                    if (pop != null) {
-                        if (pop.left != null) {
-                            tree2.add(pop.left);
-                        }
-                        if (pop.right != null) {
-                            tree2.add(pop.right);
-                        }
-                        if (pop.val > maxValue) {
-                            maxValue = pop.val;
-                            yes = true;
-                        }
-                    }
-
-
-                }
-                if (yes) {
-                    result.add(maxValue);
-                }
-                treeNode = tree2;
-                tree2 = new LinkedList<>();
-            }
-
-
-        }
         return result;
     }
 
@@ -1040,80 +709,6 @@ public class Solution {
         return result;
     }
 
-    public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-
-        if (nums.length > 1) {
-            for (int i = 0; i < nums.length; i++) {
-                int[] subNums = new int[nums.length - 1];
-                int index = 0;
-                for (int j = 0; j < nums.length; j++) {
-                    if (i != j) {
-                        subNums[index++] = nums[j];
-                    }
-                }
-                List<List<Integer>> permute = permute(subNums);
-                for (List<Integer> d : permute) {
-                    d.add(nums[i]);
-                    result.add(d);
-                }
-            }
-        } else if (nums.length == 1) {
-            List<Integer> dd = new ArrayList<>();
-            dd.add(nums[0]);
-            result.add(dd);
-        }
-
-
-        return result;
-    }
-
-
-    public static List<String> generateParenthesis(int n) {
-
-        List<String> result = new ArrayList<>();
-        List<String> strings = subGenet(n - 1, n);
-        for (String l : strings) {
-            result.add("(" + l);
-        }
-        return result;
-    }
-
-    public static List<String> subGenet(int left, int right) {
-        List<String> result = new ArrayList<>();
-        int leftRemaining = left;
-        int rightRemaining = right;
-
-        if (leftRemaining > 0 && rightRemaining > 0) {
-            // 一条路径 C
-            List<String> leftStrings = subGenet(leftRemaining - 1, rightRemaining);
-            for (String l : leftStrings) {
-                result.add("(" + l);
-            }
-            //另一条路径 )
-            if (rightRemaining > leftRemaining) {
-                List<String> rightStrings = subGenet(leftRemaining, rightRemaining - 1);
-                for (String r : rightStrings) {
-                    result.add(")" + r);
-                }
-            }
-
-        } else if (leftRemaining == 0 && rightRemaining > 0) {
-
-            // 一条路径，)
-            List<String> rightStrings = subGenet(leftRemaining, rightRemaining - 1);
-            for (String r : rightStrings) {
-                result.add(")" + r);
-            }
-        } else if (leftRemaining == 0 && rightRemaining == 0) {
-            result.add("");
-        }
-
-
-        return result;
-
-    }
-
     public static class ListNode {
         int val;
         ListNode next;
@@ -1123,69 +718,6 @@ public class Solution {
         }
     }
 
-
-    public static ListNode oddEvenList(ListNode head) {
-        if (head != null) {
-            ListNode odd = head;
-            ListNode even = head.next;
-            ListNode startOdd = odd;
-            ListNode startEven = even;
-
-            while (odd != null && even != null) {
-                // 下一次迭代
-                ListNode nextOdd = null;
-                ListNode nextEven = null;
-                if (odd.next != null) {
-                    nextOdd = odd.next.next;
-                    odd.next = odd.next.next;
-                } else {
-                    break;
-                }
-
-                if (even.next != null) {
-                    nextEven = even.next.next;
-                    even.next = even.next.next;
-                } else {
-                    break;
-                }
-
-                odd = nextOdd;
-                even = nextEven;
-            }
-
-            odd.next = startEven;
-            return startOdd;
-        } else {
-            return null;
-        }
-
-    }
-
-    public static int kthSmallest(TreeNode root, int k) {
-
-        int result = 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        List<Integer> values = new ArrayList<>();
-        while (queue.size() > 0) {
-            TreeNode poll = queue.poll();
-            if (poll.left != null) {
-                queue.add(poll.left);
-                values.add(poll.val);
-            }
-            if (poll.right != null) {
-                queue.add(poll.right);
-                values.add(poll.val);
-            }
-        }
-        Object[] objects = values.toArray();
-        Arrays.sort(objects);
-        int object = (int) objects[k - 1];
-
-        result = object;
-
-        return result;
-    }
 
     public static int findKthLargest(int[] nums, int k) {
 
@@ -1302,31 +834,6 @@ public class Solution {
     }
 
 
-    public static TreeNode sortedArrayToBST(int[] nums) {
-        int middleIndex = (nums.length - 1) / 2;
-
-        if (middleIndex > 0) {
-            int[] left = new int[middleIndex];
-            int[] right = new int[nums.length - middleIndex - 1];
-            for (int i = 0; i < middleIndex; i++) {
-                left[i] = nums[i];
-            }
-            for (int i = middleIndex + 1; i < nums.length; i++) {
-                right[i] = nums[i];
-            }
-            TreeNode result = new TreeNode(nums[middleIndex]);
-            result.left = sortedArrayToBST(left);
-            result.right = sortedArrayToBST(right);
-            return result;
-
-        } else {
-            TreeNode result = new TreeNode(nums[middleIndex]);
-            return result;
-        }
-
-
-    }
-
     public static boolean isPalindrome(ListNode head) {
         boolean result = true;
         ListNode first = head;
@@ -1342,7 +849,7 @@ public class Solution {
                 ListNode tmp = reverse;
                 ListNode newTmp = new ListNode(first.val);
                 newTmp.next = tmp;
-//            newTmp.val=first.val;
+
                 reverse = newTmp;
             }
             ListNode left, right;
@@ -1366,155 +873,6 @@ public class Solution {
         }
 
         return result;
-
-    }
-
-
-    public static ListNode deleteDuplicates(ListNode head) {
-
-
-        if (head != null) {
-            ListNode pre = head;
-            ListNode iter = head.next;
-//            Set<Integer> set=new HashSet<>();
-//            set.add(head.val);
-            //ListNode pre=head;
-            while (iter != null) {
-                if (pre.val == iter.val) {
-                    pre.next = iter.next;
-                    iter = iter.next;
-                } else {
-                    pre = pre.next;
-                    iter = iter.next;
-                }
-            }
-        }
-
-
-        return head;
-    }
-
-
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
-        ListNode first = null;
-        //ListNode result=null;
-        Stack<Integer> stack1 = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
-        while (l1 != null) {
-            stack1.push(l1.val);
-            l1 = l1.next;
-        }
-        while (l2 != null) {
-            stack2.push(l2.val);
-            l2 = l2.next;
-        }
-
-        int preSum = 0;
-
-        while (stack2.size() > 0 || stack1.size() > 0) {
-
-            int sum = 0;
-            if (stack1.size() > 0) {
-                sum += stack1.pop();
-            }
-            if (stack2.size() > 0) {
-                sum += stack2.pop();
-            }
-            sum += preSum;
-            int value = sum % 10;
-            preSum = sum / 10;
-            ListNode tmp = new ListNode(value);
-            tmp.next = first;
-            first = tmp;
-        }
-
-        if (preSum == 1) {
-            ListNode tmp = new ListNode(1);
-            tmp.next = first;
-            first = tmp;
-        }
-
-        return first;
-
-    }
-
-
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-
-        if (head != null) {
-
-            ListNode iter = head;
-            ListNode second = head;
-            ListNode pre = head;
-
-            int i = 1;
-            while (second != null && i < n) {
-                second = second.next;
-                i++;
-            }
-
-
-            int j = 0;
-            while (second != null && second.next != null) {
-                second = second.next;
-                iter = iter.next;
-
-                if (j > 0) {
-
-                    pre = pre.next;
-                } else
-                    j++;
-            }
-            if (j > 0)
-                pre.next = iter.next;
-            else
-                head = head.next;
-        }
-
-
-        return head;
-    }
-
-    public static ListNode reverseBetween(ListNode head, int m, int n) {
-
-        ListNode iter = head;
-        ListNode pre = null;
-        ListNode middle = null;
-        ListNode tail = null;
-        int index = 1;
-        while (iter != null) {
-            if (index == m - 1) {
-                pre = iter;
-            }
-
-            if (index >= m && index <= n) {
-                ListNode tmp = new ListNode(iter.val);
-                tmp.next = middle;
-                middle = tmp;
-                if (index == m) {
-                    tail = middle;
-                }
-            }
-
-            if (index == n + 1) {
-                break;
-            }
-
-
-            iter = iter.next;
-            index++;
-
-        }
-
-        if (pre != null) {
-            pre.next = middle;
-        } else {
-            head = middle;
-        }
-        tail.next = iter;
-
-        return head;
 
     }
 
