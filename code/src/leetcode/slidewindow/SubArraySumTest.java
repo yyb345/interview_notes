@@ -1,6 +1,11 @@
 package leetcode.slidewindow;
 
-public class Solution560 {
+/**
+ * 2024-09-03
+ * 560题
+ * 滑动窗口算法，本质上左指针可以往后边移动，是因为nums的值全都是正数
+ */
+public class SubArraySumTest {
 
     public static int subarraySum(int[] nums, int k) {
 

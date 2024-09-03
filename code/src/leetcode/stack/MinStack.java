@@ -1,7 +1,10 @@
-package leetcode;
+package leetcode.stack;
 
 import java.util.Stack;
 
+/**
+ * 最小栈 小红书二面
+ */
 public class MinStack  {
 
 
