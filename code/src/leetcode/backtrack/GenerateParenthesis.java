@@ -3,14 +3,27 @@ package leetcode.backtrack;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO  重写一下
+/** 22
+ * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+ *
+ *
+ *
+ * Example 1:
+ *
+ * Input: n = 3
+ * Output: ["((()))","(()())","(())()","()(())","()()()"]
+ * Example 2:
+ *
+ * Input: n = 1
+ * Output: ["()"]
+ */
 public class GenerateParenthesis {
 
-    List<String> finalKuo = new ArrayList<>();
+    List<String> ret = new ArrayList<>();
     public List<String> generateParenthesis(int n) {
 
         generateKuo("",n,n);
-        return finalKuo;
+        return ret;
     }
 
 
@@ -20,10 +33,17 @@ public class GenerateParenthesis {
         }
 
         if(left==0 && right==0){
-            finalKuo.add(curStr);
+            ret.add(curStr);
             return;
         }
         generateKuo(curStr+"(",left-1,right);
         generateKuo(curStr+")",left,right-1);
+    }
+
+    public static void main(String[] args) {
+        List<String> parenthesis = new GenerateParenthesis().generateParenthesis(3);
+        for (String s : parenthesis) {
+            System.out.println(s);
+        }
     }
 }
