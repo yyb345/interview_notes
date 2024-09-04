@@ -17,30 +17,8 @@ public class ZigPath {
         dfs(root.left,0,'l');
         dfs(root.right,0,'r');
         return max;
-        // return Math.max(Math.max(startPath(root.left,'l'),
-        // startPath(root.right,'r')),
-        // max);
-
-
     }
 
-    // int startPath(TreeNode root,char d){
-    //     if(root==null){
-    //         return 0;
-    //     }
-
-    //     int right=startPath(root.right,'r');
-    //     int left=startPath(root.left,'l');
-    //     max = Math.max(Math.max(left,right),max);
-    //     if(d=='l'){
-    //        return right+1;
-    //     }else if(d=='r'){
-    //         return left+1;
-    //     }
-
-    //     return 0;
-
-    // }
 
     void dfs(TreeNode root,int num,char c){
 

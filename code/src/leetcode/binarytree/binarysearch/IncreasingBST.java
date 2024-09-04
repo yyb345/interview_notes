@@ -1,4 +1,6 @@
-package leetcode.binarytree;
+package leetcode.binarytree.binarysearch;
+
+import leetcode.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
