@@ -9,76 +9,6 @@ import java.util.*;
 public class NiuKeProblem {
 
 
-   // [6,8,10,0,2,4]
-
-     int  F(int[] nums,int target){
-        return this.F1(nums,0,nums.length-1,target);
-    }
-
-     int F1(int[] nums,int l,int r,int target){
-
-        if(l>r){
-            return -1;
-        }
-
-        int mid = l +(r-l)/2;
-
-        if(nums[mid]>nums[r]){
-            if(target>nums[mid]){
-                return F1(nums,mid+1,r,target);
-            }else if(target<nums[mid]) {
-                int left = F1(nums,l,mid-1,target);
-                int right = F1(nums,mid+1,r,target);
-
-                if(left!=-1){
-                    return  left;
-                }
-                if(right!=-1){
-                    return right;
-                }
-                return -1;
-            }else {
-                return mid;
-            }
-        }else if(nums[mid]<nums[r]){
-            //二分法寻找target
-
-            if(target<nums[mid]){
-                return F1(nums,l,mid-1,target);
-            }else if(target>nums[mid]){
-
-                if(target<=nums[r]){
-                    int ret = binarySearch(nums, mid, r, target);
-                    return ret;
-                }else {
-                    return F1(nums,l,mid-1,target);
-                }
-            }else {
-                return  mid;
-            }
-        }else {
-            if(target==nums[mid]){
-                return  mid;
-            }
-        }
-        return  -1;
-    }
-
-    int binarySearch(int[] nums,int l,int h,int target){
-
-        while(l<=h){
-            int mid = l+(h-l)/2;
-            if(nums[mid]<target){
-                l = mid+1;
-            }else if(nums[mid]>target){
-                h = mid -1;
-            }else {
-                return mid;
-            }
-        }
-        return -1;
-    }
-
 
 
     public int knapsack (int V, int n, int[][] vw) {
@@ -148,47 +78,7 @@ public class NiuKeProblem {
     }
 
 
-    public boolean isValidBST(TreeNode root) {
-         if(root==null){
-             return false;
-         }
 
-         if(root.left!=null){
-             if(root.left.val>=root.val) return false;
-             if(!isValidBST(root.left)) return false;
-             if(maxNode(root.left)>=root.val) return false;
-         }
-
-         if(root.right!=null){
-             if(root.right.val<=root.val) return false;
-             if(!isValidBST(root.right)) return false;
-             if(minNode(root.right)<=root.val) return false;
-         }
-
-         return true;
-    }
-
-    public int minNode(TreeNode root){
-         if(root==null){
-             return -1;
-         }
-         if(root.left==null){
-             return root.val;
-         }else {
-             return minNode(root.left);
-         }
-    }
-
-    public int maxNode(TreeNode root){
-        if(root==null){
-            return -1;
-        }
-        if(root.right==null){
-            return root.val;
-        }else {
-            return maxNode(root.right);
-        }
-    }
 
 
 
@@ -592,18 +482,6 @@ public class NiuKeProblem {
         return sb.toString();
     }
 
-    public int findRepeatNumber(int[] nums) {
-        Set<Integer> set = new HashSet();
-
-        for(int i=0;i<nums.length;i++){
-            if(set.contains(nums[i])){
-                return nums[i];
-            }else {
-                set.add(nums[i]);
-            }
-        }
-        return -1;
-    }
 
     public int search(int[] nums, int target) {
 
@@ -1128,99 +1006,8 @@ public class NiuKeProblem {
     }
 
 
-    public int maxDepth(TreeNode root) {
-        if(root==null){
-            return 0;
-        }
-        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
-    }
-
-    public boolean isBalanced(TreeNode root) {
-
-        if(root==null){
-            return true;
-        }
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-        if(Math.abs(left-right)>1){
-            return false;
-        }
-        return  isBalanced(root.left) && isBalanced(root.right);
-    }
-
-    boolean exitWord = false;
-    public boolean exist(char[][] board, String word) {
 
 
-        List<Character> characters = new ArrayList<>();
-        for(int i=0;i<word.length();i++){
-            characters.add(word.charAt(i));
-        }
-
-        int m = board.length;
-        int n = board[0].length;
-
-        boolean[][] travel = new boolean[m][n];
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                travel[i][j]= false;
-            }
-        }
-
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                dfs(board,i,j,m,n,travel,characters);
-            }
-        }
-        return exitWord;
-    }
-
-    void dfs(char[][] board,int i,int j,int m,int n,boolean[][] travel,List<Character> characters){
-        if(characters==null || characters.size()==0){
-            exitWord=true;
-            return;
-        }
-        if(i<0 || j<0 || i>=m || j>=n){
-            return;
-        }
-        if(travel[i][j]){
-            return;
-        }
-        if(board[i][j]!=characters.get(0)){
-            return;
-        }
-        travel[i][j]=true;
-        characters.remove(0);
-        dfs(board,i+1,j,m,n,travel,characters);
-        dfs(board,i,j+1,m,n,travel,characters);
-        dfs(board,i-1,j,m,n,travel,characters);
-        dfs(board,i,j-1,m,n,travel,characters);
-        characters.add(0,board[i][j]);
-        travel[i][j]=false;
-
-    }
-
-
-    List<List<Integer>> sumResult = new ArrayList<>();
-    public List<List<Integer>> pathSum(TreeNode root, int target) {
-        dfsPathSum(root,target,new ArrayList<>());
-        return sumResult;
-    }
-
-    public void dfsPathSum(TreeNode root,int target,List<Integer> path){
-        if(root==null){
-            return;
-        }
-        if(root.left==null && root.right==null && target==root.val ){
-            path.add(target);
-            sumResult.add(new ArrayList<>(path));
-        }
-
-        path.add(root.val);
-        dfsPathSum(root.left,target-root.val,path);
-        dfsPathSum(root.right,target-root.val,path);
-        path.remove(path.size()-1);
-    }
 
 
     public String reverseWords(String s) {
