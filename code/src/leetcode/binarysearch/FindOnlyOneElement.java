@@ -9,7 +9,7 @@ package leetcode.binarysearch;
  *          3. 返回值是L还是H
  *  测试数据     一定要是 【0】 【1，2】【1，2，3】 至少三个这样的测试用例
  */
-public class OneElement {
+public class FindOnlyOneElement {
 
     // [0] [1,1,2] [1,2,2] [1,2,2,3,3] [1,1,2,2,3]
     // 0    2       0         0           4

@@ -1,5 +1,7 @@
-package leetcode.binarytree;
+package leetcode.binarytree.build;
 
+
+import leetcode.binarytree.TreeNode;
 
 public class SortedArrayToBST {
 
