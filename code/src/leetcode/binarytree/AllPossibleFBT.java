@@ -1,30 +1,34 @@
 package leetcode.binarytree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+/**
+ * leetcode 894, 相比较之前，有了map存储之前保存的结果，可以把时间复杂度变低。
+ * 笔记：这种后序遍历的，需要将左右节点合并的，且左右具有相同功能的，要注意存储缓存。
+ *
+ */
 public class AllPossibleFBT {
 
-    public static List<TreeNode> allPossibleFBT(int N) {
+    Map<Integer,List<TreeNode>> map = new HashMap<>();
+    public  List<TreeNode> allPossibleFBT(int N) {
         List<TreeNode> result = new ArrayList();
 
-        int subTotal = N - 1;
-        int i = 0;
-        int left = 0;
-        int right = 0;
-
+        if(map.containsKey(N)){
+            return map.get(N);
+        }
 
         if (N == 1) {
             TreeNode tmp = new TreeNode(0);
             result.add(tmp);
         } else {
+            int subTotal = N - 1;
+            int left = 1;
             while (left < subTotal) {
-
-                left = 2 * i + 1;
-                right = subTotal - left;
                 List<TreeNode> leftTreeNodes = allPossibleFBT(left);
-                List<TreeNode> rightTreeNodes = allPossibleFBT(right);
-
+                List<TreeNode> rightTreeNodes = allPossibleFBT(subTotal - left);
                 for (TreeNode l : leftTreeNodes) {
                     for (TreeNode r : rightTreeNodes) {
                         TreeNode tmp = new TreeNode(0);
@@ -33,11 +37,10 @@ public class AllPossibleFBT {
                         result.add(tmp);
                     }
                 }
-                i++;
-                left = 2 * i + 1;
+                left = left+2;
             }
         }
-
+        map.put(N,result);
         return result;
     }
 }
