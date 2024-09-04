@@ -3,7 +3,7 @@ package leetcode.backtrack;
 /**
  * leetcode 9
  */
-public class MovingCountTest {
+public class MovingCount {
 
     int[][] direction=new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
     int m,n;
@@ -59,6 +59,6 @@ public class MovingCountTest {
 
 
     public static  void main(String[] args){
-        new MovingCountTest().movingCount(10,1,100);
+        new MovingCount().movingCount(10,1,100);
     }
 }

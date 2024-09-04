@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 //TODO 重写一下
+
+/**
+ * 全排列
+ */
 public class Permute {
 
     public static List<List<Integer>> permute(int[] nums) {
