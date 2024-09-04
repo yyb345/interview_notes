@@ -1,4 +1,4 @@
-package agent;
+package proxy.agent;
 
 import javassist.*;
 import javassist.bytecode.MethodInfo;

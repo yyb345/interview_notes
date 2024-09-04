@@ -1,4 +1,4 @@
-package bloomfilter;
+package cache.bloomfilter;
 
 import java.io.*;
 import java.util.BitSet;

@@ -1,4 +1,4 @@
-package bloomfilter;
+package cache.bloomfilter;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;

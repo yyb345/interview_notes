@@ -1,4 +1,4 @@
-package agent;
+package proxy.agent;
 
 public class ServiceMethod implements Service {
     @Override

@@ -1,4 +1,4 @@
-package agent;
+package proxy.agent;
 
 public interface Service {
     void method1();
