@@ -10,10 +10,7 @@ import java.util.Arrays;
  */
 public class DP {
 
-
 	public  static  int wiggleMaxLength(int[] nums) {
-
-
 		if(nums==null || nums.length==0)
 			return 0;
 		int n=nums.length;
@@ -60,7 +57,6 @@ public class DP {
 	}
 
 
-
 	/**
 	 * 0 1 背包问题
 	 * @param W
@@ -82,39 +78,10 @@ public class DP {
 				}
 			}
 		}
-
 		return dp[W];
-
 	}
-
-
-	static  ArrayList<ArrayList<Integer>> ret;
-	public static ArrayList<ArrayList<Integer>> subsets(int[] S) {
-
-		ret=new ArrayList<>();
-		Arrays.sort(S);
-
-		backTrack(S,0,new ArrayList<>());
-		return ret;
-
-	}
-
-
-	public static  void  backTrack(int[] S,int start,ArrayList<Integer> list){
-
-		ret.add(new ArrayList<>(list));
-		for(int i=start;i<S.length;i++){
-			list.add(S[i]);
-			backTrack(S,i+1,list);
-			list.remove(list.size()-1);
-			//ret.add(list);
-		}
-
-	}
-
 
 	public static void main(String[] args){
-		int[] nums=new int[]{1,2,3};
-		DP.subsets(nums);
+
 	}
 }

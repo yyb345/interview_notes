@@ -9,43 +9,7 @@ import java.util.List;
  * Time: 下午3:36
  */
 class Solution3 {
-	public int findKthLargest(int[] nums, int k) {
 
-		k=nums.length-k;
-		int l=0,h=nums.length-1;
-
-		while(true){
-			int index=partition(nums,l,h);
-			if(index<k)
-				l=index+1;
-			else if(index>k)
-				h=index-1;
-			else if(index==k)
-				break;
-		}
-
-		return nums[k];
-
-	}
-
-	public int partition(int[] nums,int l,int h){
-
-		int i=l,j=h+1;
-
-		while(i<j){
-			while(nums[++i]<nums[l] && i<h);
-			while(nums[--j]>nums[l] && j>l);
-			swap(nums,i,j);
-		}
-		swap(nums,l,j);
-		return j;
-	}
-
-	public void swap(int[] nums,int i,int j){
-		int tmp=nums[i];
-		nums[i]=nums[j];
-		nums[j]=tmp;
-	}
 
 	public int numDecodings(String s) {
 
@@ -70,12 +34,7 @@ class Solution3 {
 					if(num>=1 && num<=26)
 						dp[i]+=dp[i-2];
 				}
-
-
 			}
-
-
-
 		}
 
 		return dp[s.length()];
@@ -103,32 +62,8 @@ class Solution3 {
 			array[index2+index1]=even.get(index2);
 		}
 
-
-
-
 	}
 
-//	public ListNode FindKthToTail(ListNode head,int k) {
-//		if(head==null)
-//			return null;
-//		ListNode fast=head;
-//		int iter=k;
-//		while(iter-- >0 && fast!=null){
-//			fast=fast.next;
-//		}
-//
-//		if(iter>0)
-//			return null;
-//		ListNode slow=head;
-//		while(fast!=null){
-//			slow=slow.next;
-//			fast=fast.next;
-//		}
-//
-//		return slow;
-//
-//
-//	}
 
 
 	public static void main(String[] args){

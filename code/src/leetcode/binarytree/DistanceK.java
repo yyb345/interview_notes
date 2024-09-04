@@ -2,7 +2,7 @@ package leetcode.binarytree;
 
 import java.util.*;
 
-//TODO 
+//TODO 优化一版
 public class DistanceK {
 
     Map<TreeNode, TreeNode> parents=new HashMap<>();

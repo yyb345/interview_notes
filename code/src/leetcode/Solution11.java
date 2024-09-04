@@ -10,76 +10,6 @@ import java.util.*;
  */
 public class Solution11 {
 
-	static  class ListNode{
-		int val;
-		ListNode next;
-		ListNode(int val){
-			this.val=val;
-		}
-	}
-
-	public ListNode deleteDuplication(ListNode pHead)
-	{
-		if(pHead==null)
-			return null;
-
-		ListNode pre=new ListNode(-1);
-		ListNode ret=pre;
-		ListNode cur=pHead;
-
-		while(cur!=null){
-			if(cur.next!=null && cur.val==cur.next.val){
-				int val=cur.val;
-				do{
-					cur=cur.next;
-				}while(cur!=null && cur.val==val);
-
-			}else{
-				pre.next=cur;
-				pre=cur;
-				cur=cur.next;
-			}
-
-		}
-
-		pre.next=cur;
-
-		return ret.next;
-	}
-
-
-//	public String replaceSpace(StringBuffer str) {
-//
-//		for(int i=0;i<str.length();i++){
-//			if(str.charAt(i)==' '){
-//
-//			}
-//		}
-//	}
-
-
-	public boolean IsPopOrder(int [] pushA,int [] popA) {
-		Stack<Integer> stack=new Stack<>();
-		int index=0,i=0;
-		while(index<popA.length){
-			if(i<pushA.length)
-				stack.push(pushA[i++]);
-
-			if(stack.peek()!=popA[index]){
-				if(i==pushA.length){
-					return false;
-				}
-			} else{
-				while(!stack.isEmpty() && stack.peek()==popA[index]){
-					index++;
-					stack.pop();
-				}
-			}
-		}
-
-		return true;
-
-	}
 
 	Queue<Integer> left=new PriorityQueue<>(((o1, o2) -> o2-o1));// max heap
 	Queue<Integer> right=new PriorityQueue<>(((o1, o2) -> o1-o2));// min heap
@@ -143,15 +73,5 @@ public class Solution11 {
 
 	public static void main(String[] args){
 
-//		ListNode a=new ListNode(1);
-//		ListNode b=new ListNode(1);
-//		ListNode c=new ListNode(1);
-//		ListNode d=new ListNode(2);
-//		c.next=d;
-//		b.next=c;
-//		a.next=b;
-		int[] push=new int[]{1,2,3,4,5};
-		int[] pop=new int[]{4,5,3,2,1};
-		new Solution11().IsPopOrder(push,pop);
 	}
 }

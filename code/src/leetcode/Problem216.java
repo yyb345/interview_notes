@@ -52,7 +52,6 @@ public class Problem216 {
 		for(int i=start;i<=9;i++){
 			currentList.add(i);
 			DFS(k-1,n-i,i+1,currentList);
-//			currentList.remove(i);
 			currentList.remove(currentList.size()-1);
 		}
 	}

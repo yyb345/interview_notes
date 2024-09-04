@@ -6,34 +6,6 @@ import java.util.stream.Collectors;
 public class Solution {
 
 
-    public static int completNum(int n) {
-        int m = 0;
-        String result = Integer.toBinaryString(n);
-        int j = 0;
-        for (int i = result.length(); i > 0; i--) {
-            if (result.substring(i - 1, i).equals("0"))
-                m = m + (int) Math.pow(2, j);
-            j++;
-
-        }
-        return m;
-    }
-
-
-    public static int hammingDistance(int x, int y) {
-
-        int result = x ^ y;
-        int distance = 0;
-        String xx = Integer.toBinaryString(result);
-        for (int i = 0; i < xx.length(); i++) {
-            if (xx.charAt(i) == '1')
-                distance++;
-        }
-
-        return distance;
-    }
-
-
     //problem 463
     public int islandPerimeter(int[][] grid) {
         int length = 0;
@@ -650,34 +622,6 @@ public class Solution {
         return result;
     }
 
-
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (nums.length > 0) {
-            int[] subNums = new int[nums.length - 1];
-            int lasstElement = nums[nums.length - 1];
-            for (int i = 0; i < subNums.length; i++) {
-                subNums[i] = nums[i];
-            }
-            List<List<Integer>> subDatas = subsets(subNums);
-            result.addAll(subDatas);
-
-            for (List<Integer> set : subDatas) {
-                List<Integer> subb = new ArrayList<>();
-                subb.addAll(set);
-                subb.add(lasstElement);
-                result.add(subb);
-            }
-
-
-        } else {
-            result.add(new ArrayList<>());
-        }
-
-        return result;
-    }
-
-
     public static List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Map<Integer, Integer> hashMap = new HashMap<>();
@@ -743,94 +687,6 @@ public class Solution {
         return objects;
 
 
-    }
-
-    public boolean equals(String a, String b) {
-        leetcodeString aa = new leetcodeString(a);
-        leetcodeString bb = new leetcodeString(b);
-        boolean equals = aa.equals(bb);
-        return equals;
-    }
-
-
-    class leetcodeString {
-        leetcodeString(String s) {
-            a = s;
-        }
-
-        String a;
-
-        @Override
-        public int hashCode() {
-            int sum = 0;
-            char[] chars = a.toCharArray();
-            for (char c : chars) {
-                sum += (c - 'a');
-            }
-            return sum;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            String b = ((leetcodeString) obj).a;
-            boolean reult = false;
-            if (this.a.length() == b.length()) {
-                Map<Character, Integer> tmpA = new HashMap();
-                Map<Character, Integer> tmpB = new HashMap();
-                for (int i = 0; i < this.a.length(); i++) {
-                    if (tmpA.containsKey(this.a.charAt(i))) {
-                        tmpA.put(this.a.charAt(i), tmpA.get(this.a.charAt(i)) + 1);
-                    } else {
-                        tmpA.put(this.a.charAt(i), 1);
-                    }
-                }
-                for (int i = 0; i < b.length(); i++) {
-                    if (tmpB.containsKey(b.charAt(i))) {
-                        tmpB.put(b.charAt(i), tmpB.get(b.charAt(i)) + 1);
-                    } else {
-                        tmpB.put(b.charAt(i), 1);
-                    }
-                }
-
-                for (Map.Entry<Character, Integer> data : tmpA.entrySet()) {
-                    if (tmpB.containsKey(data.getKey()) && (tmpB.get(data.getKey()) - data.getValue() == 0)) {
-                        reult = true;
-                    } else {
-                        reult = false;
-                        break;
-                    }
-                }
-
-            }
-            return reult;
-        }
-    }
-
-
-    public List<List<String>> groupAnagrams(String[] strs) {
-
-        List<List<String>> result = new ArrayList<>();
-        Map<String, List<String>> map = new HashMap<>();
-        for (String s : strs) {
-            char[] ssa = s.toCharArray();
-            Arrays.sort(ssa);
-            String ss = String.valueOf(ssa);
-            if (map.containsKey(ss)) {
-                List<String> strings = map.get(ss);
-                strings.add(s);
-                map.put(ss, strings);
-            } else {
-                List<String> list = new ArrayList<>();
-                list.add(s);
-                map.put(ss, list);
-            }
-        }
-
-        for (Map.Entry<String, List<String>> m : map.entrySet()) {
-            result.add(m.getValue());
-        }
-
-        return result;
     }
 
 
@@ -919,51 +775,6 @@ public class Solution {
 
     }
 
-    public static int search(int[] nums, int target) {
-
-        int result = -1;
-        int start = 0;
-        int end = nums.length - 1;
-
-        while (start <= end) {
-            int middle = (start + end) / 2;
-            if (nums[middle] > target) {
-                end = middle - 1;
-            } else if (nums[middle] < target) {
-                start = middle + 1;
-            } else if (nums[middle] == target) {
-                result = middle;
-                break;
-            }
-        }
-
-        return result;
-
-    }
-
-    public static int searchInsert(int[] nums, int target) {
-
-        int result = 0;
-        int start = 0;
-        int end = nums.length - 1;
-
-        while (start <= end) {
-            int middle = (start + end) / 2;
-            if (nums[middle] > target) {
-                end = middle - 1;
-            } else if (nums[middle] < target) {
-                start = middle + 1;
-            } else if (nums[middle] == target) {
-                result = middle;
-                break;
-            }
-        }
-        result = start;
-
-        return result;
-
-
-    }
 
     public static int firstUniqChar(String s) {
         int index = 0;
@@ -1020,65 +831,6 @@ public class Solution {
 
         return result;
     }
-
-    public char findTheDifference(String s, String t) {
-        char result = ' ';
-        Map<Character, Integer> map = new HashMap<>();
-
-        if (s.length() > 0) {
-            for (int i = 0; i < s.length(); i++) {
-                char c = s.charAt(i);
-                if (map.containsKey(c)) {
-                    map.put(c, map.get(c) + 1);
-                } else {
-                    map.put(c, 1);
-                }
-            }
-            for (int j = 0; j < t.length(); j++) {
-                char c = t.charAt(j);
-                if (map.containsKey(c)) {
-                    map.put(c, map.get(c) - 1);
-                } else {
-                    result = c;
-                    break;
-                }
-            }
-
-            for (Map.Entry<Character, Integer> a : map.entrySet()) {
-                if (a.getValue() == 1) {
-                    result = a.getKey();
-                    break;
-                }
-            }
-
-        } else {
-            result = t.charAt(0);
-        }
-
-
-        return result;
-    }
-
-    public static int findContentChildren(int[] g, int[] s) {
-
-        Arrays.sort(g);
-        Arrays.sort(s);
-
-        int gi = 0;
-        int si = 0;
-        while (gi < g.length && si < s.length) {
-            if (g[gi] <= s[si]) {
-                gi++;
-                si++;
-            } else {
-                si++;
-            }
-        }
-
-        return gi;
-
-    }
-
 
     public static boolean isSubsequence(String s, String t) {
         boolean result = false;
@@ -1413,7 +1165,7 @@ public class Solution {
                 l = mid + 1;
         }
         big = l;
-        System.out.println(big);
+
         if (small == array.length || array[small] != k)
             return 0;
 

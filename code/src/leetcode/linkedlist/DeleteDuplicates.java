@@ -1,6 +1,6 @@
 package leetcode.linkedlist;
 
-import leetcode.Solution;
+
 
 public class DeleteDuplicates {
 
