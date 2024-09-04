@@ -2,12 +2,12 @@ package leetcode.stack;
 
 import java.util.Stack;
 
-public class CQueue {
+public class StackToQueue {
 
 
     Stack<Integer> stack1 ;
     Stack<Integer> stack2 ;
-    public CQueue() {
+    public StackToQueue() {
         stack1 = new Stack<>();
         stack2 = new Stack<>();
     }

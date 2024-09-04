@@ -191,36 +191,6 @@ public class BFS {
 //		return value[n];
 //	}
 
-	public static int maxSubArray(int[] nums) {
-
-		List<Integer> list = new ArrayList<>();
-		Set<String> stringSet = new HashSet<>();
-		String result = list.stream().map(Object::toString).collect(Collectors.joining(","));
-		int []value=new int[nums.length];
-		int max;
-		value[nums.length-1]=nums[nums.length-1];
-		if(nums.length>1){
-			for(int i=nums.length-1;i>=0;i--){
-				if((i-1)>=0){
-					if(value[i]>0){
-						value[i-1]=Math.max((value[i]+nums[i-1]),nums[i-1]);
-					}
-
-					else{
-						value[i-1]=Math.max(0,nums[i-1]);
-					}
-				}
-			}
-
-		}
-		max= Arrays.stream(value).max().getAsInt();
-
-
-
-		return max;
-	}
-
-
 
 	//
 	public static int minSteps(int n) {

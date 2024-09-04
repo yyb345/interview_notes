@@ -3,7 +3,7 @@ package leetcode.stack;
 import java.util.Stack;
 
 //TODO
-public class IsPopOrder {
+public class IsStackPopOrder {
 
     public boolean isPopOrder(int [] pushA,int [] popA) {
         Stack<Integer> stack=new Stack<>();
