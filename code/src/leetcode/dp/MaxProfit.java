@@ -20,7 +20,22 @@ public class MaxProfit {
             int value = 0;
             return value;
         }
+    }
 
+    public int maxProfitV2(int[] prices) {
 
+        int n = prices.length;
+        int[] dp = new int[n];
+
+        int min=prices[0];
+        int max = 0;
+
+        for(int i=1;i<n;i++){
+            dp[i]= Math.max(prices[i]-min,0);
+            min = Math.min(min,dp[i]);
+            max = Math.max(max,dp[i]);
+        }
+
+        return max;
     }
 }

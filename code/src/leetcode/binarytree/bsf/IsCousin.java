@@ -10,7 +10,7 @@ import java.util.*;
  * https://leetcode.com/problems/cousins-in-binary-tree/description/
  * 这道题目的核心是 BFS，BFS的特点是找到后就不会往下遍历了。
  */
-public class Cousin {
+public class IsCousin {
 
 
     TreeNode xParent,yParent;
@@ -62,9 +62,9 @@ public class Cousin {
 
     public static void main(String[] args) {
 
-        System.out.println(new Cousin().isCousins( TreeTool.buildTree(new Integer[]{1, 2, 3, 4}), 4, 3));
-        System.out.println(new Cousin().isCousins( TreeTool.buildTree(new Integer[]{1,2,3,null,4,null,5}), 5, 4));
-        System.out.println(new Cousin().isCousins( TreeTool.buildTree(new Integer[]{1, 2, 3, null, 4}), 2, 3));
+        System.out.println(new IsCousin().isCousins( TreeTool.buildTree(new Integer[]{1, 2, 3, 4}), 4, 3));
+        System.out.println(new IsCousin().isCousins( TreeTool.buildTree(new Integer[]{1,2,3,null,4,null,5}), 5, 4));
+        System.out.println(new IsCousin().isCousins( TreeTool.buildTree(new Integer[]{1, 2, 3, null, 4}), 2, 3));
 
     }
 }
