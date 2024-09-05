@@ -1,9 +1,11 @@
-package leetcode.binarytree;
+package leetcode.binarytree.search;
+
+import leetcode.binarytree.TreeNode;
 
 import java.util.*;
 
 //TODO 优化一版
-public class DistanceK {
+public class FindDistanceK {
 
     Map<TreeNode, TreeNode> parents=new HashMap<>();
 

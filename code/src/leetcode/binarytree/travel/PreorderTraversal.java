@@ -4,28 +4,26 @@ import leetcode.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
- * 94
- * 中序遍历
+ * 144
+ * 前序遍历
  */
-public class InorderTraversal {
+public class PreorderTraversal {
 
-
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
-        inorderAdd(root,ret);
+        travel(root,ret);
         return ret;
     }
 
-
-    public void inorderAdd(TreeNode root,List<Integer> list) {
-
+    void travel(TreeNode root,List<Integer> list){
         if(root==null){
             return;
         }
-        inorderAdd(root.left,list);
         list.add(root.val);
-        inorderAdd(root.right,list);
+        travel(root.left,list);
+        travel(root.right,list);
     }
 }

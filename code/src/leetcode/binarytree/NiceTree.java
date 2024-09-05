@@ -1,6 +1,6 @@
 package leetcode.binarytree;
 
-import leetcode.binarytree.TreeNode;
+
 
 public class NiceTree {
 

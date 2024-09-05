@@ -1,4 +1,6 @@
-package leetcode.binarytree;
+package leetcode.binarytree.search;
+
+import leetcode.binarytree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

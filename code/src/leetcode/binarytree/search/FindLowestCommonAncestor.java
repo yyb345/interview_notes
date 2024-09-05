@@ -1,4 +1,4 @@
-package leetcode.binarytree.bst;
+package leetcode.binarytree.search;
 
 import leetcode.binarytree.TreeNode;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //TODO 一定要重写
-public class LowestCommonAncestor {
+public class FindLowestCommonAncestor {
 
     // leetcode 236
 

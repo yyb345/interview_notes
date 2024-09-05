@@ -1,4 +1,4 @@
-package leetcode.binarytree.bst;
+package leetcode.binarytree.modify;
 
 import leetcode.binarytree.TreeNode;
 import tool.TreeTool;
@@ -15,7 +15,7 @@ import tool.TreeTool;
  *
  * 注意最后一个节点的处理
  */
-public class IncreasingBST {
+public class ToIncreasingBST {
 
     TreeNode preNode = null;
     TreeNode ret = null;
@@ -56,7 +56,7 @@ public class IncreasingBST {
     public static void main(String[] args) {
         TreeNode treeNode = TreeTool.buildTree(new Integer[]{2,1,4,null,null,3});
 
-        TreeNode afterNode = new IncreasingBST().increasingBST(treeNode);
+        TreeNode afterNode = new ToIncreasingBST().increasingBST(treeNode);
         TreeTool.printTree(afterNode);
     }
 

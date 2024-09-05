@@ -1,5 +1,7 @@
-package leetcode.binarytree;
+package leetcode.binarytree.modify;
 
+
+import leetcode.binarytree.TreeNode;
 
 public class TrimBST {
 
