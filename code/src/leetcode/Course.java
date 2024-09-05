@@ -3,45 +3,6 @@ package leetcode;
 import java.util.*;
 public class Course {
 
-
-    public boolean verifyTreeOrder(int[] postorder) {
-
-        // 1. 定义 root postorder[end]
-        // 2. 然后从start->end 开始，小于<root的区间[start,index]为left [index+1,end-1] 是right
-        // 3. 终止条件如何定义
-
-        return verify(postorder,0,postorder.length-1,Integer.MIN_VALUE,Integer.MAX_VALUE);
-    }
-
-    boolean verify(int[] nums,int start,int end, int minVal, int maxVal){
-
-        // 终止
-        if(start<0 || start>end){
-            return true;
-        }
-        // 1. 区间数据是否满足要求
-        for(int i=start;i<=end;i++){
-            if(nums[i]<minVal){
-                return false;
-            }
-            if(nums[i]>maxVal){
-                return false;
-            }
-        }
-
-        //2. split
-        Integer index = start;
-        for(int i=start;i<end;i++){
-            if(nums[i]>nums[end]){
-                index=i;
-                break;
-            }
-        }
-
-        return verify(nums,start,index-1,minVal,nums[end]) &&
-                verify(nums, index, end-1, nums[end], maxVal);
-    }
-
     Map<Integer,List<Integer>> courseMap  = new HashMap<>();
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
@@ -88,27 +49,7 @@ public class Course {
     }
 
 
-    public int mySqrt(int x) {
-        if(x<=1){
-            return x;
-        }
-        double low = 0;
-        double high = x;
-        double jingdu =0.00001;
-        while(low<high){
-            double mid = (low+high)/2;
-            if((x-mid*mid)>jingdu){
-                low = mid;
-            }else if((mid*mid-x)>jingdu){
-                high = mid;
-            }else  {
-                System.out.println(mid);
-                return (int)mid;
-            }
-        }
 
-        return 0;
-    }
 
     public String longestCommonPrefix(String[] strs) {
         int count = 0;
@@ -144,63 +85,6 @@ public class Course {
 
     }
 
-
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-
-        int m = obstacleGrid.length;
-        int n = obstacleGrid[0].length;
-        int[][] dp = new int[m][n];
-
-        dp[0][0]=1;
-
-        for(int i=1;i<m;i++){
-            if(obstacleGrid[i][0]==0){
-                dp[i][0]=dp[i-1][0];
-            }
-        }
-
-        for(int i=1;i<n;i++){
-            if(obstacleGrid[0][i]==0){
-                dp[0][i]=dp[0][i-1];
-            }
-        }
-
-        for(int i=1;i<m;i++){
-            for(int j=1;j<n;j++){
-                if(obstacleGrid[i][j]==0){
-                    dp[i][j]=dp[i-1][j]+dp[i][j-1];
-                }
-
-            }
-        }
-
-        return dp[m-1][n-1];
-
-    }
-
-    Set<Integer> set = new HashSet<>();
-    public boolean isHappy(int n) {
-
-        if(set.contains(n)){
-            return false;
-        }
-
-        String ns = String.valueOf(n);
-        int sum = 0;
-
-        for(int i=0;i<ns.length();i++){
-            int cInt =  Integer.parseInt(ns.substring(i, i+1));
-            sum+= (cInt*cInt);
-        }
-        if(sum==1){
-            return true;
-        }
-        boolean sumHappy = isHappy(sum);
-        if(!sumHappy){
-            set.add(sum);
-        }
-        return sumHappy;
-    }
 
     public static boolean isPalindrome(int x) {
         if(x<0){
@@ -313,38 +197,7 @@ public class Course {
     }
 
 
-    public int canCompleteCircuit(int[] gas, int[] cost) {
 
-        int sum = 0;
-        for(int i=0;i<gas.length;i++){
-            sum+= (gas[i]-cost[i]);
-        }
-        if(sum<0){
-            return -1;
-        }
-
-        if(gas.length==1){
-            return 0;
-        }
-
-
-        int slideSum=0;
-        int l = 0;
-
-        for(int k=0;k<gas.length;){
-            slideSum = slideSum +(gas[k]-cost[k]);
-            if(slideSum<0){
-                k++;
-                l=k;
-                slideSum = 0;
-            }else {
-                k++;
-            }
-        }
-
-        return l;
-
-    }
 
     public static void rotate(int[] nums, int k) {
 
