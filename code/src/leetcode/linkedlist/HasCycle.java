@@ -3,7 +3,7 @@ package leetcode.linkedlist;
 /**
  * 链表是否有环 2024-09-03 review 整理
  */
-public class HasCycleTest {
+public class HasCycle {
 
     public static boolean hasCycle(ListNode head) {
 

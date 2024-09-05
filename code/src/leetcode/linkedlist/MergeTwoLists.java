@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 合并链表 2024-09-03
  */
-public class MergeTwoListsTest {
+public class MergeTwoLists {
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 

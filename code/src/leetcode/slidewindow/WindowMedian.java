@@ -1,14 +1,13 @@
-package leetcode;
+package leetcode.slidewindow;
 
 import java.util.*;
 
 
 /**
- * Created by yangyibo
- * Date: 2019/4/4
- * Time: 下午5:04
+ * 11
+ *
  */
-public class Solution11 {
+public class WindowMedian {
 
 
 	Queue<Integer> left=new PriorityQueue<>(((o1, o2) -> o2-o1));// max heap

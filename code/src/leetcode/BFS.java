@@ -368,7 +368,7 @@ public class BFS {
 	}
 
 
-		public static void main(String []args){
+	public static void main(String []args){
 
 
 		int list[]=new int[]{100,4,200,1,3,2};

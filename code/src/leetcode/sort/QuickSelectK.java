@@ -1,10 +1,10 @@
-package leetcode; /**
- * Created by yangyibo
- * Date: 2019/4/5
- * Time: 上午11:15
+package leetcode.sort;
+/**
+ * 12
+ *
  */
 import java.util.*;
-public class Solution12 {
+public class QuickSelectK {
 	public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
 		ArrayList<Integer> ret=new ArrayList<>();
 		if(input==null)
@@ -58,6 +58,6 @@ public class Solution12 {
 
 	public static void main(String[] args){
 		int[] inputs=new int[]{4,5,1,6,2,7,3,8};
-		new Solution12().GetLeastNumbers_Solution(inputs,10);
+		new QuickSelectK().GetLeastNumbers_Solution(inputs,10);
 	}
 }

@@ -72,40 +72,6 @@ public class Solution {
 
     }
 
-    //problem 500
-    public static String[] findWords(String[] words) {
-        String[] keybord = new String[]{"qwertyuiop", "asdfghjkl", "zxcvbnm"};
-        ArrayList<String> matchWords = new ArrayList<String>();
-        for (String word : words) {
-            boolean inkey = true;
-            for (String key : keybord) {
-                inkey = true;
-                for (int i = 0; i < word.length() && inkey; i++) {
-                    if (!key.contains(word.substring(i, i + 1).toLowerCase())) {
-                        inkey = false;
-                    }
-
-
-                }
-                if (inkey) {
-                    matchWords.add(word);
-                    break;
-                }
-
-            }
-
-
-        }
-
-        String[] matchWords1 = new String[matchWords.size()];
-        for (int k = 0; k < matchWords.size(); k++)
-            matchWords1[k] = matchWords.get(k);
-
-
-        return matchWords1;
-    }
-
-
     // problem 338
     public static int[] countBits(int num) {
 
@@ -237,47 +203,6 @@ public class Solution {
 
         return count;
 
-    }
-
-
-    // problem 540
-    public static int singleNonDuplicate(int[] nums) {
-        int uniq = 0;
-        for (int num : nums)
-            uniq = uniq ^ num;
-
-        return uniq;
-    }
-
-    // proble 451
-    public static String frequencySort(String s) {
-        HashMap<String, Integer> bucket = new HashMap<String, Integer>();
-
-        for (int i = 0; i < s.length(); i++) {
-            String tmp = s.substring(i, i + 1);
-            if (bucket.containsKey(tmp)) {
-                bucket.put(tmp, bucket.get(tmp) + 1);
-            } else {
-                bucket.put(tmp, 1);
-            }
-        }
-
-        List<Map.Entry<String, Integer>> listMap = bucket.entrySet().stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                .collect(Collectors.toList());
-
-
-        StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, Integer> e : listMap) {
-            int freq = e.getValue();
-            String ss = e.getKey();
-            for (int k = 0; k < freq; k++)
-                //result=result+""+ss;
-                result.append(ss);
-        }
-
-
-        return result.toString();
     }
 
 
@@ -413,7 +338,6 @@ public class Solution {
 
     //problem 669
 
-
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -423,63 +347,6 @@ public class Solution {
             val = x;
         }
     }
-
-
-    // problem 946
-
-    public static boolean validateStackSequences(int[] pushed, int[] popped) {
-        Stack<Integer> push = new Stack<>();
-        int pushIndex = 0;
-        int popIndex = 0;
-        boolean pushStop = false;
-
-        while (!pushStop) {
-            int currentValue;
-            if (push.size() == 0) {
-                if (pushIndex < pushed.length) {
-                    push.push(pushed[pushIndex]);
-                    pushIndex++;
-                }
-
-            } else {
-                currentValue = push.peek();
-                if (popIndex < popped.length) {
-                    if (currentValue == popped[popIndex]) {
-                        push.pop();
-                        popIndex++;
-                    } else {
-                        if (pushIndex < pushed.length) {
-                            push.push(pushed[pushIndex]);
-                            pushIndex++;
-
-                        }
-                    }
-                }
-            }
-            if (pushIndex == pushed.length)
-                pushStop = true;
-        }
-
-        if (push.size() == 0)
-            return true;
-        else {
-            while (popIndex < popped.length) {
-                int popvalue = push.pop();
-                if (popvalue == popped[popIndex])
-                    popIndex++;
-                else
-                    break;
-            }
-
-            if (push.size() == 0)
-                return true;
-            else
-                return false;
-        }
-
-
-    }
-
 
     // problem 287
 
@@ -498,53 +365,7 @@ public class Solution {
         return uniqNumber;
     }
 
-    // problem 844
-    public static boolean backspaceCompare(String S, String T) {
-        boolean result = true;
-        Stack<Character> stackS = new Stack<>();
-        Stack<Character> stackT = new Stack<>();
 
-        for (int i = 0; i < S.length(); i++) {
-            if (S.charAt(i) == '#') {
-                if (stackS.size() > 0) {
-                    stackS.pop();
-                }
-            } else {
-                stackS.push(S.charAt(i));
-            }
-        }
-        for (int j = 0; j < T.length(); j++) {
-            if (T.charAt(j) == '#') {
-                if (stackT.size() > 0) {
-                    stackT.pop();
-                }
-            } else {
-                stackT.push(T.charAt(j));
-            }
-        }
-
-
-        if (stackS.size() != stackT.size()) {
-            result = false;
-        } else {
-            if (stackS.size() == 0) {
-                result = true;
-            } else {
-                while (stackS.size() > 0) {
-                    Character popS = stackS.pop();
-                    Character popT = stackT.pop();
-                    if (!popS.equals(popT)) {
-                        result = false;
-                        break;
-                    }
-
-                }
-            }
-
-        }
-
-        return result;
-    }
 
 
     static class Result {
@@ -622,36 +443,7 @@ public class Solution {
         return result;
     }
 
-    public static List<Integer> topKFrequent(int[] nums, int k) {
-        List<Integer> result = new ArrayList<>();
-        Map<Integer, Integer> hashMap = new HashMap<>();
-        for (int num : nums) {
-            if (hashMap.containsKey(num)) {
-                hashMap.put(num, hashMap.get(num) + 1);
-            } else {
-                hashMap.put(num, 0);
-            }
-        }
-        //构建最小堆
-        PriorityQueue<Integer> queue = new PriorityQueue((n1, n2) -> hashMap.get(n1) - hashMap.get(n2));
 
-        for (Map.Entry<Integer, Integer> keys : hashMap.entrySet()) {
-            queue.add(keys.getKey());
-            if (queue.size() > k) {
-                queue.poll();
-            }
-            // 输出最终形式
-            while (queue.size() > 0) {
-                result.add(queue.poll());
-            }
-            Collections.reverse(result);
-
-            return result;
-        }
-
-
-        return result;
-    }
 
     public static class ListNode {
         int val;
@@ -775,30 +567,6 @@ public class Solution {
 
     }
 
-
-    public static int firstUniqChar(String s) {
-        int index = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            Character c = s.charAt(i);
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 0);
-            }
-        }
-
-        for (int i = 0; i < s.length(); i++) {
-            Character c = s.charAt(i);
-            if (map.get(c) == 0) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
-    }
-
     public static int longestPalindrome(String s) {
 
         int result = 0;
@@ -871,25 +639,6 @@ public class Solution {
         return result;
     }
 
-
-    public static int maxSubArray(int[] nums) {
-
-        int[] sum = new int[nums.length];
-        int result = Integer.MIN_VALUE;
-        if (nums.length > 0) {
-            sum[0] = nums[0];
-            for (int i = 1; i < nums.length; i++) {
-                sum[i] = Math.max((sum[i - 1] + nums[i]), nums[i]);
-                if (sum[i] > result)
-                    result = sum[i];
-            }
-
-        }
-
-
-        return result;
-
-    }
 
 
     class FreqWord {
@@ -1008,58 +757,6 @@ public class Solution {
     }
 
 
-    public int find(TreeNode root, TreeNode target) {
-
-        int result = -1;
-
-        if (root != null) {
-            if (root.val != target.val) {
-                int left = -1, right = -1;
-
-                left = find(root.left, target);
-                right = find(root.right, target);
-
-                if (left == -1 && right > 0) {
-                    result = right + 1;
-                } else if (left > 0 && right == -1) {
-                    result = left + 1;
-                } else {
-                    result = -1;
-                }
-
-            } else if (root.val != target.val) {
-                result = 1;
-            }
-
-        }
-
-        return result;
-
-    }
-
-
-    public int partition(int[] nums, int l, int h) {
-
-        int i = l, j = h + 1;
-        while (true) {
-            while (nums[++i] < nums[l] && i < h) ;
-            while (nums[--j] > nums[l] && j > l) ;
-            if (i >= j)
-                break;
-            swap(nums, i, j);
-        }
-        swap(nums, i, j);
-        return j;
-    }
-
-
-    public void swap(int[] a, int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-
-
     private int curCnt = 1;
     private int maxCnt = 1;
     private TreeNode preNode = null;
@@ -1091,44 +788,6 @@ public class Solution {
         }
         preNode = node;
         inOrder(node.right, nums);
-    }
-
-
-    public int part(int[] nums, int l, int h) {
-
-
-        int j = l, t = h;
-        int k = nums[l];
-        while (true) {
-
-            while (j < h && nums[j + 1] < k) {
-                j++;
-            }
-            while (t > l && nums[t] > k) {
-                t--;
-            }
-
-            if (j >= t)
-                break;
-            swap(nums, j, t);
-
-        }
-
-        swap(nums, l, j);
-
-        return j;
-    }
-
-    public void quickSort(int[] nums, int l, int h) {
-
-        if (l >= h)
-            return;
-
-        int j = part(nums, l, h);
-        quickSort(nums, l, j - 1);
-        quickSort(nums, j + 1, h);
-
-
     }
 
     public int NumberOf1Between1AndN_Solution(int n) {
