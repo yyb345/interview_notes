@@ -319,8 +319,28 @@ public class Course {
 
         return ss.toString();
     }
+
+//    static int compare(String a,String b){
+//        int index=0;
+//        while(index<a.length() && index<b.length()){
+//            if(a.charAt(index)==b.charAt(index)){
+//                index++;
+//            }else {
+//                return b.charAt(index)-a.charAt(index);
+//            }
+//        }
+//        return a.length()-b.length();
+//    }
+
+
     public static void main(String[] args){
-        new Course().convert("ABCD",2);
+//       System.out.println("1".compareTo("2"));
+//       Integer a=1;
+//       Integer b=2;
+//       System.out.println(a.compareTo(b));
+        Integer[] nums = {1, 2, 3};
+        Arrays.sort(nums,(a,b)->b.compareTo(a));
+       System.out.println(Arrays.asList(nums));
 
     }
 }
