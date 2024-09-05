@@ -1,6 +1,7 @@
-package leetcode.binarytree;
+package leetcode.binarytree.search;
 
 
+import leetcode.binarytree.TreeNode;
 
 public class NiceTree {
 

@@ -10,29 +10,6 @@ import java.util.regex.Pattern;
 public class Main {
 
 
-    TreeNode preNode = null;
-    public void flatten(TreeNode root) {
-        dfs(root);
-    }
-
-    void dfs(TreeNode root){
-        if(root==null){
-            return;
-        }
-        TreeNode ll = root.left;
-        TreeNode rr = root.right;
-
-        if(preNode == null){
-            preNode = root;
-        }else{
-            preNode.right = root;
-            preNode = root;
-        }
-        dfs(ll);
-        dfs(rr);
-    }
-
-
 
     Map<Integer,Set<Integer>> preMap = new HashMap<>();
     List<Integer> allData = new ArrayList<>();

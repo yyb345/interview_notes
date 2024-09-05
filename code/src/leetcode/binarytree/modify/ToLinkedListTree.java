@@ -2,7 +2,7 @@ package leetcode.binarytree.modify;
 
 import leetcode.binarytree.TreeNode;
 
-public class TreeToDoubleList {
+public class ToLinkedListTree {
 
     TreeNode pre=null,head=null;
 

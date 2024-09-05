@@ -1,4 +1,6 @@
-package leetcode.binarytree;
+package leetcode.binarytree.travel;
+
+import leetcode.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
