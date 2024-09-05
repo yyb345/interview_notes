@@ -1,8 +1,11 @@
-package leetcode.binarytree;
+package leetcode.binarytree.judge;
 
+
+import leetcode.binarytree.TreeNode;
 
 /** 110
  * 判断是否是平衡二叉树
+ * 需要获取高度属性，根据左右子树的高度来判断，所以是 后序遍历。
  */
 
 public class IsBalanced {

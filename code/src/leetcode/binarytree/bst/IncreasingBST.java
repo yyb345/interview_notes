@@ -1,37 +1,63 @@
 package leetcode.binarytree.bst;
 
 import leetcode.binarytree.TreeNode;
+import tool.TreeTool;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
 
-//TODO 重写一遍
+
+/** 897
+ * Given the root of a binary search tree, rearrange the tree in in-order so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.
+ *
+ * Example 1:
+ *
+ * Input: root = [5,3,6,2,4,null,8,1,null,null,null,7,9]
+ * Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+ *
+ * 注意最后一个节点的处理
+ */
 public class IncreasingBST {
 
-    // problem 897
+    TreeNode preNode = null;
+    TreeNode ret = null;
+
     public TreeNode increasingBST(TreeNode root) {
 
-        Stack<TreeNode> travel=new Stack<>();
-        List<Integer> inOrder=new ArrayList<>();
-        TreeNode p=root;
-        while(travel.size()>0 || p!=null){
-            if(p!=null){
-                travel.push(p);
-                p=p.left;
-            }else{
-
-                TreeNode preRoot=travel.pop();
-                inOrder.add(preRoot.val);
-                p=preRoot.right;
-            }
+        if(root==null){
+            return null;
         }
 
-        TreeNode ans = new TreeNode(0), cur = ans;
-        for (int v: inOrder) {
-            cur.right = new TreeNode(v);
-            cur = cur.right;
-        }
-        return ans.right;
+        dfs(root);
+        preNode.right=null;
+        preNode.left=null;
+
+        return ret;
     }
+
+    void dfs(TreeNode root){
+        if(root==null){
+            return;
+        }
+
+        dfs(root.left);
+        if(preNode==null){
+            ret = root;
+        }else {
+            preNode.left=null;
+            preNode.right=root;
+        }
+        preNode = root;
+
+        dfs(root.right);
+    }
+
+
+
+
+    public static void main(String[] args) {
+        TreeNode treeNode = TreeTool.buildTree(new Integer[]{2,1,4,null,null,3});
+
+        TreeNode afterNode = new IncreasingBST().increasingBST(treeNode);
+        TreeTool.printTree(afterNode);
+    }
+
 }

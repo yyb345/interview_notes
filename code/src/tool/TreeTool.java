@@ -1,8 +1,11 @@
 package tool;
 
 import leetcode.binarytree.TreeNode;
+import org.apache.spark.sql.sources.In;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeTool {
@@ -37,6 +40,28 @@ public class TreeTool {
         return root;
     }
 
+
+    public static  void printTree(TreeNode root){
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        List<Integer> printList = new ArrayList<>();
+        while (!queue.isEmpty()){
+            TreeNode poll = queue.poll();
+            if(poll==null){
+                printList.add(null);
+            }else {
+                printList.add(poll.val);
+                if(poll.left==null && poll.right==null){
+                    continue;
+                }
+                queue.add(poll.left);
+                queue.add(poll.right);
+            }
+        }
+
+        System.out.println(printList);
+    }
 
     public static void main(String[] args){
         TreeNode treeNode = buildTree(new Integer[]{1, 2, 3, null, null, 4, 5});
