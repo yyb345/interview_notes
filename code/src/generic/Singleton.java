@@ -1,4 +1,4 @@
-package leetcode;
+package generic;
 
 /**
  * 单例模式

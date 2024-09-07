@@ -88,7 +88,7 @@
 
 ## 4. 开放平台技术   
 
-1. 开放平台网关
+1.  [开放平台网关](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
 
 2. Oauth授权
 

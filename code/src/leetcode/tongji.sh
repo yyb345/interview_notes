@@ -1,4 +1,4 @@
-find ../leetcode/ -type f | awk -F/ '{
+find ../leetcode -type f | awk -F/ '{
     dir = $0;
     sub("/[^/]+$", "", dir);
     count[dir]++;
@@ -6,4 +6,7 @@ find ../leetcode/ -type f | awk -F/ '{
     for (d in count) {
         print d ": " count[d];
     }
-}' | sort -t: -k2 -nr
+}'
+
+
+find ../leetcode -type f | wc -l

@@ -59,41 +59,7 @@ public class BFS {
 
 
 
-	//problem 496
 
-
-	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
-
-		int []result=new int[nums1.length];
-
-		Stack<Integer> stack =new Stack<>();
-		Map<Integer,Integer> map=new HashMap<>();
-		if(nums2.length>1)
-			stack.push(nums2[0]);
-
-		for(int i=1;i<nums2.length;i++){
-			while(stack.size()>0){
-				int popValue=stack.peek();
-				if(popValue<nums2[i]){
-					stack.pop();
-					map.put(popValue,nums2[i]);
-				}else{
-					break;
-				}
-			}
-			stack.push(nums2[i]);
-		}
-
-		while(stack.size()>0){
-			map.put(stack.pop(),-1);
-		}
-
-		for(int j=0;j<nums1.length;j++){
-			result[j]=map.get(nums1[j]);
-		}
-
-		return result;
-	}
 
 
 	//
