@@ -1,7 +1,15 @@
 package leetcode.binarysearch;
 
-import java.util.Arrays;
 
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 二分搜索求极值
+ *
+ */
 public class MinEatingSpeed {
 
     public int minEatingSpeed(int[] piles, int H) {
@@ -43,7 +51,7 @@ public class MinEatingSpeed {
         System.out.println(new MinEatingSpeed().minEatingSpeed(new int[]{3,6,7,11},8));
         System.out.println(new MinEatingSpeed().minEatingSpeed(new int[]{30,11,23,4,20},5));
         System.out.println(new MinEatingSpeed().minEatingSpeed(new int[]{30,11,23,4,20},6));
-
+        Map<Integer, Integer> map = new HashMap<>();
     }
 
 

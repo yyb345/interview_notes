@@ -90,13 +90,21 @@
 
 1.  [开放平台网关](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
 
-2. Oauth授权
+2.  [Oauth授权](https://www.cnblogs.com/CKExp/p/15938916.html)
 
 3. RPC技术
 
-4. API DevOps技术
+4. Jetty/Tomcat技术
 
-5. API SDK 生成技术
+     Jetty（connector、线程池、Handler三部分）
+
+     I/O模型（NIO）、池化技术、减少系统调用、零拷贝、高效的并发编程模型（用原子变量和CAS取代锁、ConcurrentLinkedQueue无锁化队列）
+
+5. API DevOps技术
+
+6. API SDK 生成技术
+
+7. redis技术
 
    
 
