@@ -4,6 +4,7 @@ package leetcode; /**
  * Time: 下午3:32
  */
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Solution14 {
@@ -109,12 +110,10 @@ public class Solution14 {
 
 
 	public static void main(String[] args){
-//		int[][] matrix=new int[][]{{1},{2},{3},{4},{5}};
-// 		new problems.Solution14().printMatrix(matrix);
-		String[] nums=new String[]{"3","32","321"};
-		//int[] nums=new int[]{3,32,321};
-
-		//Arrays.sort(nums,(o1,o2)->(o1-o2));
- 		//Arrays.sort(nums,((s1, s2) -> (s1+s2).compareTo(s2+s1));
+		int[] nums = new int[]{1,5,9};
+		System.out.println(Arrays.binarySearch(nums,0,2,1));
+		System.out.println(Arrays.binarySearch(nums,0,2,3));
+		System.out.println(Arrays.binarySearch(nums,0,2,6));
+		System.out.println(Arrays.binarySearch(nums,0,2,10));
 	}
 }

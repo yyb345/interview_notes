@@ -35,12 +35,5 @@ public class StringPattern {
 
 	public static void main(String[] args){
 
-		StringBuffer buffer=new StringBuffer("a b c");
-		new StringPattern().replaceSpace(buffer);
-
-//		String patters="^[a-z]?\\d{3,}$";
-//		String content="q234222";
-//		boolean matches = Pattern.matches(patters, content);
-//		System.out.println(matches);
 	}
 }
