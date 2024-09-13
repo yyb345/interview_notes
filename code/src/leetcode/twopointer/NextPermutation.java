@@ -1,7 +1,10 @@
-package leetcode.twopoint;
+package leetcode.twopointer;
 
 /**
- * 31
+ * 31 数组的下一次排列
+ * [1,2,3]-->[1,3,2]
+ * 解法：1. 从尾部向左找第一个下降的点n，然后再返回尾部找到比它大的最小的点m 2.两点交换
+ *      3. 尾部到n点之间的重新排序成最小的数组【因为本身是下降的，所以只需要两两交换就可以了】
  */
 public class NextPermutation {
 
@@ -34,7 +37,7 @@ public class NextPermutation {
                 }
                 rr++;
             }
-            // this is keypoit
+            // this is keypoint
             swap(nums,h-1,greaterIndex);
             l = h;
         }

@@ -1,21 +1,27 @@
 package leetcode.backtrack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * 46 数组全排列
- * Input: nums = [1,2,3]
- * Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+ * 47 数组全排列
+ * 去重,比如[1,1,2]
+ * Input: nums = [1,1,2]
+ * Output:
+ * [[1,1,2],
+ *  [1,2,1],
+ *  [2,1,1]]
  */
-public class Permute {
+public class PermuteUnique {
 
     List<List<Integer>> ret  = new ArrayList<>();
-    public List<List<Integer>> permute(int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
         if(nums==null || nums.length==0){
             return new ArrayList<>();
         }
-
+        // 1. sort
+        Arrays.sort(nums);
         int m = nums.length;
         boolean[] visited = new boolean[m];
         backTrack(nums,visited,new ArrayList<>());
@@ -34,11 +40,19 @@ public class Permute {
             if(visited[i]){
                 continue;
             }
+
+            // 2. this is keypoint that can remove duplicates
+            if(i>0 && !visited[i-1] && nums[i]==nums[i-1]){
+                continue;
+            }
+
             visited[i]=true;
             list.add(nums[i]);
             backTrack(nums,visited,list);
             list.remove(list.size()-1);
             visited[i]=false;
+
+
         }
 
     }
