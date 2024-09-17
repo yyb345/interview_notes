@@ -3,32 +3,29 @@ package leetcode.backtrack;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO
+/**
+ * 78
+ * Input: nums = [1,2,3]
+ * Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+ */
 public class Subsets {
 
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (nums.length > 0) {
-            int[] subNums = new int[nums.length - 1];
-            int lasstElement = nums[nums.length - 1];
-            for (int i = 0; i < subNums.length; i++) {
-                subNums[i] = nums[i];
-            }
-            List<List<Integer>> subDatas = subsets(subNums);
-            result.addAll(subDatas);
+    List<List<Integer>> ret = new ArrayList<>();
+    public List<List<Integer>> subsets(int[] nums) {
 
-            for (List<Integer> set : subDatas) {
-                List<Integer> subb = new ArrayList<>();
-                subb.addAll(set);
-                subb.add(lasstElement);
-                result.add(subb);
-            }
+        backTrack(nums,0,new ArrayList<>(),nums.length);
+        return ret;
+    }
 
+    void backTrack(int[] nums,int start,List<Integer> list,int k){
 
-        } else {
-            result.add(new ArrayList<>());
+        ret.add(new ArrayList<>(list));
+
+        for(int i=start;i<nums.length;i++){
+            list.add(nums[i]);
+            backTrack(nums,i+1,list,k-1);
+            list.remove(list.size()-1);
         }
 
-        return result;
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  *  [1,2,1],
  *  [2,1,1]]
  */
-public class PermuteUnique {
+public class PermuteII {
 
     List<List<Integer>> ret  = new ArrayList<>();
     public List<List<Integer>> permuteUnique(int[] nums) {
