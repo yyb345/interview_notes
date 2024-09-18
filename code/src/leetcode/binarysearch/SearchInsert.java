@@ -16,7 +16,6 @@ public class SearchInsert {
             } else if (nums[middle] < target) {
                 start = middle + 1;
             } else if (nums[middle] == target) {
-
                 return middle;
             }
         }

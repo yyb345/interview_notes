@@ -5,66 +5,35 @@ import leetcode.binarytree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO 一定要重写
+/**
+ * 236
+ * 二叉树寻找最近公共父节点
+ */
 public class FindLowestCommonAncestor {
 
-    // leetcode 236
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
-        if(root==null || p==null || q==null ){
+        if(root==null){
             return null;
         }
 
-
-        TreeNode ret = null;
-
-        List<TreeNode> pPath = new ArrayList<>();
-        List<TreeNode> qPath = new ArrayList<>();
-        findNodePath(root, p.val,new ArrayList<>(),pPath);
-        findNodePath(root, q.val,new ArrayList<>(),qPath);
-
-        int index =0 ;
-        while(index<Math.min(pPath.size(),qPath.size())){
-            TreeNode pNode = pPath.get(index);
-            TreeNode qNode = qPath.get(index);
-            if(pNode.val ==qNode.val){
-                ret = pNode;
-            }else {
-                break;
-            }
-            index++;
+        if(root==p || root==q){
+            return root;
         }
 
-        return ret;
-    }
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
 
-
-
-    public boolean findNodePath(TreeNode root,int target,List<TreeNode> list,List<TreeNode> ret){
-
-        if(root==null){
-            return false;
+        if(left!=null && right!=null){
+            return root;
+        }else if(left==null && right!=null){
+            return right;
+        }else if(left!=null && right==null){
+            return left;
         }
 
-        list.add(root);
-        if(root.val==target){
-            ret.addAll(new ArrayList<>(list));
-            return true;
-        }
-        if(root.left!=null){
-            if(findNodePath(root.left,target,list,ret)){
-                return true;
-            }
-        }
+        return null;
 
-        if(root.right!=null){
-            if(findNodePath(root.right,target,list,ret)){
-                return true;
-            }
-        }
-        list.remove(root);
-
-        return false;
     }
 }

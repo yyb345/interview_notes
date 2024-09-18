@@ -2,27 +2,24 @@ package leetcode.binarytree.bst;
 
 import leetcode.binarytree.TreeNode;
 
+/**
+ * 235
+ * 二叉搜索树 最近公共父节点
+ */
 public class LowestCommonAncestorBST {
 
     public TreeNode lowestCommonAncestorBST(TreeNode root, TreeNode p, TreeNode q) {
 
-        if(root==null || p==null || q==null){
+        if(root==null){
             return null;
         }
-        int max = Math.max(p.val, q.val);
-        int min = Math.min(p.val,q.val);
-        if(root.val < min){
-            return lowestCommonAncestorBST(root.right,p,q);
-        }else if(root.val> max){
+
+        if(root.val>p.val && root.val>q.val){
             return lowestCommonAncestorBST(root.left,p,q);
-        }else if(root.val== p.val){
-            return p;
-        }else if(root.val==q.val){
-            return q;
-        }else if(root.val>min && root.val<max){
+        }else if(root.val<p.val && root.val<q.val){
+            return lowestCommonAncestorBST(root.right,p,q);
+        }else {
             return root;
         }
-
-        return null;
     }
 }
