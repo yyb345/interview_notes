@@ -1,6 +1,8 @@
 # 好记性不如烂笔头！
 
 
+
+
 ## 0. 算法学习
 [leetcode](https://github.com/yyb345/notes/tree/master/code/src/leetcode)<br>
 
@@ -110,7 +112,7 @@
 
 ##        
 
-## 5. Flink
+## 5. 大数据计算框架
 
 ### 流式处理框架  
   [DataFlow编程模型](https://www.jianshu.com/p/0faa1c1caa47) <br>
@@ -170,14 +172,14 @@ CheckPoint
 
    [常见面试题](https://www.cnblogs.com/crazymakercircle/p/17539112.html#autoid-h2-5-0-0 )     
 
-## 6. 大数据
+## 6. 数据仓库
 
 [大数据相关](https://www.nowcoder.com/discuss/148752)  
 
-什么是数据仓库？ 什么是数据集市？<br>
-数据仓库的体系是怎么样的？<br>
+什么是数据仓库？ 什么是数据集市？
+数据仓库的体系是怎么样的？
 
-Hive的驱动层是如何做的？如何翻译为MR或者Spark SQL任务的？ <br>
+Hive的驱动层是如何做的？如何翻译为MR或者Spark SQL任务的？ 
 Hive有索引优化么？
         
 
