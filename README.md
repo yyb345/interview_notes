@@ -154,7 +154,7 @@
 
 编程模型
 
-  常见的算子
+  常见的算子 Map FlatMap Union GroupBy 
 
    RDD
 
@@ -170,14 +170,23 @@ CheckPoint
 
 常见的业务问题和热点问题   
 
-   [常见面试题](https://www.cnblogs.com/crazymakercircle/p/17539112.html#autoid-h2-5-0-0 )     
+ [常见面试题](https://www.cnblogs.com/crazymakercircle/p/17539112.html#autoid-h2-5-0-0 )     
 
 ## 6. 数据仓库
 
-[大数据相关](https://www.nowcoder.com/discuss/148752)  
+大数据技术哪家强？ https://mp.weixin.qq.com/s/6MXcmk9158iiqe0jXKJqBQ
 
-什么是数据仓库？ 什么是数据集市？
 数据仓库的体系是怎么样的？
+
+  	ODS 操作层数据
+
+ 	DWD(detail) 细节层【】
+
+ 	DWM(Middle) 中间层
+
+​	 DWS(Server)  服务层
+
+​     维表，各种维度的表
 
 Hive的驱动层是如何做的？如何翻译为MR或者Spark SQL任务的？ 
 Hive有索引优化么？
