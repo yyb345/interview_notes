@@ -152,19 +152,33 @@
 
 ### Spark原理解析
 
-编程模型
+#### 编程模型
 
-  常见的算子 Map FlatMap Union GroupBy 
+  常见的算子 Map FlatMap Union GroupBy ReduceBy 
 
-   RDD
+  常见的数据结构: DStream
 
-   宽窄依赖
+   RDD==RDD的核心数据结构？
 
-RUNTIME模型
+   宽窄依赖== 如何识别和优化的？
 
-​    shuffle是怎么做的？
+#### RUNTIME模型
 
-CheckPoint
+​     DAG 以及 DAG中的Stage是如何划分的？（窄依赖划分一个stage、宽依赖划分一个stage）
+
+![spark_stage](documents/:Users:lyc:Desktop:杨一博:面试相关:spark_stage.png)
+
+​    shuffle是怎么做的？== Hash Shuffle 和 Sort Shuffle
+
+#### CheckPoint
+
+
+
+#### Spark SQL
+
+#### Spark Streaming 
+
+  
 
 有哪些比较好的设计和优化？
 
@@ -176,11 +190,11 @@ CheckPoint
 
 大数据技术哪家强？ https://mp.weixin.qq.com/s/6MXcmk9158iiqe0jXKJqBQ
 
-数据仓库的体系是怎么样的？
+数据仓库是如何分层的？
 
   	ODS 操作层数据
 
- 	DWD(detail) 细节层【】
+ 	DWD(detail) 细节层【去重、去空等】
 
  	DWM(Middle) 中间层
 
