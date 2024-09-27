@@ -133,7 +133,9 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 
 
 
-## 与开源框架Spring Cloud Gateway的对比
+## 与其他框架对比
+
+### 与开源框架Spring Cloud Gateway的对比
 
 
 
@@ -150,7 +152,7 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 
 
 
-## 与Ngnix的对比
+### 与Ngnix的对比
 
 API网关负责将http请求路由到后端服务中，涉及鉴权、路由等
 
@@ -160,7 +162,7 @@ Ngnix一般可以作为业务API网关的上游。
 
 
 
-## 与Service Mesh的对比
+### 与Service Mesh的对比
 
 中心化网关===> 去中心化网关===> mesh化网关架构
 
