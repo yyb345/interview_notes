@@ -3,7 +3,7 @@
  <div style="text-align: center;">  
     <img src="https://github.com/user-attachments/assets/452505a2-6ade-414a-adff-d837e9ec2db9" alt="image" style="width: 300px; height: auto;" />  
 </div>
-## 业务
+
 
 业务网关
 
@@ -73,6 +73,18 @@ FlinkSQL技术栈
 
 API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
+
+
+#### 基于注解的二方包快速生成API
+
+#### 基于HSF元数据快速生成API
+
+#### 基于SmartEngine的工作流驱动API发布
+
+
+
+
+
 ## SDK技术
 
 客户端调用示例代码（JAVA语言举例）：
@@ -90,6 +102,10 @@ System.out.println(rsp.getBody());
 GO语言、Java语言、Python语言、Net语言、C++语言等
 
 基础包：HTTP调用、参数拼接、签名计算、返回结果反序列化
+
+#### 验签的过程是怎样的？
+
+#### 个性包文件是如何生成的？
 
 个性化包：DSL+模版引擎=> 代码生成
 
