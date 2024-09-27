@@ -3,25 +3,47 @@
  <div style="text-align: center;">  
     <img src="https://github.com/user-attachments/assets/452505a2-6ade-414a-adff-d837e9ec2db9" alt="image" style="width: 300px; height: auto;" />  
 </div>
-  
+## 业务
+
+业务网关
+
+商业模式：商家 <=> ISV <=> 开放平台（网关+数据推送+电商云） <=> 交易中台
+
+技术模型：服务市场（ERP软件售卖给商家） + 开放平台控制台（ISV+应用+SDK+API文档）+ 电商云 + API内部开放
 
 ## 核心指标
 
-性能指标：RT 、吞吐量QPS
-稳定性指标：SLA可用性4个9
-业务指标：API的成功率
+#### 网关核心指标
+
+​	性能指标：RT 、吞吐量QPS
+​	稳定性指标：SLA可用性4个9
+​	业务指标：API的成功率
+
+ISV核心指标：
+
+​    应用开发和迭代效率 和 稳定性
 
 ## 核心技术点
 
+问题：为什么是servelet，不采用netty？
+
 异步化：HSF异步化/Jetty异步
+
 多层元数据缓存：bloomfiter/ 本地缓存/分布式缓存
+
+解决缓存穿透的问题：bloom filter 或 缓存<K,NULL>可以解决，本处采用bloom filter ，猜测大概率是因为如何设置为null值的话，内存无限制增长。
+
 流控：令牌桶算法 / 漏桶算法
 
-安全：收货地址、手机号、姓名等进行加密、解密
+安全：收货地址、手机号、姓名等进行加密、解密。加解密的技术细节是怎样的？
+
+为什么要做去中心化？以及是如何做的？
+
+
 
 ## 数据中心
 
-SLS->Flink->hologress   
+SLS->Flink SQL->hologress   
 
 API维度、应用维度、商家维度、API-应用维度
 
@@ -36,6 +58,18 @@ FlinkSQL技术栈
 API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
 ## SDK技术
+
+客户端调用示例代码（JAVA语言举例）：
+
+```java
+TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
+TradeFullinfoGetRequest req = new TradeFullinfoGetRequest();
+req.setFields("tid,type,status,payment,orders,promotion_details");
+req.setTid(123456789L);
+req.setIncludeOaid("include_oaid");
+TradeFullinfoGetResponse rsp = client.execute(req, sessionKey);
+System.out.println(rsp.getBody());
+```
 
 GO语言、Java语言、Python语言、Net语言、C++语言等
 
@@ -66,10 +100,29 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 
 
 
+## 与Ngnix的对比
+
+API网关负责将http请求路由到后端服务中，涉及鉴权、路由等
+
+Ngnix更多的是http请求的反向代理。
+
+Ngnix一般可以作为业务API网关的上游。
+
 
 
 ## 与Service Mesh的对比
 
+中心化网关===> 去中心化网关===> mesh化网关架构
+
+
+
 一个是横向（东西）的流量、一个是纵向（南北）的流量
 
 一个是业务网关 一个是微服务的流量网关
+
+Service mesh 解决什么问题？解决微服务化后，各个应用之间的服务通信和治理问题。
+
+什么是Side Car？解决什么问题？它本质上是一种设计模式，它允许应用程序依赖的组件以容器化或者独立进程的方式部署。
+
+
+

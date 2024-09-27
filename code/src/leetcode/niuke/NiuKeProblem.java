@@ -493,4 +493,40 @@ public class NiuKeProblem {
     }
 
 
+    public List<String> commonChars(String[] words) {
+
+        List<String> ret = new ArrayList<>();
+        List<Map<Character,Integer>> mapList = new ArrayList<>();
+
+        for (String word : words) {
+            Map<Character,Integer> map = new HashMap<>();
+            for(int i=0;i<word.length();i++){
+                char c = word.charAt(i);
+                map.put(c,map.getOrDefault(c,0)+1);
+            }
+            mapList.add(map);
+        }
+
+        String word = words[0];
+
+        for(int i=0;i<word.length();i++){
+            char c = word.charAt(i);
+            boolean contain = true;
+            for (Map<Character, Integer> map : mapList) {
+                if(map.getOrDefault(c,0)>0){
+                    map.put(c,map.get(c)-1);
+                }else {
+                    contain = false;
+                    break;
+                }
+            }
+
+            if(contain){
+                ret.add(String.valueOf(c));
+            }
+        }
+
+        return  ret;
+    }
+
 }
