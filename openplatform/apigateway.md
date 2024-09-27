@@ -89,7 +89,7 @@ FlinkSQL技术栈
 
 
 
-## API控制台
+## API工作台
 
 API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
@@ -104,6 +104,8 @@ API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
 
 #### 智能答疑
+
+从0到1搭建答疑体系，采用HanLP技术
 
  <div style="text-align: center;">  
     <img src="../documents/smartqa.jpg" alt="image" style="width: 400px; height: auto;" />  
