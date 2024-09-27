@@ -138,6 +138,12 @@ public class Main {
         return rr;
     }
 
+    public static void main(String[] args) {
+        Map<Integer,Integer> map =new HashMap<>();
+        int a =1;
+        map.getOrDefault(a,1);
+    }
+
 }
 
 
