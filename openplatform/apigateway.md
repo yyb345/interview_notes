@@ -105,7 +105,11 @@ API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
 #### 智能答疑
 
-<img src="../documents/smartqa.jpg" alt="smartqa" style="zoom:25%;" />
+ <div style="text-align: center;">  
+    <img src="../documents/smartqa.jpg" alt="image" style="width: 400px; height: auto;" />  
+</div>
+
+
 
 
 
