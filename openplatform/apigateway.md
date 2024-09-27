@@ -103,6 +103,12 @@ API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 
 
 
+#### 智能答疑
+
+<img src="../documents/smartqa.jpg" alt="smartqa" style="zoom:25%;" />
+
+
+
 ## SDK技术
 
 客户端调用示例代码（JAVA语言举例）：
