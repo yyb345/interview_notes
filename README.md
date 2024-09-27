@@ -90,11 +90,11 @@
 
 ## 4. 开放平台技术   
 
-1.  [开放平台网关](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
+1. [开放平台网关](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
 
-2.  [Oauth授权](https://www.cnblogs.com/CKExp/p/15938916.html)
+2. [Oauth授权](https://www.cnblogs.com/CKExp/p/15938916.html)
 
-3. RPC技术
+3. [RPC技术](https://github.com/yyb345/notes/tree/master/rpc-spring-starter-main)
 
 4. Jetty/Tomcat技术
 
@@ -106,9 +106,11 @@
 
 6. API SDK 生成技术
 
-7. Redis技术
+7. Spring Cloud技术
 
-   
+      Spring Cloud GateWay 比较 
+
+     
 
 ##        
 
@@ -193,10 +195,10 @@
 数据仓库是如何分层的？
 
   	ODS 操作层数据
-
- 	DWD(detail) 细节层【去重、去空等】
-
- 	DWM(Middle) 中间层
+  	
+  	DWD(detail) 细节层【去重、去空等】
+  	
+  	DWM(Middle) 中间层
 
 ​	 DWS(Server)  服务层
 

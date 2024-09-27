@@ -259,14 +259,31 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 
 
 
+## 与RocketMq的区别
+
+|             | Kafka                               | RocketMq                         |
+| ----------- | ----------------------------------- | -------------------------------- |
+| 部署架构    | zk+brokerList                       | 元数据服务器、brokerList、读集群 |
+| 元数据      | 持久化存储在zk和缓存在broker上      | 元数据服务器                     |
+| I/O通信框架 | 基于Java NIO自己实现                | Netty通信框架                    |
+| 存储        | LogSegment存储一个topic的数据       | LogSegment存储多个topic的数据    |
+| 读          |                                     | 单独的读集群                     |
+| 广播消费    | 不支持                              | 支持                             |
+| 写          | 客户端：Batch/异步 服务端：异步刷盘 |                                  |
+| 延迟队列    | 不支持                              | 支持                             |
+| 消息轨迹    | 不支持                              | 支持                             |
+
+
+
 ## zookeeper的作用
 ### zookeeper在kafka中的作用
 1. **controller选举**，所有的broker在zk /controller下注册临时节点，任意一个抢先的broker注册成功，则为controller
-2.  **kafka consumer负载均衡**
-3.  **集群节点存活状态监测**
-4.  **topic创建触发**
-5.  **broker上线、下线的通知**
+2. **kafka consumer负载均衡**
+3. **集群节点存活状态监测**
+4. **topic创建触发**
+5. **broker上线、下线的通知**
 6. **ISR配置变更**
+7. 
 
 
 

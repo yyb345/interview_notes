@@ -51,11 +51,22 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 
 ## 与开源框架Spring Cloud Gateway的对比
 
-业务上：电商业务
 
-技术上：Spring体系与技术框架，底层采用netty网络IO框架，异步框架是Project Reactor
 
-路由规则是硬编码或Yaml文件、后端集成eraka foreign
+|            | TOP                   | Spring Cloud Gateway               |
+| ---------- | --------------------- | ---------------------------------- |
+| 业务       | 电商属性              | 一般通用                           |
+| 企业规模   | 大型                  | 中小型                             |
+| 技术生态   | HSF/Diamond/Sentiel   | Eruka/foregin/robin/configure等    |
+| 路由配置   | 有单独的API配置中心   | 硬编码或yaml配置                   |
+| 技术框架   | Jetty+HSF             | Netty+Reactor webflux异步框架      |
+| 异步化方式 | Servelet 异步/HSF异步 | Reactor mnno框架/Netty事件驱动异步 |
+|            |                       |                                    |
+|            |                       |                                    |
+
+
+
+
 
 ## 与Service Mesh的对比
 
