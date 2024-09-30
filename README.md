@@ -9,19 +9,25 @@
 
 ## AI技术
 
-LangChain
+[LangChain](https://github.com/yyb345/notes/blob/master/AI/langchain.md)
+
+ [李飞飞采访](https://github.com/yyb345/notes/blob/master/AI/feifei_interview.md)
 
 ## 大数据技术
 
-kafka 、flink、Spark
+kafka、flink、spark
+
+ [消息队列对比（Kafka、RocketMq、Pulsar）](https://github.com/yyb345/notes/blob/master/bigdata/kafka/mq.md)
+
+
 
 ### 后端技术
 
 Java、Redis 、RPC技术、Spring Cloud、API网关等技术
 
+[API网关核心技术](https://github.com/yyb345/notes/blob/master/Backend/openplatform/apigateway.md)
 
 
-  
 
 
 

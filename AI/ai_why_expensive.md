@@ -1,4 +1,4 @@
-​                          AI 为什么这么贵？
+                          AI 为什么这么贵？
 
 本文引自https://www.bloomberg.com/news/articles/2024-04-30/why-artificial-intelligence-is-so-expensive?srnd=phx-ai&leadSource=uverify%20wall 彭博社的一篇报道。
 
