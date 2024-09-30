@@ -111,6 +111,10 @@ pulsar：每个topic每个分区的数据单独存储在bookeeper中
 
 
 
+## Producer层
+
+异步发送、批量发送
+
 ## Consumer层
 
 Kafka: partition级别并行，consumer group 的每个consumer至多消费一个partition
@@ -121,7 +125,7 @@ pulsar：三种模式，独占模式、failover模式、共享模式，我们只
 
 
 
-Rebalance：consumer group数量有变化的时候，分区与cosumer的消费关系重新被分配。
+**Rebalance**：consumer group数量有变化的时候，分区与cosumer的消费关系重新被分配。
 
 **顺序消费**：
 
