@@ -12,7 +12,7 @@
 
 **滑动窗口**：
 
-
+**栈：**
 
 链表
 
@@ -47,7 +47,9 @@ Java、Redis 、RPC技术、Spring Cloud、API网关等技术
 
 [API网关核心技术](https://github.com/yyb345/notes/blob/master/Backend/openplatform/apigateway.md)
 
+[美团网关技术演进](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
 
+[美团SDK自动化生成实践](https://tech.meituan.com/2023/01/05/openplatform-sdk-auto-generate.html)
 
 
 
