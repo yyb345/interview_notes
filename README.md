@@ -29,9 +29,9 @@ DFS
 
 ## AI技术
 
-[LangChain](https://github.com/yyb345/notes/blob/master/AI/langchain.md)
+[利用LangChain+大模型落地一个应用场景](https://github.com/yyb345/notes/blob/master/AI/langchain.md)
 
- [李飞飞采访](https://github.com/yyb345/notes/blob/master/AI/feifei_interview.md)
+ [李飞飞20240924采访](https://github.com/yyb345/notes/blob/master/AI/feifei_interview.md)
 
 ## 大数据技术
 
@@ -39,7 +39,7 @@ kafka、flink、spark
 
  [消息队列对比（Kafka、RocketMq、Pulsar）](https://github.com/yyb345/notes/blob/master/bigdata/kafka/mq.md)
 
-
+ [Flink技术原理](https://github.com/yyb345/notes/blob/master/bigdata/flink/flink_main.md)
 
 ### 后端技术
 
