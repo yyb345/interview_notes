@@ -1,52 +1,38 @@
 package leetcode.linkedlist;
 
-import leetcode.Solution;
 
-import java.util.Stack;
-
+/**
+ * 2
+ */
 public class AddTwoNumbers {
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        return addListNodeNumbers(0,l1,l2);
+    }
 
-        ListNode first = null;
-        //ListNode result=null;
-        Stack<Integer> stack1 = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
-        while (l1 != null) {
-            stack1.push(l1.val);
-            l1 = l1.next;
-        }
-        while (l2 != null) {
-            stack2.push(l2.val);
-            l2 = l2.next;
-        }
+    public ListNode addListNodeNumbers(int preSum,ListNode l1, ListNode l2) {
 
-        int preSum = 0;
-
-        while (stack2.size() > 0 || stack1.size() > 0) {
-
-            int sum = 0;
-            if (stack1.size() > 0) {
-                sum += stack1.pop();
+        if(l1==null && l2==null){
+            if(preSum>0){
+                ListNode listNode = new ListNode(preSum);
+                return listNode;
+            }else{
+                return null;
             }
-            if (stack2.size() > 0) {
-                sum += stack2.pop();
-            }
-            sum += preSum;
-            int value = sum % 10;
-            preSum = sum / 10;
-            ListNode tmp = new ListNode(value);
-            tmp.next = first;
-            first = tmp;
+        }else if(l1!=null && l2==null){
+            ListNode listNode = new ListNode((l1.val+preSum)%10);
+            listNode.next = addListNodeNumbers((l1.val+preSum)/10,l1.next,null);
+            return listNode;
+        }else if(l1==null && l2!=null){
+            ListNode listNode = new ListNode((l2.val+preSum)%10);
+            listNode.next = addListNodeNumbers((l2.val+preSum)/10,null,l2.next);
+            return listNode;
+        }else {
+            ListNode listNode = new ListNode((l1.val+l2.val+preSum)%10);
+            listNode.next = addListNodeNumbers((l1.val+l2.val+preSum)/10,l1.next,l2.next);
+            return listNode;
         }
 
-        if (preSum == 1) {
-            ListNode tmp = new ListNode(1);
-            tmp.next = first;
-            first = tmp;
-        }
-
-        return first;
 
     }
 }

@@ -48,17 +48,16 @@
 
    [Zookeeper选举分析](https://www.cnblogs.com/longxok/p/8951867.html)  <br>
    [分布式锁 ](https://juejin.im/post/5bbb0d8df265da0abd3533a5)  <br>
-   [分布式消息中间件应用实践](https://www.ibm.com/developerworks/cn/opensource/os-cn-kafka-distributed/index.html) <br>
    [Chandy-Lamport解析](https://yq.aliyun.com/articles/688764) <br>
    [分布式事务]() <br>
-       
+     
         
 
 ## 3. Kafka
 ### 先验知识
 * [操作系统PageCache](https://www.ibm.com/developerworks/cn/linux/l-cache/index.html)
 * JAVA NIO
-* [mmap知识点](https://linux-kernel-labs.github.io/master/labs/memory_mapping.html)
+* [mmap知识点](https://www.cnblogs.com/huxiao-tee/p/4660352.html)
 * 分布式Leader选举机制
 * CAP
 
@@ -110,7 +109,7 @@
 
       Spring Cloud GateWay 比较 
 
-     
+​     
 
 ##        
 
