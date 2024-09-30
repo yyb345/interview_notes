@@ -2,6 +2,7 @@ package leetcode;
 
 
 import leetcode.binarytree.TreeNode;
+import tool.TreeTool;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -138,10 +139,64 @@ public class Main {
         return rr;
     }
 
+    public String smallestFromLeaf(TreeNode root) {
+
+        if(root==null){
+            return null;
+        }
+
+        if(root.left==null && root.right == null){
+            return (char)('a'+root.val)+"";
+        }
+
+        String ll = smallestFromLeaf(root.left);
+        String rr = smallestFromLeaf(root.right);
+
+        if(ll==null) return rr+(char)('a'+root.val);
+        if(rr==null) return ll+(char)('a'+root.val);
+
+
+        ll=ll+(char)('a'+root.val);
+        rr = rr+(char)('a'+root.val);
+        if(ll.compareTo(rr)<0){
+            return ll;
+        }else {
+            return rr;
+        }
+
+    }
+
+    int compare(String a,String b){
+        int ret;
+        int index=0;
+        while(index<a.length() && index<b.length()){
+            if(a.charAt(index)==b.charAt(index)){
+                index++;
+            }else {
+                return a.charAt(index)-b.charAt(index);
+            }
+        }
+
+        if(index==a.length()){
+            return -1;
+        }
+
+        return 1;
+    }
+
     public static void main(String[] args) {
-        Map<Integer,Integer> map =new HashMap<>();
-        int a =1;
-        map.getOrDefault(a,1);
+
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(1);
+        sb.append(2);
+        StringBuilder sb2 = new StringBuilder(sb);
+        sb.reverse();
+
+        System.out.println(sb.toString());
+        System.out.println(sb2.toString());
+
+
     }
 
 }

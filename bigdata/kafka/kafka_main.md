@@ -1,40 +1,10 @@
-   * [Kafka 端到端源码解析](#kafka-端到端源码解析)
-      * [Kafka的场景](#kafka的场景)
-      * [Kafka概念](#kafka概念)
-      * [Topic 创建与删除](#topic-创建与删除)
-         * [Topic状态流转](#topic状态流转)
-         * [一些问题](#topic-一些问题)
-         * [Topic分区初始化选择](#topic分区初始化选择)
-      * [kafka producer解析](#kafka-producer解析)
-         * [1. 发送流程](#1-发送流程)
-         * [2. 分区选择策略？](#2-分区选择策略)
-         * [3. 拦截器有什么作用？](#3-拦截器有什么作用)
-         * [4. 关键数据结构](#4-关键数据结构)
-         * [5.  参数配置](#5--参数配置)
-         * [6. ACK机制](#6-ack机制)
-         * [7.一些问题](#7-producer一些问题)
-      * [Kafka网络接收层](#kafka网络接收层)
-         * [Kafka channel](#kafka-channel)
-         * [如何做限流的](#如何做限流的)
-      * [Kafka内存管理](#kafka内存管理)
-         * [堆内存](#堆内存)
-         * [堆外内存](#堆外内存)
-      * [kafka 存储层解析](#kafka-存储层解析)
-         * [消息格式](#消息格式)
-         * [消息索引](#消息索引)
-         * [一些问题](#一些问题)
-      * [副本管理](#副本管理)
-         * [failover机制](#failover机制)
-      * [kafka Consumer解析](#kafka-consumer解析)
-         * [0.8.2版本客户端](#082版本客户端)
-         * [0.10版本客户端](#010版本客户端)
-         * [一些问题](#一些问题-1)
-      * [zookeeper的作用](#zookeeper的作用)
-         * [zookeeper在kafka中的作用](#zookeeper在kafka中的作用)
-           
+
+
 # Kafka 端到端源码解析
 
 ##  Kafka的场景
+
+ 消峰削谷、异步消息解耦、大数据系统的消息上游，优势：高吞吐量
 
 ## Kafka概念
 * **Broker**
@@ -76,7 +46,7 @@
 * 第一步： 刷新元数据
 * 第二步： 序列化、选择分区、注册拦截器回调函数
 * 第三步： 往RecordAccmulator发送数据
-* 第四步：判断batch是否满了，满了的话唤醒send后台线程 <br>
+* 第四步：判断batch是否满了，满了的话唤醒send后台线程
   **有可能的异常：API版本不匹配；Buffer耗尽等**
 * 第五步 ： send后台线程退出时，扫尾工作
 
@@ -92,11 +62,7 @@
 
 ### 4. 关键数据结构
 
-
-
-RecordAccmulator数据结构的作用
-
-的内部是如何运作的？这是个线程安全的数据结构
+RecordAccmulator数据结构的作用，内部是如何运作的？这是个线程安全的数据结构
 
 ConcurrentHashMap《TopicPartition，Batch队列》
 
@@ -104,7 +70,8 @@ Batch队列需要保证线程安全
 
 有一个缓冲池bufferPool，每次开始是已经有batch在发，如果不存在则开辟batchSize大小的空间；然后往Batch队列的append数据，并且使得offset+1,然后会生成一个FutureRecordMetadata，用来表示batch是否满
 
-**消息在如何在客户端存储的**   <br>
+**消息在如何在客户端存储的**   
+
 MemoryRecord 定义了一条消息在内存中的存储，
 
 传输到socketChannel
@@ -115,21 +82,31 @@ MemoryRecord 定义了一条消息在内存中的存储，
 3.  maxFlightPerConnection=1保证了消息在单分区内的顺序性
 
 ### 6. ACK机制
- 代表对于消息可靠性的容忍度 <br>
+ 代表对于消息可靠性的容忍度 
+
  Ack=1 代表leader返回ack即可 Ack=-1 代表所有副本返回ack Ack=0代表不需要返回
 
 ### 7. Producer一些问题
-* kafka 分区器、序列化器、拦截器之间的处理顺序？<br>
-     **序列化器、分区器、 拦截器**（发送完成后才会调用）
-*  如何保证topic消息顺序性？<br>
-       **全局消息顺序性**：采用一个topic partition
-       **单分区顺序性**：  maxFlightPerConnection=1
-*  性能调优问题？
-*   数据压缩问题？
-*   数据幂等性？<br>
-        kafka 0.11版本之后提供了producer的幂等性
-*   kafka 生产者客户端用了几个线程 <br>
-         sender线程、producer主线程、
+* kafka 分区器、序列化器、拦截器之间的处理顺序？
+     
+       序列化器、分区器、 拦截器（发送完成后才会调用）
+     
+*  如何保证topic消息顺序性？
+   
+   ​    **全局消息顺序性**：采用一个topic partition
+   ​    **单分区顺序性**：  maxFlightPerConnection=1
+   
+* 性能调优问题？
+
+* 数据压缩问题？
+
+*   数据幂等性？
+    
+    ​     kafka 0.11版本之后提供了producer的幂等性
+    
+*   kafka 生产者客户端用了几个线程 
+    
+    ​     sender线程、producer主线程、
 
 
 
@@ -137,12 +114,23 @@ MemoryRecord 定义了一条消息在内存中的存储，
 ###  Kafka channel
 ###  如何做限流的？
 图中展示了通用的限流算法
-![avatar](throught_controller.png)
+<img src="throught_controller.png" alt="avatar" style="zoom: 50%;" />
 
 server/ClientQuatoManager负责进行流量控制
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 如何做数据安全的？
-
-
 
 #### PageCache、mmap、zero-copy在kafka中的场景分别是什么？
 
@@ -249,8 +237,9 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 ### 0.10版本客户端
 
 ### 一些问题
-* kafka 如何做到不重复消费? <br>
-  现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。<br>
+* kafka 如何做到不重复消费? 
+  
+    现有的kafka可以做到写幂等性（0.11版本之后），但是做不到消费幂等性。消费完后写offset到zk失败，这个状态consumer客户端是感知不到的，二者并没有类似TCP的ack机制。因此下一次还是会从上次提交的offset继续读，就会出现重复消费。我个人觉得解决这个问题可以从两个方向来考虑：应用端做消费幂等性处理，也即每条消息会有一个全局的key，应用端保存消费过消息的key，每次新消费一条数据，key做重复判断，若重复，则丢弃这条数据。当然这会带来额外的内存与查询开销。<br>
     同样，应用端也就是consumer端需要消息处理和offset提交这两步是事务的，也即要么操作成功要么撤回恢复之前的状态。这需要应用端有事务保障，但往往很多应用端是不支持事务的，比如kafka数据落盘hdfs，kafka数据消费完写入本地文件等等。但官方给的kafka consumer-process-kafka 给出了一个不错的参考的例子和思路。基本上遵循了分布式系统中的两阶段提交想法和思路，[具体可以参见](http://matt33.com/2018/11/04/kafka-transaction/)
 
 个人理解重复消费出现的概率并不会很高，在服务端改进会带来很大的性能损耗，这可能是为什么大家都选择不处理的重要原因吧。另外，本身系统与系统之间传输数据，很难做到消息的exactly once的。无论是kafka到存储系统hdfs还是spark flink下游计算系统等。若数据传输都在一个系统之内，那相对好处理一些，比如kafka的事务，保证了consume-process-producer的事务场景，也就是从kafka消费处理完毕后再到kafka，这个可以做到exactly once。
@@ -275,6 +264,16 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 
 
 
+## 与Plusar的区别
+
+plusar底层用的是bookeeper存储系统，bookeeper诞生之初就是为了解决日志的可扩展问题，很多大公司的元数据服务，比如mysql的binlog、Hdfs的namenode的元数据，当单机无法满足其存储需求时，可以采用它作为日志系统。
+
+一致性优先，也就是CAP的CP
+
+broker是无状态的，broker和存储是分离的，不像kafka 每个分区是存储在每个broker上的。
+
+
+
 ## zookeeper的作用
 ### zookeeper在kafka中的作用
 1. **controller选举**，所有的broker在zk /controller下注册临时节点，任意一个抢先的broker注册成功，则为controller
@@ -283,7 +282,7 @@ index 文件通过mmap从磁盘映射到用户空间内存中，log文件则是�
 4. **topic创建触发**
 5. **broker上线、下线的通知**
 6. **ISR配置变更**
-7. 
 
 
 
+### 

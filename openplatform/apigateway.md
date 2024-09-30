@@ -77,6 +77,14 @@ CPU利用率变高，线程数增大，GC频率明显变快，分析Jmap，有�
 
 
 
+JVM GC常见的报错以及解决方案：
+
+**Promotion Failure**：Old区没有足够的空间来分配年轻代晋升的对象。
+
+**Concurrent Mode Failure**：Old区没有足够的空间来分配新的对象，此时垃圾回收器会退化成 serilaze 
+
+
+
 ## 数据中心
 
 SLS->Flink SQL->hologress   
@@ -139,6 +147,10 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 
 个性化包：DSL+模版引擎=> 代码生成
 
+
+
+http连接是长连接还是短连接？ 回答：短连接。同时如果是长连接，需要客户端和服务端（Ngnix到后端服务器）也支持这种特性，目前是不支持这种特性的。
+
 ## 授权技术
 
 服务端授权：code换token
@@ -148,8 +160,6 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 ## 与其他框架对比
 
 ### 与开源框架Spring Cloud Gateway的对比
-
-
 
 |            | TOP                   | Spring Cloud Gateway               |
 | ---------- | --------------------- | ---------------------------------- |
@@ -161,6 +171,12 @@ GO语言、Java语言、Python语言、Net语言、C++语言等
 | 异步化方式 | Servelet 异步/HSF异步 | Reactor mnno框架/Netty事件驱动异步 |
 |            |                       |                                    |
 |            |                       |                                    |
+
+
+
+顺带一嘴小问题：Spring Cloud的微服务之间为什么是http调用，而不是rpc调用？
+
+foregin的源代码解析。
 
 
 
