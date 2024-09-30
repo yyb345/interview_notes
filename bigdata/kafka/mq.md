@@ -79,6 +79,8 @@ kafka：基于Java NIO开发的kafka network 客户端
 
 rocketMq：基于Netty异步网络I/O通信框架开发，NettyRemotingClient和NettyRemotingServer
 
+epoll和NIO的区别，NIO是select轮询，epoll是事件驱动。
+
 pulsar：基于Netty异步网络I/O通信框架开发。
 
 
@@ -153,17 +155,21 @@ Rebalance：consumer group数量有变化的时候，分区与cosumer的消费�
 
 ## 高可用设计
 
-副本管理：
+### 集群的Controller管理
+
+
+
+### 分区的副本管理
 
 kafka ISR的概念 每个分区都有Leader，N个副本，副本是异步拉取消息进行数据同步的。
+
+**ACK机制**：
 
 
 
 ## 高可靠性
 
 **刷盘策略**：同步刷盘、异步刷盘
-
-
 
 数据一致性
 
