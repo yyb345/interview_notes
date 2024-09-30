@@ -2,30 +2,27 @@
 
 
 ## 算法
-[leetcode](https://github.com/yyb345/notes/tree/master/code/src/leetcode)<br>
+[leetcode](https://github.com/yyb345/notes/tree/master/code/src/leetcode) | [编程之美](https://github.com/yyb345/notes/tree/master/documents) 
 
-排序
+[排序](https://github.com/yyb345/notes/tree/master/code/src/leetcode/sort)
 
-二分搜索
+[二分搜索](https://github.com/yyb345/notes/tree/master/code/src/leetcode/binarysearch)
 
-双指针
+[双指针](https://github.com/yyb345/notes/tree/master/code/src/leetcode/twopointer)
 
-**滑动窗口**：
+[滑动窗口](https://github.com/yyb345/notes/tree/master/code/src/leetcode/slidewindow)
 
-**栈：**
+[栈](https://github.com/yyb345/notes/tree/master/code/src/leetcode/stack)
 
-链表
+[链表](https://github.com/yyb345/notes/tree/master/code/src/leetcode/linkedlist)
 
-**二叉树**：搜索、求最大最小值、求路径之和、删除节点、更改节点、判断类、构建类、计算属性类
+[二叉树](https://github.com/yyb345/notes/tree/master/code/src/leetcode/binarytree)：搜索、求最大最小值、求路径之和、删除节点、更改节点、判断类、构建类、计算属性类
 
-DFS
+[DFS](https://github.com/yyb345/notes/tree/master/code/src/leetcode/dfs)
 
-回溯
+[回溯](https://github.com/yyb345/notes/tree/master/code/src/leetcode/backtrack)
 
-动态规划
-
-[编程之美](https://github.com/yyb345/notes/tree/master/documents) <br>
-[牛客网]() <br>
+[动态规划](https://github.com/yyb345/notes/tree/master/code/src/leetcode/dp)
 
 ## AI技术
 
