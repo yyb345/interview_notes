@@ -1,6 +1,4 @@
-    常见消息队列kafka rocketmq pulsar对比
-
-
+# 常见消息队列kafka rocketmq pulsar对比
 
 ## 部署架构
 
@@ -83,9 +81,7 @@ epoll和NIO的区别，NIO是select轮询，epoll是事件驱动。
 
 pulsar：基于Netty异步网络I/O通信框架开发。
 
-
-
-
+<img src="rocketmq_netty.webp" alt="rocketmq_netty" style="zoom:40%;" />
 
 
 
