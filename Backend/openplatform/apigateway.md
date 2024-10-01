@@ -55,7 +55,9 @@ I/O模型（NIO）、池化技术、减少系统调用、零拷贝、高效的�
 
 业务维度：API/Appkey/API-Appkey/天维度/秒维度
 
+#### 元数据缓存预热
 
+  所谓服务预热,就是在服务启动完成到对外提供服务之前,针对特定场景提供一些初始化准备操作,比如线程池预热、缓存预热、数据库预热、web预热和jvm预热等等
 
 #### 隐私安全是如何做的？
 
@@ -134,8 +136,9 @@ API DevOps平台、API文档生成、API文档搜索（OpenSearch）
 从0到1搭建答疑体系，采用HanLP技术
 
  <div style="text-align: center;">  
-    <img src="../documents/smartqa.jpg" alt="image" style="width: 400px; height: auto;" />  
+    <img src="smartqa.jpg" alt="image" style="width: 400px; height: auto;" />  
 </div>
+
 
 
 
