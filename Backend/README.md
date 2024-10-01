@@ -14,8 +14,6 @@
 
 系统上：限流、分布式锁、分布式事务、数据一致性、分库分表、负载均衡
 
-其他方面：表达、时间管理、技术影响力
-
 ## 2. 分布式
 
    [Zookeeper选举分析](https://www.cnblogs.com/longxok/p/8951867.html)  <br>
@@ -23,21 +21,30 @@
    [Chandy-Lamport解析](https://yq.aliyun.com/articles/688764) <br>
    [分布式事务]() <br>
 
-## 3. 开放平台技术   
+## 3. API网关技术   
 
 1. [Oauth授权](https://www.cnblogs.com/CKExp/p/15938916.html)
-2. [RPC技术](https://github.com/yyb345/notes/tree/master/rpc-spring-starter-main)
 3. [开放平台网关](https://tech.meituan.com/2021/05/20/shepherd-api-gateway.html)
 
-## 4. Machine Learning
+## 4 RPC技术
 
-  [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <br>
+ [RPC技术](https://github.com/yyb345/notes/tree/master/rpc-spring-starter-main)
 
-## 5. 常用工具
+## 5. Spring Cloud系列 
 
-  [guava](https://github.com/google/guava/wiki)  <br>
-  [mac IDEA快捷键](https://wiki.jikexueyuan.com/project/intellij-idea-tutorial/keymap-mac-introduce.html)  <br>
-  [maven 学习笔记](https://juejin.im/post/5af8336851882542a966bd07#heading-0) <br>
+**微服务**：Eruka（注册中心）、Fegin（客户端）
+
+**限流**：Sentiel
+
+**链路追踪**：类似于EaggleId
+
+
+
+## 6. 数据库技术
+
+Mysql：
+
+NoSql：
 
 ## 6 .  性能诊断
 

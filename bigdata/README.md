@@ -10,7 +10,7 @@ Lamda架构：离线计算和在线计算相融合
 
 3. 资源管理框架：Yarn、K8s、Mesos
 
-4. 存储框架：Hdfs、Hbase
+4. 存储框架：Hdfs（GFS的开源实现）、Hbase（BigTable的开源实现）
 
 5. 查询框架：Hive、Spark Sql、Presto、Druid、Kylin
 
@@ -147,12 +147,11 @@ Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>
 数据仓库是如何分层的？
 
   	ODS 操作层数据
-  	
   	DWD(detail) 细节层【去重、去空等】
-  	
   	DWM(Middle) 中间层
+  	DWS(Server)  服务层
 
-​	 DWS(Server)  服务层
+​	
 
 ​     维表，各种维度的表
 
@@ -162,16 +161,42 @@ Hive有索引优化么？
 
 ## 7. Hbase
 
- [HBase列式存储](https://www.zhihu.com/question/29380943) <br>
+NO-SQL
+
+Hbase的本质：**sparse, distributed, persistent multidimensionalsorted map**
+
+HBase中Map的key是一个复合键，由rowkey、column family、qualif ier、type以及timestamp组成
+
+
+
+ Hbase的应用场景：时序数据库-例如openTSDB，用户画像特征标签、某个人的朋友圈、Kylin等存储
+
+一般情况下可以将Hive离线计算出来的用户特征标签导入到Hbase中，以方便进行在线查询和实时服务。
+
+Master、RegionServer、Zookeeper
+
+
+
+LSM树+跳表
+
+为了满足大数据领域写的高性能要求，采用批量写+LSM树（分层次merge聚合的方式）
+
+
+
+文件：HFile
+
+[HBase列式存储](https://www.zhihu.com/question/29380943) <br>
  [HBase深入浅出](https://juejin.im/post/5c666cc4f265da2da53eb714#heading-2)<br> 
   [HBase查询性能优化](https://www.ibm.com/developerworks/cn/java/j-lo-HBase/index.html) <br>
   [HBase的rowkey的设计](https://www.cnblogs.com/yuguoshuo/p/6265649.html) <br>
   hbase 与mysql的区别？<br>
 
+一个是NO-SQL，不支持事务；一个是关系型数据库
+
   
 
 
-## 8. 资源调度
+## 8. 资源调度Yarn和K8s
 
 
 * 资源隔离的基础: Cgroups基础
