@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3762bfe-3a6e-4424-aa40-c17236f504ba" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/lang/Integer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/lang/Object.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/nio/ByteBuffer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/src.zip!/java/nio/channels/SelectionKey.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2LXuKGTAmGKg1Tu700L1uMyOz7M" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/lyc/Desktop/code/interview_notes/code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37586206",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "spring.configuration.checksum": "f1e87740c57a99e7ac677989aea9f1d5",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.DifferentWayParenteness">
+    <configuration name="Calculataion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.Calculataion" />
+      <module name="code-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DifferentWayParenteness" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.dfs.DifferentWayParenteness" />
+      <module name="code-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FindRepeatedDnaSequences" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.hashmap.FindRepeatedDnaSequences" />
+      <module name="code-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LargetNum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.array.LargetNum" />
+      <module name="code-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.Main" />
+      <module name="code-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="kafka-demo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.DifferentWayParenteness" />
+      <item itemvalue="Application.LargetNum" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.FindRepeatedDnaSequences" />
+      <item itemvalue="Application.Calculataion" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DifferentWayParenteness" />
+        <item itemvalue="Application.LargetNum" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FindRepeatedDnaSequences" />
+        <item itemvalue="Application.Calculataion" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3762bfe-3a6e-4424-aa40-c17236f504ba" name="Changes" comment="" />
+      <created>1676029685083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676029685083</updated>
+      <workItem from="1676029686086" duration="463000" />
+      <workItem from="1676030173719" duration="44735000" />
+      <workItem from="1682150646826" duration="69000" />
+      <workItem from="1682150756459" duration="673000" />
+      <workItem from="1682153780171" duration="21012000" />
+      <workItem from="1686243205687" duration="498000" />
+      <workItem from="1686387536750" duration="7673000" />
+      <workItem from="1686928444790" duration="552000" />
+      <workItem from="1686929257957" duration="1951000" />
+      <workItem from="1687071444707" duration="16814000" />
+      <workItem from="1695741070620" duration="3779000" />
+      <workItem from="1696593050477" duration="5209000" />
+      <workItem from="1703518070858" duration="295000" />
+      <workItem from="1703518397794" duration="266000" />
+      <workItem from="1704599933361" duration="2021000" />
+      <workItem from="1708851680297" duration="1783000" />
+      <workItem from="1714318498009" duration="3364000" />
+      <workItem from="1716126031877" duration="867000" />
+      <workItem from="1716297933685" duration="3441000" />
+      <workItem from="1717173731175" duration="1165000" />
+      <workItem from="1717207879606" duration="8055000" />
+      <workItem from="1718352592891" duration="11412000" />
+      <workItem from="1720001166099" duration="3345000" />
+      <workItem from="1720097813911" duration="379000" />
+      <workItem from="1720098240373" duration="5310000" />
+      <workItem from="1720415929358" duration="3483000" />
+      <workItem from="1721020918204" duration="5350000" />
+      <workItem from="1721116216531" duration="3527000" />
+      <workItem from="1721237036692" duration="16971000" />
+      <workItem from="1723034545998" duration="7263000" />
+      <workItem from="1723709641984" duration="286000" />
+      <workItem from="1723710255534" duration="152000" />
+      <workItem from="1723710440823" duration="355000" />
+      <workItem from="1723710826353" duration="260000" />
+      <workItem from="1723711125418" duration="112000" />
+      <workItem from="1723711271744" duration="9215000" />
+      <workItem from="1724478911300" duration="2140000" />
+      <workItem from="1724667570119" duration="1056000" />
+      <workItem from="1724909433801" duration="451000" />
+      <workItem from="1724938313242" duration="501000" />
+      <workItem from="1724987105501" duration="3016000" />
+      <workItem from="1725269173328" duration="701000" />
+      <workItem from="1725270458423" duration="47786000" />
+      <workItem from="1725682892546" duration="66000" />
+      <workItem from="1725682976153" duration="24841000" />
+      <workItem from="1727169283039" duration="2149000" />
+      <workItem from="1727261512287" duration="393000" />
+      <workItem from="1727333811488" duration="2702000" />
+      <workItem from="1727448294391" duration="4285000" />
+      <workItem from="1727682804142" duration="3119000" />
+      <workItem from="1727756179235" duration="1550000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.apache.kafka:kafka-clients" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/Main.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/proxy/agent/ServiceMethod.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/async/AsyncReactorTest.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/Course.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/classloader/ClassInitTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/slidewindow/SubArraySum.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/dfs/DifferentWayParenteness.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/binarytree/modify/RemoveLeafNodes.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/binarytree/modify/RemoveLeafNodes.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/binarytree/modify/RemoveLeafNodes.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/math/Pow.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/binarytree/judge/IsValidPreTree.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/Calculataion.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/Main.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.13/3.2.1/spark-catalyst_2.13-3.2.1-sources.jar!/org/apache/spark/sql/catalyst/analysis/CheckAnalysis.scala</url>
+          <line>178</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.UnsupportedOperationException" package="java.lang" />
+          <option name="timeStamp" value="61" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
