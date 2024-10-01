@@ -254,40 +254,6 @@ public class Solution {
 
     }
 
-    // problem 169
-    public static int majorityElement(int[] nums) {
-
-        Map<Integer, Integer> tmp = new HashMap<>();
-        for (int num : nums) {
-            if (tmp.containsKey(num))
-                tmp.put(num, tmp.get(num) + 1);
-            else
-                tmp.put(num, 1);
-        }
-
-        List<Map.Entry<Integer, Integer>> list = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry : tmp.entrySet()) {
-            list.add(entry); //将map中的元素放入list中
-        }
-        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
-
-            @Override
-
-            public int compare(Map.Entry<Integer, Integer> ele1,
-
-                               Map.Entry<Integer, Integer> ele2) {
-
-                return ele1.getValue().compareTo(ele2.getValue());
-
-            }
-
-        });
-
-        return list.get(list.size() - 1).getKey();
-
-
-    }
-
 
     //problem 739
     public static int[] dailyTemperatures(int[] T) {
@@ -454,33 +420,6 @@ public class Solution {
     }
 
 
-    public static int findKthLargest(int[] nums, int k) {
-
-        Comparator cmp = new Comparator<Integer>() {
-            public int compare(Integer e1, Integer e2) {
-                return e1 - e2;
-            }
-        };
-
-        Queue<Integer> queue = new PriorityQueue<Integer>(k, cmp);
-        for (int i = 0; i < k; i++) {
-            queue.add(nums[i]);
-        }
-        for (int i = k; i < nums.length; i++) {
-            Integer peek = queue.peek();
-            if (nums[i] > peek) {
-                queue.poll();
-                queue.add(nums[i]);
-            }
-        }
-        int objects = (int) queue.toArray()[0];
-
-        return objects;
-
-
-    }
-
-
     public static boolean isPalindrome(ListNode head) {
         boolean result = true;
         ListNode first = head;
@@ -523,48 +462,6 @@ public class Solution {
 
     }
 
-
-    public static boolean isAnagram(String s, String t) {
-        boolean result = true;
-        Map<Character, Integer> s1 = new HashMap();
-        Map<Character, Integer> t1 = new HashMap();
-
-        for (int i = 0; i < s.length(); i++) {
-            if (s1.containsKey(s.charAt(i))) {
-                s1.put(s.charAt(i), s1.get(s.charAt(i)) + 1);
-            } else {
-                s1.put(s.charAt(i), 1);
-            }
-        }
-
-        for (int i = 0; i < t.length(); i++) {
-            if (t1.containsKey(t.charAt(i))) {
-                t1.put(t.charAt(i), t1.get(t.charAt(i)) + 1);
-            } else {
-                t1.put(t.charAt(i), 1);
-            }
-        }
-        if (s1.size() >= t1.size()) {
-            for (Map.Entry<Character, Integer> ss : s1.entrySet()) {
-                if (t1.getOrDefault(ss.getKey(), 0) != (int) ss.getValue()) {
-                    result = false;
-                    break;
-                }
-            }
-        } else {
-
-            for (Map.Entry<Character, Integer> tt : t1.entrySet()) {
-                if (s1.getOrDefault(tt.getKey(), 0) != (int) tt.getValue()) {
-                    result = false;
-                    break;
-                }
-            }
-        }
-
-
-        return result;
-
-    }
 
     public static int longestPalindrome(String s) {
 
@@ -831,26 +728,6 @@ public class Solution {
 
     }
 
-    int ret = Integer.MIN_VALUE;
-
-    public int maxPathSum(TreeNode root) {
-
-        startMax(root);
-        return ret;
-    }
-
-    public int startMax(TreeNode root) {
-
-        if (root == null)
-            return 0;
-
-        int left = Math.max(startMax(root.left), 0);
-        int right = Math.max(startMax(root.right), 0);
-        int max = Math.max(root.val + left, root.val + right);
-
-        ret = Math.max(ret, root.val + left + right);
-        return max;
-    }
 
     public int ladderLength(String start, String end, HashSet<String> dict) {
 

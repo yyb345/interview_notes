@@ -19,7 +19,6 @@ public class Threads {
 
 
 
-
 	volatile int globalNum=10;
 
 	class thread implements Runnable{
@@ -29,12 +28,6 @@ public class Threads {
 		}
 		@Override
 		public void run(){
-//			try{
-//				Thread.sleep(threadNum*1000);
-//			}catch (Exception e){
-//				e.printStackTrace();
-//			}
-
 			System.out.println(threadNum+" completed!");
 		}
 	}
@@ -52,8 +45,6 @@ public class Threads {
 			while(!stop){
 				System.out.println("1");
 			}
-
-			//System.out.println(threadNum+" completed!");
 		}
 	}
 
@@ -68,9 +59,6 @@ public class Threads {
 
 		System.out.println("2");
 		stop=true;
-
-
-			//System.out.println(threadNum+" completed!");
 		}
 	}
 

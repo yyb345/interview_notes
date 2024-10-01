@@ -4,7 +4,7 @@ package org.algorithm.binarysearch;
  *
  */
 //TODO 优化一版
-public class MySqrt {
+public class MySqrtDouble {
 
     public int mySqrt(int x) {
         if(x<=1){
