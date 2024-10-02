@@ -30,6 +30,12 @@
 
  [RPC技术](https://github.com/yyb345/notes/tree/master/rpc-spring-starter-main)
 
+RPC调用三种模式：同步模式、Future模式、CallBack模式
+
+Java SPI，插件的形式
+
+扩展点实现
+
 ## 5. Spring Cloud系列 
 
 **微服务**：Eruka（注册中心）、Fegin（客户端）
