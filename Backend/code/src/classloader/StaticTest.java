@@ -8,7 +8,6 @@ package classloader;
  */
 
 
-
 class SuperClass {
 	static {
 		System.out.println("superclass init");
