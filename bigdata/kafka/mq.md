@@ -2,6 +2,8 @@
 
 ## 部署架构
 
+<img src="deploy_model.jpg" alt="deploy_model" style="zoom:30%;" />
+
 kafka：zookeeper集群、broker集群
 
 RocketMq：NameServer集群、broker集群
@@ -81,7 +83,7 @@ epoll和NIO的区别，NIO是select轮询，epoll是事件驱动。
 
 pulsar：基于Netty异步网络I/O通信框架开发。
 
-<img src="rocketmq_netty.webp" alt="rocketmq_netty" style="zoom:40%;" />
+<img src="rocketmq_netty.webp" alt="rocketmq_netty" style="zoom:30%;" />
 
 
 
@@ -99,23 +101,35 @@ pulsar：基于Netty异步网络I/O通信框架开发。
 
 ### 存储格式
 
-索引文件：Index文件，稀疏索引
+**索引文件**：Index文件，稀疏索引
 
-日志文件：存储每条日志
+**日志文件**：存储每条日志
 
 kafka：每个topic，每个分区，在一个日志文件中。
 
-rocketmq：多个topic的分区记录可以存储在一个日志文件中
+rocketmq：多个topic的分区记录可以存储在一个日志文件中 commit log
 
 pulsar：每个topic每个分区的数据单独存储在bookeeper中
 
 
 
+### 刷盘机制
+
+异步刷盘、同步刷盘
+
 ## Producer层
 
-异步发送、批量发送
+同步发送、异步发送（Callback或Future）、批量发送
+
+重试机制：按照次数重发
+
+ACK模式：kafka Ack=-1，0， 1 不同模式，-1所有副本都确认，0只有leader确认 1 不需要确认。
+
+消息压缩机制：
 
 ## Consumer层
+
+推拉模式：拉取->客户端主动拉取消息 推模式：服务端主动推送给客户端消息
 
 Kafka: partition级别并行，consumer group 的每个consumer至多消费一个partition
 
@@ -131,7 +145,7 @@ pulsar：三种模式，独占模式、failover模式、共享模式，我们只
 
 至少一次，exactly一次消费：
 
-**回溯消费**：
+**回溯消费**：offset重置位点
 
 **重试机制**：
 
@@ -172,6 +186,8 @@ plusar：写的时候，并行写的，而不是靠副本拉取同步。
 ## 高可靠性
 
 **刷盘策略**：同步刷盘、异步刷盘
+
+主备：Leader、Replica
 
 数据一致性
 
