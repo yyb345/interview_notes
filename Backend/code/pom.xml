@@ -28,7 +28,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.3.18</version> <!-- 同上，注意版本一致性 -->
+            <version>5.3.19</version> <!-- 同上，注意版本一致性 -->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
