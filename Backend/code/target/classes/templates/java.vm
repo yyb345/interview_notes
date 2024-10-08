@@ -1,0 +1,40 @@
+public class ${apiRequestClass} extends BaseTaobaoRequest<${apiResponseClass}>{
+
+    public ${apiRequestClass}(){
+    }
+
+    public String getApiMethodName() {
+        return "${apiName}";
+    }
+
+    public Map<String,String> getTextParams() {
+        TaobaoHashMap txtParams = new TaobaoHashMap();
+        if (this.udfParams != null) {
+            txtParams.putAll(this.udfParams);
+        }
+        return txtParams;
+    }
+
+    public Class<${apiResponseClass}> getResponseClass() {
+      return ${apiResponseClass}.class;
+    }
+
+    public void check() throws ApiRuleException {
+    }
+}
+
+#foreach ($field in $ApiFields)
+
+    private String ${field.name};
+
+    public void set${field.upperName}(${field.type}  ${field.name})} {
+        this.${field.name} = ${field.name};
+    }
+
+   public ${field.type} get${field.upperName}(){
+         return this.${field.name};
+    }
+
+#end
+
+}

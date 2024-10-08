@@ -180,6 +180,12 @@ http连接是长连接还是短连接？ 回答：短连接。同时如果是长
 
 ## 与其他框架对比
 
+
+
+### Zuul2.0
+
+
+
 ### 与开源框架Spring Cloud Gateway的对比
 
 |            | TOP                   | Spring Cloud Gateway               |
@@ -203,7 +209,7 @@ foregin的源代码解析。
 
 
 
-### 与Ngnix的对比
+### 与Ngnix/OpenResty的对比
 
 Ngnix流量网关和 业务网关
 
@@ -220,6 +226,8 @@ Ngnix一般可以作为业务API网关的上游。
 
 
 ### 与开源框架Kong的对比
+
+Kong是流量网关
 
 
 

@@ -4,6 +4,8 @@
 ## 算法
 [leetcode](https://github.com/yyb345/interview_notes/tree/master/leetcode) | [编程之美](https://github.com/yyb345/notes/tree/master/documents) 
 
+<img src="documents/image-20241008123309162.png" alt="image-20241008123309162" style="zoom:50%;" />
+
 ## AI技术
 
 [利用LangChain+大模型落地一个应用场景](https://github.com/yyb345/notes/blob/master/AI/langchain.md)
