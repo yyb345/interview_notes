@@ -1,8 +1,9 @@
 ## 网关技术架构
 
  <div style="text-align: center;">  
-    <img src="https://github.com/user-attachments/assets/452505a2-6ade-414a-adff-d837e9ec2db9" alt="image" style="width: 300px; height: auto;" />  
+    <img src="api_gateway_deploy.png" alt="image" style="width: 300px; height: auto;" />  
 </div>
+
 
 
 业务网关：电商为主，对其他业务也通用
@@ -10,6 +11,20 @@
 商业模式：商家 <=> ISV <=> 开放平台（网关+数据推送+电商云） <=> 交易中台
 
 技术模型：服务市场（ERP软件售卖给商家） + 开放平台控制台（ISV+应用+SDK+API文档）+ 电商云 + API内部开放
+
+## 网关分哪几种
+
+流量网关、业务网关
+
+南北向流量、东西向流量
+
+硬件负载、软负载
+
+中心化网关、去中心化网关
+
+
+
+
 
 ## 核心指标
 
@@ -72,6 +87,16 @@ I/O模型（NIO）、池化技术、减少系统调用、零拷贝、高效的�
 #### 去中心化是如何做的？
 
 为什么要做去中心化？以及是如何做的？
+
+
+
+#### 云原生网关
+
+lstio是东西向流量 sidecar 解决微服务之间的调用治理问题
+
+为什么要进行云原生？如何做？
+
+
 
 #### 压测是怎么做的？
 
