@@ -4,7 +4,7 @@ import org.algorithm.binarytree.TreeNode;
 
 /**
  * 1302
- * 求和（最深的叶子节点）
+ * （最深的叶子节点）之和
  */
 public class DeepestLeavesSum {
 
