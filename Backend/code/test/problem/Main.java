@@ -33,9 +33,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int n =3;
-        int[][] ret = new int[n+1][2];
-
-        Arrays.copyOf(ret,2);
+       Stack<Integer> stack = new Stack<>();
+       stack.push(1);
+       stack.push(2);
+       System.out.println(stack.elementAt(0));
+        System.out.println(stack.elementAt(1));
     }
 }

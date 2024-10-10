@@ -1,0 +1,23 @@
+{
+
+  "apiRequestClass": "ItemSkusGetRequest",
+  "apiResponseClass": "ItemSkusGetResponse",
+  "apiName": "taobao.item.sku.get",
+  "ApiFields":[
+    {
+      "name": "id",
+      "upperName": "Id",
+      "type": "Long"
+    },
+    {
+      "name": "count",
+      "upperName": "Count",
+      "type": "Long"
+    },
+    {
+      "name": "name",
+      "upperName": "Name",
+      "type": "String"
+    }
+  ]
+}

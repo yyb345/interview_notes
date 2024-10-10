@@ -1,36 +1,30 @@
 package org.algorithm.sort;
 
-import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
-//TODO
+/**
+ *179
+ *  最大的数
+ *  Input: nums = [3,30,34,5,9]
+ * Output: "9534330"
+ */
 public class LargestNumber {
 
-    public static String largestNumber(int[] nums) {
-
-        List<Integer> numList = Arrays.stream(nums)
-                .boxed().collect(Collectors.toList());
-        numList.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer var1, Integer var2) {
-
-                String s1 = String.valueOf(var1);
-                String s2 = String.valueOf(var2);
-                BigInteger ss = new BigInteger(s1 + s2);
-                BigInteger dd = new BigInteger(s2 + s1);
-
-                return dd.compareTo(ss);
-            }
-        });
-
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int num : numList) {
-            stringBuilder.append(num);
+    public String largestNumber(int[] nums) {
+        String[] list = new String[nums.length];
+        for (int i=0;i<nums.length;i++) {
+            list[i]=String.valueOf(nums[i]);
         }
 
-        return stringBuilder.toString().startsWith("0")?"0":stringBuilder.toString();
+        Arrays.sort(list,(a,b)->  (b+a).compareTo(a+b));
+
+        String ret = "";
+        for(int i=0;i<list.length;i++){
+            ret+=list[i];
+        }
+        if(ret.charAt(0)=='0'){
+            return "0";
+        }
+        return ret;
     }
 }
