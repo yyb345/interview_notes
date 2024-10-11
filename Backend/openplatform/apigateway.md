@@ -1,3 +1,19 @@
+
+
+## 功能架构图
+
+
+
+<img src="gatway_overview.png" alt="gatway_overview" style="zoom:30%;" />
+
+API注册中心
+
+数据中心
+
+元数据缓存
+
+
+
 ## 网关技术架构
 
  <div style="text-align: center;">  

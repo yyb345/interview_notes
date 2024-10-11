@@ -12,7 +12,6 @@ public class ValidParentheses {
             if(stack.size()>0 && (c=='}' || c==')' || c==']')){
                 if((c=='}' && stack.peek()=='{') || (c==')' && stack.peek()=='(') || (c==']' && stack.peek()=='[')){
                     stack.pop();
-                    continue;
                 }else {
                     return false;
                 }
