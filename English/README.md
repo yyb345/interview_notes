@@ -43,4 +43,5 @@
 | 回文结构         | palindromic                       |             |                         |
 | 重复             | duplicates                        |             |                         |
 | 填充             | populate                          |             |                         |
+| 单调的           | monotonic                         |             |                         |
 

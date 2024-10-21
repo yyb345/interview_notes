@@ -10,16 +10,15 @@ public class IncreaseTripleNums {
 
         int ii=Integer.MAX_VALUE;
         int jj=Integer.MAX_VALUE;
-        int kk;
 
         for(int i=0;i<nums.length;i++){
             if(nums[i]>jj){
                 return true;
-            }
-            if(nums[i]>ii){
+            }else if(nums[i]>ii){
                 jj = Math.min(jj,nums[i]);
+            }else {
+                ii = Math.min(ii,nums[i]);
             }
-            ii = Math.min(ii,nums[i]);
         }
 
         return false;
