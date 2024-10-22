@@ -6,7 +6,7 @@ package org.algorithm.binarysearch;
  * [3,4,5,1,2]
  *
  */
-public class MinRotateArray {
+public class FindMinRotateArray {
 
     public int findMin(int[] nums) {
 
