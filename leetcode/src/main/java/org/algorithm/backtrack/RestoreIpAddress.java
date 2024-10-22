@@ -1,14 +1,17 @@
-package online;
+package org.algorithm.backtrack;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.ecs.html.S;
+/**
+ * 93
+ * Input: s = "25525511135"
+ * Output: ["255.255.11.135","255.255.111.35"]
+ */
+public class RestoreIpAddress {
 
-import java.util.*;
+    List<String> ret = new ArrayList<>();
 
-public class CodeProblem {
-
-
-     List<String> ret = new ArrayList<>();
     public List<String> restoreIpAddresses(String s) {
         backTrack(s,0,new ArrayList<>());
         return ret;
@@ -54,15 +57,5 @@ public class CodeProblem {
             return false;
         }
         return true;
-    }
-
-
-
-
-    public static void main(String[] args) {
-       System.out.println(new CodeProblem().restoreIpAddresses("25525511135"));
-       System.out.println(new CodeProblem().restoreIpAddresses("0000"));
-       System.out.println(new CodeProblem().restoreIpAddresses("101023"));
-
     }
 }

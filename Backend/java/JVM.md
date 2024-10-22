@@ -6,7 +6,7 @@
 
 ### JAVA常用的集合
 
- [Java 集合类解析](https://www.cnblogs.com/yueshutong/p/9696216.html) <br> 
+ [Java 集合类解析](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md) <br> 
 
 
 ### JAVA 多线程
