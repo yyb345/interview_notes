@@ -7,49 +7,28 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-//TODO
+/**
+ * 515
+ * 每行最大的值
+ */
 public class LargestValues {
+    List<Integer> ret = new ArrayList<>();
+    public  List<Integer> largestValues(TreeNode root) {
 
-    public static List<Integer> largestValues(TreeNode root) {
-        Queue<TreeNode> treeNode = new LinkedList<>();
-        Queue<TreeNode> tree2 = new LinkedList<>();
-        Queue<TreeNode> tmp = new LinkedList<>();
-        List<Integer> result = new ArrayList<>();
+        dfs(root,0);
+        return ret;
+    }
 
-        if (root != null) {
-
-            treeNode.add(root);
-            while (treeNode.size() > 0) {
-
-                int maxValue = Integer.MIN_VALUE;
-                boolean yes = false;
-
-                while (treeNode.size() > 0) {
-                    TreeNode pop = treeNode.poll();
-                    if (pop != null) {
-                        if (pop.left != null) {
-                            tree2.add(pop.left);
-                        }
-                        if (pop.right != null) {
-                            tree2.add(pop.right);
-                        }
-                        if (pop.val > maxValue) {
-                            maxValue = pop.val;
-                            yes = true;
-                        }
-                    }
-
-
-                }
-                if (yes) {
-                    result.add(maxValue);
-                }
-                treeNode = tree2;
-                tree2 = new LinkedList<>();
-            }
-
-
+    void dfs(TreeNode root,int depth){
+        if(root==null){
+            return;
         }
-        return result;
+        if(ret.size()==depth){
+            ret.add(root.val);
+        }else {
+            ret.set(depth,Math.max(ret.get(depth),root.val));
+        }
+        dfs(root.left,depth+1);
+        dfs(root.right,depth+1);
     }
 }

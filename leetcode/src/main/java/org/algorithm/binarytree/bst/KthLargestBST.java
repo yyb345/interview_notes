@@ -16,7 +16,7 @@ public class KthLargestBST {
 
 
         List<Integer> allData = new ArrayList<>();
-        middleTravel(root,allData);
+        inOrder(root,allData);
 
         int size = allData.size();
         if(k>size){
@@ -27,12 +27,12 @@ public class KthLargestBST {
 
     }
 
-    void middleTravel(TreeNode root,List<Integer> list){
+    void inOrder(TreeNode root, List<Integer> list){
         if(root==null){
             return;
         }
-        middleTravel(root.left,list);
+        inOrder(root.left,list);
         list.add(root.val);
-        middleTravel(root.right,list);
+        inOrder(root.right,list);
     }
 }

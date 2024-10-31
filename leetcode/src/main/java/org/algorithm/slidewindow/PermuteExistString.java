@@ -1,12 +1,12 @@
-package online;
+package org.algorithm.slidewindow;
 
-
-import org.apache.ecs.html.S;
-
-import java.util.*;
-
-public class CodeProblem {
-
+/**
+ * 567
+ * Input: s1 = "ab", s2 = "eidbaooo"
+ * Output: true
+ * Explanation: s2 contains one permutation of s1 ("ba").
+ */
+public class PermuteExistString {
 
     public boolean checkInclusion(String s1, String s2) {
         // 1. buildMap
@@ -46,18 +46,5 @@ public class CodeProblem {
             }
         }
         return true;
-    }
-
-
-    public static void main(String[] args) {
-
-        HashMap<Integer, Integer> map = new HashMap<>(16);
-
-        for(int i=0;i<16;i++){
-            map.put(i,i);
-        }
-        System.out.println(map.get(40));
-
-
     }
 }

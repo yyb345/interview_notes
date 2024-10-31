@@ -63,37 +63,7 @@ Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>
 
 ## Flink 原理
 
-  [DataFlow编程模型](https://www.jianshu.com/p/0faa1c1caa47) <br>
-  [Flink Spark对比](https://www.infoq.cn/article/spark-vs-flink) <br>
-  [Flink Storm对比](https://tech.meituan.com/2017/11/17/flink-benchmark.html) <br>
-  [如何使用Spark Streaming + Kafka如何实现精确一次语义?](https://www.zhihu.com/question/334249637/answer/744493120) <br>
 
-### Flink Example 
-
-  [Flink Training](https://training.ververica.com/) <br> 
-  [Flink如何让每一条数据进来后延迟一段时间再被处理?](https://www.zhihu.com/question/332577514/answer/840181621)  <br>
-
-### Flink 原理解析 
-
-  [Flink Runtime核心机制解析](https://www.infoq.cn/article/RWTM9o0SHHV3Xr8o8giT)   <br>
-  [Flink Window 机制解析](http://wuchong.me/blog/2016/05/25/flink-internals-window-mechanism/#comments) <br>
-  [Flink Watermark 解析](https://blog.csdn.net/lmalds/article/details/52704170) <br>
-  [Flink 反压解析 ](http://wuchong.me/blog/2016/04/26/flink-internals-how-to-handle-backpressure/) <br>
-  [Flink 内存管理解析](http://wuchong.me/blog/2016/04/29/flink-internals-memory-manage/) <br>
-  [Flink 分布式快照解析](http://xargin.com/distributed-snapshot-in-stream-sys/) <br>
-  [Flink checkpoint与savepoint的区别](https://www.whitewood.me/2018/09/06/Flink-Checkpoint-Savepoint-%E5%B7%AE%E5%BC%82/) <br>
-  [Flink failover机制解析--待翻译](https://cwiki.apache.org/confluence/display/FLINK/FLIP-1+%3A+Fine+Grained+Recovery+from+Task+Failures) <br>
-  [\[原创\]Flink TTL state解析](https://github.com/yyb345/index/blob/master/flink/ttl_state.md) <br>
-
-
-  [Flink-分布式快照的设计](http://chenyuzhao.me/2018/01/29/Flink-%E5%88%86%E5%B8%83%E5%BC%8F%E5%BF%AB%E7%85%A7%E7%9A%84%E8%AE%BE%E8%AE%A1-%E6%B5%81%E7%A8%8B/) <br>
-
-  [Flink  Kafka 0.11 exactly once](https://www.cnblogs.com/huxi2b/p/8459342.html) <br>
-  [Flink Exactly-Once 解析](http://www.whitewood.me/2018/10/16/Flink-Exactly-Once-%E6%8A%95%E9%80%92%E5%AE%9E%E7%8E%B0%E6%B5%85%E6%9E%90/) <br>
-  [Flink State 使用文档](https://ci.apache.org/projects/flink/flink-docs-master/dev/stream/state/state.html) <br>
-   [Memory Management and Configuration Reloaded - Google 文档](https://docs.google.com/document/d/1o4KvyyXsQMGUastfPin3ZWeUXWsJgoL7piqp1fFYJvA/edit#heading=h.ie6fcly7mrci) <br>
-   [Memory Management (Batch API) ](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=53741525) <br>
-  [FLIP-50: Spill-able Heap Keyed State Backend](https://cwiki.apache.org/confluence/display/FLINK/FLIP-50%3A+Spill-able+Heap+Keyed+State+Backend) <br>
 
 ### Flink bugs
 
@@ -115,6 +85,8 @@ Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>
    宽窄依赖== 如何识别和优化的？
 
 #### RUNTIME模型
+
+![enter image description here](oMKfl.png)
 
 ​     DAG 以及 DAG中的Stage是如何划分的？（窄依赖划分一个stage、宽依赖划分一个stage）
 
@@ -152,6 +124,12 @@ Kafka Controller脑裂问题](https://zhuanlan.zhihu.com/p/75524641) <br>
   	DWS(Server)  服务层
 
 ​	
+
+Presto架构
+
+![presto 架构](UiP74.jpg)
+
+
 
 ​     维表，各种维度的表
 

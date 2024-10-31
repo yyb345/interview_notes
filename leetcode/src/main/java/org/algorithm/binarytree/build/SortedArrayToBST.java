@@ -3,30 +3,24 @@ package org.algorithm.binarytree.build;
 
 import org.algorithm.binarytree.TreeNode;
 
+/**
+ * 108
+ */
 public class SortedArrayToBST {
 
-    public static TreeNode sortedArrayToBST(int[] nums) {
-        int middleIndex = (nums.length - 1) / 2;
+    public  TreeNode sortedArrayToBST(int[] nums) {
+        return build(nums,0,nums.length-1);
+    }
 
-        if (middleIndex > 0) {
-            int[] left = new int[middleIndex];
-            int[] right = new int[nums.length - middleIndex - 1];
-            for (int i = 0; i < middleIndex; i++) {
-                left[i] = nums[i];
-            }
-            for (int i = middleIndex + 1; i < nums.length; i++) {
-                right[i] = nums[i];
-            }
-            TreeNode result = new TreeNode(nums[middleIndex]);
-            result.left = sortedArrayToBST(left);
-            result.right = sortedArrayToBST(right);
-            return result;
-
-        } else {
-            TreeNode result = new TreeNode(nums[middleIndex]);
-            return result;
+    TreeNode build(int[] nums,int l,int h){
+        if(l>h){
+            return null;
         }
 
-
+        int mid = l + (h-l)/2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = build(nums,l,mid-1);
+        root.right= build(nums,mid+1,h);
+        return root;
     }
 }

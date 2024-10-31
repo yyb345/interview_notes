@@ -5,34 +5,38 @@ import org.algorithm.binarytree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO 重写一遍
+/**
+ * 257
+ * root->leaf
+ */
 public class BinaryTreePaths {
 
-    public static List<String> binaryTreePaths(TreeNode root) {
-        List<String> result=new ArrayList();
+    List<String> ret = new ArrayList<>();
 
-        if(root==null)
-            return result;
+    public List<String> binaryTreePaths(TreeNode root) {
+        dfs(root, new ArrayList<>());
+        return ret;
+    }
 
-        if(root.left!=null){
-            List<String> strings = binaryTreePaths(root.left);
-            result.addAll(strings);
-        }
-        if(root.right!=null){
-            List<String> strings = binaryTreePaths(root.right);
-            result.addAll(strings);
+    void dfs(TreeNode root, List<Integer> path) {
+        if (root == null) {
+            return;
         }
 
-        if(root.left==null && root.right==null){
-            result.add(""+root.val);
-
-        } else{
-            for(int j=0;j<result.size();j++){
-                String s = root.val+"->"+result.get(j);
-                result.set(j,s);
+        if (root.left == null && root.right == null) {
+            StringBuilder sb = new StringBuilder();
+            for (Integer v : path) {
+                sb.append(v).append("->");
             }
+            sb.append(root.val);
+            ret.add(sb.toString());
+            return;
         }
 
-        return result;
+        path.add(root.val);
+        dfs(root.left, path);
+        dfs(root.right, path);
+        path.remove(path.size() - 1);
+
     }
 }

@@ -3,31 +3,28 @@ package org.algorithm.binarytree.modify;
 
 import org.algorithm.binarytree.TreeNode;
 
+/**
+ * 669
+ */
 public class TrimBST {
 
-    public static TreeNode trimBST(TreeNode root, int L, int R) {
-
-        int value=root.val;
-
-        TreeNode newRoot=null;
-        if(value>=L && value<=R){
-            newRoot=new TreeNode(value);
-            if(root.left!=null)
-                newRoot.left=trimBST(root.left,L,R);
-            if(root.right!=null)
-                newRoot.right=trimBST(root.right,L,R);
-
-        }else if(value<L){
-            if(root.right!=null){
-                newRoot=trimBST(root.right,L,R);
-            }
-
-        }else if(value>R){
-            if(root.left!=null){
-                newRoot=trimBST(root.left,L,R);
-            }
-
+    public TreeNode trimBST(TreeNode root, int low, int high) {
+        if(root==null){
+            return null;
         }
-        return newRoot;
+
+        if(root.val<low){
+            return trimBST(root.right,low,high);
+        }else if(root.val>high){
+            return trimBST(root.left,low,high);
+        }else {
+            TreeNode left = root.left;
+            TreeNode right = root.right;
+
+            root.left = trimBST(left,low,high);
+            root.right = trimBST(right,low,high);
+            return root;
+        }
+
     }
 }
