@@ -4,75 +4,60 @@ import org.algorithm.binarytree.TreeNode;
 
 import java.util.*;
 
-//TODO 优化一版
+/**
+ * 863
+ */
 public class FindDistanceK {
 
-    Map<TreeNode, TreeNode> parents=new HashMap<>();
 
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+    int _k;
+    List<Integer> ret = new ArrayList<>();
 
-        List<Integer> result=new ArrayList<>();
+    Map<TreeNode, Boolean> visited = new HashMap<>();
 
-        dfs(root,null);
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+        this._k = k;
+        dfs(root, target);
+        return ret;
+    }
 
-        Queue<TreeNode> queue=new LinkedList<>();
-        queue.add(null);
-        queue.add(target);
-
-        Set<TreeNode> traveled=new HashSet<>();
-        traveled.add(target);
-        traveled.add(null);
-
-        int distance=0;
-
-        while(queue.size()>0){
-            TreeNode poll = queue.poll();
-            if(poll==null){
-
-                if(distance==K){
-                    break;
-                }
-
-                queue.add(null);
-                distance++;
-
-            }else {
-                if(!traveled.contains(poll.left)){
-                    traveled.add(poll.left);
-                    queue.add(poll.left);
-                }
-
-                if(!traveled.contains(poll.right)){
-                    traveled.add(poll.right);
-                    queue.add(poll.right);
-                }
-
-                TreeNode pollParent = parents.get(poll);
-                if(!traveled.contains(pollParent)){
-                    traveled.add(pollParent);
-                    queue.add(pollParent);
-                }
-
-
-            }
+    int dfs(TreeNode root, TreeNode target) {
+        if (root == null) {
+            return -1;
         }
-
-
-        for(TreeNode t:queue){
-            result.add(t.val);
+        if (root == target) {
+            findAndAddKNode(root, _k);
+            return 0;
         }
+        int left = dfs(root.left, target);
+        int right = dfs(root.right, target);
 
-        return  result;
+        int distance = left != -1 ? left + 1 : right != -1 ? right + 1 : -1;
 
+        if (distance != -1) {
+            findAndAddKNode(root, _k  - distance);
+        }
+        return distance;
+    }
+
+    void findAndAddKNode(TreeNode root, int k) {
+        if (root == null || k < 0) {
+            return;
+        }
+        if (visited.getOrDefault(root, false)) {
+            return;
+        }
+        visited.put(root, true);
+        if (k == 0) {
+            ret.add(root.val);
+        }
+        findAndAddKNode(root.left, k - 1);
+        findAndAddKNode(root.right, k - 1);
+    }
+
+    public static void main(String[] args) {
 
     }
 
 
-    public void dfs(TreeNode node, TreeNode parent){
-        if(node!=null){
-            parents.put(node,parent);
-            dfs(node.left,node);
-            dfs(node.right,node);
-        }
-    }
 }
