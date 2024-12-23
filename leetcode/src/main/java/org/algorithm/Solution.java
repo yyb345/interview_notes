@@ -1,5 +1,8 @@
 package org.algorithm;
 
+import org.algorithm.binarytree.TreeNode;
+import org.algorithm.tool.TreeTool;
+
 import java.util.*;
 
 public class Solution {
@@ -856,7 +859,8 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        new Solution().allCellsDistOrder(2, 3, 1, 2);
 
+        org.algorithm.binarytree.TreeNode treeNode = TreeTool.buildTree(new Integer[]{4, 1, null, 2, null, 3});
+        System.out.println(treeNode.val);
     }
 }

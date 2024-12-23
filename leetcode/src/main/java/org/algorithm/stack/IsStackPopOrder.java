@@ -2,33 +2,25 @@ package org.algorithm.stack;
 
 import java.util.Stack;
 
-//TODO
 
 /**
  * 946
  */
 public class IsStackPopOrder {
 
-    public boolean isPopOrder(int [] pushA,int [] popA) {
-        Stack<Integer> stack=new Stack<>();
-        int index=0,i=0;
-        while(index<popA.length){
-            if(i<pushA.length)
-                stack.push(pushA[i++]);
+    public boolean isPopOrder(int [] pushed,int [] popped) {
 
-            if(stack.peek()!=popA[index]){
-                if(i==pushA.length){
-                    return false;
-                }
-            } else{
-                while(!stack.isEmpty() && stack.peek()==popA[index]){
-                    index++;
-                    stack.pop();
-                }
+        Stack<Integer> stack = new Stack<>();
+        for(int l=0,h=0;l<pushed.length;l++){
+
+            stack.push(pushed[l]);
+
+            while(h<popped.length && !stack.isEmpty() && popped[h]==stack.peek()){
+                stack.pop();
+                h++;
             }
         }
 
-        return true;
-
+        return stack.isEmpty();
     }
 }

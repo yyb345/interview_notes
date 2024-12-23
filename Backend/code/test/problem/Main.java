@@ -41,5 +41,8 @@ public class Main {
 
         List<Integer> list = new ArrayList<>();
 
+        String xx = "sabc";
+        xx.indexOf("a");
+
     }
 }
