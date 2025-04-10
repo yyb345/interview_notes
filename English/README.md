@@ -60,7 +60,7 @@
 | 回文结构            | palindromic                         |             |                               |
 | 重复                | duplicates                          |             |                               |
 | 填充                | populate                            |             |                               |
-| 单调的              | monotonic                           |             |                               |
+| 单调的              | monotonic                           |             | /ˌmɒnəˈtɒnɪk/                 |
 | 限流                | **throttling**                      |             | /ˈθrɒtəlɪŋ/                   |
 | 断路器              | Circuit Breaker                     |             | /ˈsɜːrkɪtˌbreɪkər/            |
 | 降级处理            | Degrade Handling                    |             | /dɪˈɡreɪd ˈhændlɪŋ/           |
