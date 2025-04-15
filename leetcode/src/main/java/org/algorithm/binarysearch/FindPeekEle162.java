@@ -3,6 +3,7 @@ package org.algorithm.binarysearch;
 /**
  * 162
  * 寻找峰值
+ * [0] [1,2] [1,2,3]
  */
 public class FindPeekEle162 {
 

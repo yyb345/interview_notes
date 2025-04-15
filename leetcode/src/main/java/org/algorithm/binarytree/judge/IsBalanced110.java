@@ -8,7 +8,7 @@ import org.algorithm.binarytree.TreeNode;
  * 需要获取高度属性，根据左右子树的高度来判断，所以是 后序遍历。
  */
 
-public class IsBalanced {
+public class IsBalanced110 {
 
 
     public boolean isBalanced(TreeNode root) {

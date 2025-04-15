@@ -20,7 +20,6 @@ public class MySqrtDouble {
             }else if((mid*mid-x)>jingdu){
                 high = mid;
             }else  {
-                System.out.println(mid);
                 return (int)mid;
             }
         }

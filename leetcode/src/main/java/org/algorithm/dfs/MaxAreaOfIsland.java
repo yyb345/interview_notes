@@ -13,7 +13,7 @@ public class MaxAreaOfIsland {
     int[][] direction=new int[][]{{0,-1},{0,1},{1,0},{-1,0}};
 
 
-    int num=0;
+
     public  int maxAreaOfIsland(int[][] grid) {
 
         int max=0;
@@ -21,8 +21,8 @@ public class MaxAreaOfIsland {
         for(int i=0;i<grid.length;i++){
             for(int j=0;j<grid[0].length;j++){
                 if(grid[i][j]==1 && !visited[i][j]){
-                    num=0;
-                    DFS(grid,i,j,visited);
+                    int num=0;
+                    DFS(grid,i,j,visited,num);
                     max=Math.max(max,num);
                 }
             }
@@ -30,7 +30,7 @@ public class MaxAreaOfIsland {
         return max;
     }
 
-    private void DFS(int[][] grid,int i,int j,boolean[][] visited){
+    private void DFS(int[][] grid,int i,int j,boolean[][] visited,int num){
 
         if(i<0 || j<0 || i>=grid.length || j>=grid[0].length || visited[i][j])
             return;
@@ -41,7 +41,7 @@ public class MaxAreaOfIsland {
         num++;
 
         for(int k=0;k<direction.length;k++){
-            DFS(grid,i+direction[k][0],j+direction[k][1],visited);
+            DFS(grid,i+direction[k][0],j+direction[k][1],visited,num);
         }
     }
 

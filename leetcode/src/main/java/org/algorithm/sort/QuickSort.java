@@ -61,43 +61,8 @@ public class QuickSort {
         array[j] = temp;
     }
 
-
-
-    int findPeek(int[] nums){
-        if(nums==null || nums.length==0){
-            return -1;
-        }
-
-        int l =0;
-        int h = nums.length-1;
-
-        while(l<h){
-            int mid = l + (h-l)/2;
-
-            // 上升曲线
-            if( nums[mid]<nums[mid+1]){
-                 l=mid+1;
-            }else if( nums[mid]>nums[mid+1]){
-                // down
-                h = mid;
-            }
-        }
-
-        return l;
-    }
-
     // 测试主程序
     public static void main(String[] args) {
-        QuickSort qs = new QuickSort();
-        int[] array = {1,2,3,1};
-        int[] array2 = {1,2,1,3,5,1,9};
-        int[] array3 = {0,1};
-
-
-        System.out.println(qs.findPeek(array));
-        System.out.println(qs.findPeek(array2));
-        System.out.println(qs.findPeek(array3));
-
 
 
 

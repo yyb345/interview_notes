@@ -118,6 +118,8 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-      int[] num = new int[]{1,2,3,5};
+        System.out.println((int)' ');
+        System.out.println((int)'5');
+
     }
 }

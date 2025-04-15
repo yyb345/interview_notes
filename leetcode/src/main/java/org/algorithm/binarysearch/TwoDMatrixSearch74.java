@@ -6,6 +6,7 @@ package org.algorithm.binarysearch;
  * 1234  l->r 递增
  * 5678  up->down 递增
  * 二维矩阵拆解成一维矩阵的递增
+ * 时间复杂度 log(m*n) 空间复杂度O(1)
  */
 public class TwoDMatrixSearch74 {
 

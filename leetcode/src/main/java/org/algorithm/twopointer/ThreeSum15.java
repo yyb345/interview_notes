@@ -8,7 +8,7 @@ import java.util.List;
  * 15
  * 三数之和
  */
-public class ThreeSum {
+public class ThreeSum15 {
 
     public List<List<Integer>> threeSum(int[] nums) {
 

@@ -5,6 +5,7 @@ import org.algorithm.binarytree.TreeNode;
 /**
  * 1302
  * （最深的叶子节点）之和
+ *  时间复杂度 O(N) 空间复杂度 O(1)
  */
 public class DeepestLeavesSum {
 

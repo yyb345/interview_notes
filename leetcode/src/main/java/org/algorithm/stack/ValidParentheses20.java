@@ -2,8 +2,11 @@ package org.algorithm.stack;
 
 import java.util.Stack;
 
-//TODO
-public class ValidParentheses {
+/**
+ * 20
+ * 解法：采用堆栈
+ */
+public class ValidParentheses20 {
 
     public boolean isValidParentheses(String s) {
         Stack<Character> stack=new Stack();

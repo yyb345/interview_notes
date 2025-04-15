@@ -2,6 +2,9 @@ package org.algorithm.stack;
 
 import java.util.Stack;
 
+/**
+ * 小红书一面
+ */
 public class BrowserHistory {
 
     Stack<String> history;

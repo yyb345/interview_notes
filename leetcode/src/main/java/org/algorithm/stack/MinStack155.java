@@ -4,8 +4,9 @@ import java.util.Stack;
 
 /**
  * 最小栈 小红书二面
+ * 155
  */
-public class MinStack  {
+public class MinStack155 {
 
 
     Stack<Integer> dataStack;
@@ -13,7 +14,7 @@ public class MinStack  {
     Stack<Integer> minStack;
 
     /** initialize your data structure here. */
-    public MinStack() {
+    public MinStack155() {
         dataStack = new Stack<>();
         minStack = new Stack<>();
     }

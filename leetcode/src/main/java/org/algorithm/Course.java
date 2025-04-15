@@ -49,43 +49,6 @@ public class Course {
     }
 
 
-
-
-    public String longestCommonPrefix(String[] strs) {
-        int count = 0;
-        boolean shouldBreak = false;
-        while(!shouldBreak){
-
-            char cc=' ';
-            for(int i=0;i<strs.length;i++){
-
-                if(count>= strs[i].length()){
-                    shouldBreak = true;
-                    break;
-                }
-
-                if(i==0){
-                    cc = strs[i].charAt(count);
-                }else{
-                    if(cc!=strs[i].charAt(count)){
-                        shouldBreak = true;
-                        break;
-                    }
-                }
-
-            }
-
-
-            count ++;
-
-        }
-
-        return strs[0].substring(0,count);
-
-
-    }
-
-
     public static boolean isPalindrome(int x) {
         if(x<0){
             return false;

@@ -2,12 +2,16 @@ package org.algorithm.stack;
 
 import java.util.Stack;
 
-public class StackToQueue {
+/**
+ * 232
+ * 用堆栈实现队列
+ */
+public class StackToQueue232 {
 
 
     Stack<Integer> stack1 ;
     Stack<Integer> stack2 ;
-    public StackToQueue() {
+    public StackToQueue232() {
         stack1 = new Stack<>();
         stack2 = new Stack<>();
     }

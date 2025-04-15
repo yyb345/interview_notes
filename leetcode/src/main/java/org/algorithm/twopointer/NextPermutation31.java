@@ -5,8 +5,9 @@ package org.algorithm.twopointer;
  * [1,2,3]-->[1,3,2]
  * 解法：1. 从尾部向左找第一个下降的点n，然后再返回尾部找到比它大的最小的点m 2.两点交换
  *      3. 尾部到n点之间的重新排序成最小的数组【因为本身是下降的，所以只需要两两交换就可以了】
+ *  时间复杂度 O(N) 空间复杂度 O(1)
  */
-public class NextPermutation {
+public class NextPermutation31 {
 
     public void nextPermutation(int[] nums) {
 
@@ -25,19 +26,13 @@ public class NextPermutation {
         int l = 0;
         if(find){
             // find minVal that greater than nums[h-1];
-            int rr = h;
             int greaterIndex = h;
-            int minVal = nums[h];
-            while(rr<nums.length){
+            for(int rr=nums.length-1;rr>=h;rr--){
                 if(nums[rr]>nums[h-1]){
-                    if(nums[rr]<=minVal){
-                        minVal = nums[rr];
-                        greaterIndex = rr;
-                    }
+                    greaterIndex = rr;
+                    break;
                 }
-                rr++;
             }
-            // this is keypoint
             swap(nums,h-1,greaterIndex);
             l = h;
         }

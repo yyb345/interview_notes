@@ -143,64 +143,6 @@ public class Array {
 
 	}
 
-
-	//problem 167. Two Sum II - Input array is sorted
-	public static int[] twoSum(int[] numbers, int target) {
-
-
-		int []result=new int[2];
-		int start=0;
-		int end=numbers.length-1;
-		int t=target/2;
-		while(start<end){
-			int index=(start+end)/2;
-			if((start+end)%2!=0){
-				index=index+1;
-			}
-
-			int mid=numbers[index];
-			if(index>start && index<end){
-				if(t<mid){
-					end=index;
-				}else if(t>mid){
-					start=index;
-				}else if(t==mid){
-					end=index;
-					start=end-1;
-					break;
-				}
-			}else{
-				break;
-			}
-
-		}
-
-		result[0]=start;
-		result[1]=end;
-
-		while(result[0]>=0 && result[1]<numbers.length){
-			if(numbers[result[0]]+numbers[result[1]]==target){
-				break;
-			}else if(numbers[result[0]]+numbers[result[1]]>target){
-				result[0]=result[0]-1;
-			}else if(numbers[result[0]]+numbers[result[1]]<target){
-				result[1]=result[1]+1;
-			}
-
-		}
-		if(result[0]==-1 || result[1]==numbers.length ){
-			result[0]=numbers.length-1;
-			result[1]=numbers.length;
-		}else {
-			result[0]=result[0]+1;
-			result[1]=result[1]+1;
-		}
-
-
-
-		return result;
-	}
-
 	// problem
 	public static int uniquePaths(int m, int n) {
 		int [][]value=new int[m+1][n+1];
@@ -218,8 +160,6 @@ public class Array {
 
 
 	public static  boolean  isMonotonic(int[] A) {
-
-
 
 		if(A.length==1){
 			return true;
@@ -298,56 +238,9 @@ public class Array {
 	}
 
 
-	public String longestCommonPrefix(String[] strs) {
-
-		return longestDFS(strs,0,strs.length);
-		//strs[0].indexOf();
-	}
-
-	public String longestDFS(String[] strs,int l,int h){
-
-		if(l>h)
-			return "";
-		if(l==h)
-			return strs[l];
-		int mid=l+(h-l)/2;
-		String ll = longestDFS(strs, l, mid);
-		String rr = longestDFS(strs, mid, h);
-		return commonPrefix(ll, rr);
-	}
-
-
-	public String  commonPrefix(String a,String b){
-		String ret="";
-		int end=Math.min(a.length(),b.length());
-		for(int i=0;i<end;i++){
-			if(a.charAt(i)==b.charAt(i)){
-				ret+=a.charAt(i);
-				continue;
-			}else{
-				break;
-			}
-		}
-
-		return ret;
-	}
-
 	public static void main(String []args){
-//		int a=1916797311;
-//		System.out.println(uniquePaths(51,9));
-//		int [][]pairs=new int[][]{{1,2},{2,3},{6,9},{5,7}};
-//
-//		Arrays.sort(pairs, (a, b) -> (a[0] - b[0]));
-//
-//		for(int i=0;i<pairs.length;i++){
-//			for(int j=0;j<pairs[0].length;j++){
-//				System.out.print(pairs[i][j]);
-//			}
-//			System.out.println();
-//		}
 
 		String[] strs=new String[]{"bb","aaa","aaaa"};
-
 		String pre = strs[0];
 		int i = 1;
 		while(i < strs.length){

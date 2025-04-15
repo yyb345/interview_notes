@@ -9,6 +9,7 @@ import java.util.List;
  * 199 二叉树右视图
  * root->right->left
  * if(exist) add;
+ * 时间复杂度 O(N) 空间复杂度O(logN)
  */
 public class RightSideView {
 
