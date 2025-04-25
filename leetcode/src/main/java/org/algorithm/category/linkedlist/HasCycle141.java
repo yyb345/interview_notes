@@ -1,5 +1,7 @@
 package org.algorithm.category.linkedlist;
 
+import org.algorithm.ListNode;
+
 /**
  * leetcode 141
  * 链表是否有环

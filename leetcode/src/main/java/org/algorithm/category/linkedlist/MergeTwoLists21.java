@@ -1,5 +1,7 @@
 package org.algorithm.category.linkedlist;
 
+import org.algorithm.ListNode;
+
 /**
  * leetcode 21
  * 两个链表是排序的，合并为新的合并的链表

@@ -1,5 +1,4 @@
-package org.algorithm.category.linkedlist;
-
+package org.algorithm.order;
 
 import org.algorithm.ListNode;
 
@@ -8,7 +7,7 @@ import org.algorithm.ListNode;
  * 解法：双指针+链表
  * 时间复杂度O(N) 空间复杂度O(1)
  */
-public class AddTwoNumbers2 {
+public class LC2 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return add(l1, l2, 0);

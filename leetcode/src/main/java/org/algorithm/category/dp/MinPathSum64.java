@@ -1,9 +1,10 @@
 package org.algorithm.category.dp;
 
-// 64
-public class MinPathSum {
-
-    int minSum = Integer.MAX_VALUE;
+/**
+ *64
+ * 矩阵从左上角到右下角最短路径之和
+ */
+public class MinPathSum64 {
 
     public int minPathSum(int[][] grid) {
 

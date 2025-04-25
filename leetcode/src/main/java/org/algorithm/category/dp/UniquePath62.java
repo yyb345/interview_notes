@@ -1,6 +1,10 @@
 package org.algorithm.category.dp;
 
-public class UniquePathsNums {
+/**
+ * 62
+ * 时间复杂度 O(N^2) 空间复杂度 O(N^2)
+ */
+public class UniquePath62 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
         int m = obstacleGrid.length;

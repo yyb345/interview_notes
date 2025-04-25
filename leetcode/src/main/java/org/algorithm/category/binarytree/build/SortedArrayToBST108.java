@@ -8,7 +8,7 @@ import org.algorithm.category.binarytree.TreeNode;
  * 有序数组=> 二叉树
  *
  */
-public class SortedArrayToBST {
+public class SortedArrayToBST108 {
 
     public TreeNode sortedArrayToBST(int[] nums) {
         return build(nums,0,nums.length-1);

@@ -1,5 +1,7 @@
 package org.algorithm.category.linkedlist;
 
+import org.algorithm.ListNode;
+
 public class ReverseBetween {
 
     public static ListNode reverseBetween(ListNode head, int m, int n) {

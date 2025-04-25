@@ -6,7 +6,7 @@ import org.algorithm.category.binarytree.TreeNode;
  * 105
  * Construct Binary Tree from Preorder and Inorder Traversal
  */
-public class PreOrderInOrderTree {
+public class PreOrderInOrderTree105 {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
 

@@ -1,5 +1,7 @@
 package org.algorithm.category.linkedlist;
 
+import org.algorithm.ListNode;
+
 /**
  * 84
  * 删除重复值，重复值不保留

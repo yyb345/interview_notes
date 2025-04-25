@@ -1,5 +1,7 @@
 package org.algorithm.category.linkedlist;
 
+import org.algorithm.ListNode;
+
 public class FindKthToTail {
 
     public ListNode findKthToTail(ListNode head, int k) {

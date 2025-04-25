@@ -1,6 +1,8 @@
 package org.algorithm.category.linkedlist;
 
 
+import org.algorithm.ListNode;
+
 public class OddEvenList {
 
     public static ListNode oddEvenList(ListNode head) {

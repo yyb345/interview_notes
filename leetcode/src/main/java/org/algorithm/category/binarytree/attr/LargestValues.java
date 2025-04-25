@@ -1,4 +1,4 @@
-package org.algorithm.category.binarytree.bsf;
+package org.algorithm.category.binarytree.attr;
 
 import org.algorithm.category.binarytree.TreeNode;
 
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 515
  * 每行最大的值
- * 层次遍历==> 转化为 记录每一层List<>的数据
+ * 记录每一层List<>的数据
  * 时间复杂度 O(N) 空间复杂度 O(LogN)
  */
 public class LargestValues {

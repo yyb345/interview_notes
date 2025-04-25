@@ -1,4 +1,4 @@
-package org.algorithm.category.linkedlist;
+package org.algorithm.order;
 
 import org.algorithm.ListNode;
 
@@ -7,8 +7,7 @@ import org.algorithm.ListNode;
  * 【1,2,3,4】=> [2,1,3,4]
  *  解题思路：递归
  */
-public class SwapPairs24 {
-
+public class LC24 {
     public ListNode swapPairs(ListNode head) {
         if(head==null || head.next==null){
             return head;

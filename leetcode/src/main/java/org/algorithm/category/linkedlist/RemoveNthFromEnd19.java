@@ -1,6 +1,8 @@
 package org.algorithm.category.linkedlist;
 
 
+import org.algorithm.ListNode;
+
 /**
  * leetcode 19
  */

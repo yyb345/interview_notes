@@ -1,7 +1,7 @@
 package org.algorithm.category.binarytree.search;
 
 import org.algorithm.category.binarytree.TreeNode;
-import org.algorithm.category.linkedlist.ListNode;
+import org.algorithm.ListNode;
 
 /**
  * 1367

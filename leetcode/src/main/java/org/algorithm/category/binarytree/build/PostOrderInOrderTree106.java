@@ -9,7 +9,7 @@ import java.util.Map;
  * 106
  * 根据中序和后序遍历结果，构建二叉树
  */
-public class PostOrderInOrderTree {
+public class PostOrderInOrderTree106 {
 
     Map<Integer,Integer> map = new HashMap<>();
     public TreeNode buildTree(int[] inorder, int[] postorder) {
@@ -39,16 +39,4 @@ public class PostOrderInOrderTree {
             map.put(nums[i],i);
         }
     }
-
-
-    // int findRootIndex(int[] nums,int target,int l ,int h){
-
-    //     for(int i=l;i<=h;i++){
-    //         if(nums[i]==target){
-    //             return i;
-    //         }
-    //     }
-
-    //     return -1;
-    // }
 }
