@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.3.18</version> <!-- 请根据你的项目实际情况选择合适的版本 -->
+            <version>6.1.14</version> <!-- 请根据你的项目实际情况选择合适的版本 -->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
